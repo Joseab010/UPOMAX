@@ -1,0 +1,26 @@
+from odoo import models, fields, api
+
+
+class Capitulos(models.Model):
+    _name = 'upomax.capitulos'
+    _description = 'Tabla con informacion de las capitulos'
+
+    titulo_capitulo = fields.Char(
+        string="Título del capitulo", 
+        required=True, 
+        size=100,
+        help="Ej: 'Capitulo 1' "
+    )
+    
+   
+    num_capitulo = fields.Integer(
+        string="Número de capitulo",
+        required=True, 
+        help="Ej: 1, 2, 3..."
+    )
+    
+
+    duracion = fields.Integer(string="Duracion")
+
+    #titulo_temporadaFkpk
+
