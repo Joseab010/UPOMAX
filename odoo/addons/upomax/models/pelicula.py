@@ -4,7 +4,7 @@ class Pelicula(models.Model):
     _name = 'upomax.pelicula'
     _description = 'Película'
 
-    titulo = fields.Char(string="Título", required=True, size=100)
+    name = fields.Char(string="Título", required=True, size=100)
     _sql_constraints = [
         ('titulo_unique', 'UNIQUE(titulo)', 'El título de la película debe ser único.')
     ]

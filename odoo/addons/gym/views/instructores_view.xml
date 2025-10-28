@@ -1,0 +1,40 @@
+<odoo>
+  <record id="gym_instructores_form_view" model="ir.ui.view">
+    <field name="name">gym.instructores.form</field>
+    <field name="model">gym.instructores</field>
+    <field name="arch" type="xml">
+      <form string="Instructor">
+        <sheet layout="auto">
+          <group>
+            <field name="idcard" />
+            <field name="name" />
+            <field name="photo" />
+            <field name="classes_ids" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="gym_instructores_list_view" model="ir.ui.view">
+    <field name="name">gym.instructores.list</field>
+    <field name="model">gym.instructores</field>
+    <field name="arch" type="xml">
+      <list string="list_string">
+        <field name="idcard" />
+        <field name="name" />
+        <field name="photo" />
+        <field name="classes_ids" widget="one2many" />
+      </list>
+    </field>
+  </record>
+
+  <record id="instructores_list_action" model="ir.actions.act_window">
+    <field name="name">Instructores</field>
+    <field name="res_model">gym.instructores</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Create the first instructor</p>
+    </field>
+  </record>
+</odoo>

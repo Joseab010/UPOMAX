@@ -22,12 +22,19 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'demo/gym.classes.csv' # Colocar el fichero de carga aqui siempre y cuando no hayas cargado los datos demo al instalar la BD de Odoo.
+        'views/classes_views.xml',
+        'views/users_view.xml',
+        'views/instructores_view.xml',
+        'views/menu.xml',
+        'demo/gym.users.csv', # Colocar el fichero de carga aqui siempre y cuando no hayas cargado los datos demo al instalar la BD de Odoo.
+        'demo/gym.instructores.csv', # Colocar el fichero de carga aqui siempre y cuando no hayas cargado los datos demo al instalar la BD de Odoo.
+        'demo/gym.classes.csv', # Colocar el fichero de carga aqui siempre y cuando no hayas cargado los datos demo al instalar la BD de Odoo.
     ],
     # only loaded in demonstration mode
     'demo': [
-        #'demo/gym.classes.csv', # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
+        #'demo/gym.users.csv', # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
+        #'demo/gym.instructores.csv', # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
+        #'demo/gym.classes.csv' # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
     ],
     'application': True,
 }
