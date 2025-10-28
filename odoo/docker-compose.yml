@@ -1,7 +1,7 @@
 services:
   db:
     container_name: postgres
-    image: postgres:15
+    image: postgres:latest
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
     ports:
