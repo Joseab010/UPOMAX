@@ -21,10 +21,10 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'security/security.xml',
-        'security/ir.model.csv',
+        'security/ir.model.access.csv',
         'views/serie.xml',
+        'views/menu.xml',
         'demo/upomax.serie.csv',
     ],
     # only loaded in demonstration mode
