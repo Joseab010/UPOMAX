@@ -5,11 +5,9 @@ class Serie(models.Model):
     _name = 'upomax.serie'
     _description = 'Tabla con informacion de las series'
 
-    titulo = fields.Char(string="Titulo", required=True,size=100, help="Titulo principal de la serie")
+    name = fields.Char(string="Titulo", required=True,size=100)
     fecha_emision=fields.Date(string="fecha de emision")
     fecha_finalizacion=fields.Date(string="fecha de finalizacion")
 
-    duracion = fields.Integer(
-        string="Duración (min)", 
-        help="Duración de una serie en minutos"
-    )
+    duracion = fields.Integer(string="Duración (min)")
+    

@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_upomax_upomax,upomax.upomax,model_upomax_upomax,base.group_user,1,1,1,1
+series_manager,series_manager,model_upomax_series,group_upomax_manager,1,1,1,1
+series_user,series_user,model_upomax_series,group_upomax_user,1,0,0,0

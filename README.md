@@ -12,3 +12,21 @@ https://app.diagrams.net/#G1YXzCfZMEBj3XIYypQZoOuCAsjFCw8X8s#%7B%22pageId%22%3A%
 
 Modelo E/R:
 https://lucid.app/lucidchart/6d9661d8-5118-4b2b-aed1-25457f1e9a5a/edit?page=0_0&invitationId=inv_c3a9b117-2605-4e39-92e8-b829b54f4114#
+
+# Comandos varios
+
+| Comando                                                      | Descripcion                                                                                                                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ``docker ps``                                                | Lista contenedores corriendo                                                                                                                           |
+| ``docker stop``                                              | Detiene docker                                                                                                                                         |
+| ``docker system prune -a``                                   | Borrado de todas las imágenes de docker                                                                                                                |
+| ``docker system prune -a --???``                             |                                                                                                                                                        |
+| ``docker volume ls``                                         | Listado de volúmenes                                                                                                                                   |
+| ``docker volume rm [ID VOLUMEN]``                            | Borrar volumen con id específica                                                                                                                       |
+| ``docker image ls``                                          | Listado de imágenes                                                                                                                                    |
+| ``docker image rm [ID IMAGEN]``                              | Borrar imagen con id específica                                                                                                                        |
+| ``docker-compose up -d``                                     | Ejecutar en una carpeta con un archivo ``*.yml``. <br>Se levantan todos los contenedores listados en el archivo, con las configuraciones especificadas |
+| ``chmod -R 777 .``                                           | Concede permisos de lectura y escritura en todas las carpetas presentes y de forma recursiva.                                                          |
+| ``docker exec -it odoo odoo scaffold gym /mnt/extra-addons`` | Crea el módulo ``gym`` en la localización ``/mnt/extra-addons``                                                                                        |
+| ``docker exec -it odoo /bin/bash``                           | Crear un terminal dentro del repositorio de odoo                                                                                                       |
+

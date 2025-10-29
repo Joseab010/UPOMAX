@@ -1,0 +1,8 @@
+<odoo>
+    <record id="group_upomax_manager" model="res.groups">
+        <field name="name">UPOMAX / Manager</field>
+    </record>
+    <record id="group_upomax_user" model="res.groups">
+        <field name="name">UPOMAX / User</field>
+    </record>
+</odoo>

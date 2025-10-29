@@ -1,0 +1,18 @@
+<odoo>
+  <record id="upomax_serie_form_view" model="ir.ui.view">
+    <field name="name">upomax.serie.form</field>
+    <field name="model">upomax.serie</field>
+    <field name="arch" type="xml">
+      <form string="Serie">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="fecha_emision" />
+            <field name="fecha_finalizacion" />
+            <field name="duracion" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
