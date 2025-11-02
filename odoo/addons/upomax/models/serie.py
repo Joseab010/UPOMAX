@@ -8,6 +8,8 @@ class Serie(models.Model):
     name = fields.Char(string="Titulo", required=True,size=100)
     fecha_emision=fields.Date(string="fecha de emision")
     fecha_finalizacion=fields.Date(string="fecha de finalizacion")
-
     duracion = fields.Integer(string="Duración (min)")
+    
+    plataformas_ids= fields.Many2Many("upomax.plataforma",string="Plataformas confirmadas")
+    
     
