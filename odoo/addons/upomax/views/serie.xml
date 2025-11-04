@@ -10,6 +10,7 @@
             <field name="fecha_emision" />
             <field name="fecha_finalizacion" />
             <field name="duracion" />
+            <field name="plataformas_ids" widget="many2many_tags"/>
           </group>
         </sheet>
       </form>
@@ -21,10 +22,11 @@
     <field name="model">upomax.serie</field>
     <field name="arch" type="xml">
       <list string="list_string">
-            <field name="name" />
-            <field name="fecha_emision" />
-            <field name="fecha_finalizacion" />
-            <field name="duracion" />
+          <field name="name" />
+          <field name="fecha_emision" />
+          <field name="fecha_finalizacion" />
+          <field name="duracion" />
+          <field name="plataformas_ids" widget="many2many_tags"/>
       </list>
     </field>
   </record>
@@ -38,5 +40,31 @@
     </field>
   </record>
 
+  ---
+  ---
+
+  <record id="upomax_plataforma_tree_view" model="ir.ui.view">
+      <field name="name">upomax.plataforma.tree</field>
+      <field name="model">upomax.plataforma</field> 
+      <field name="arch" type="xml">
+          <list string="Plataformas">
+              <field name="name"/>
+          </list>
+      </field>
+  </record>
+
+  <record id="upomax_plataforma_form_view" model="ir.ui.view">
+      <field name="name">upomax.plataforma.form</field>
+      <field name="model">upomax.plataforma</field>
+      <field name="arch" type="xml">
+          <form string="Plataforma">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
 
 </odoo>

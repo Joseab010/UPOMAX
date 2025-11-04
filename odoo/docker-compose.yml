@@ -1,9 +1,9 @@
 services:
   db:
     container_name: postgres
-    image: postgres:latest
+    image: postgres:18
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data
+      - odoo-db-data:/var/lib/postgresql/18/data
     ports:
       - "15432:5432"
     environment:

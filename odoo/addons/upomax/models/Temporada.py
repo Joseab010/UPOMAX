@@ -6,7 +6,7 @@ class Premios(models.Model):
     _description = 'Tabla con informacion de las premios'
 
 
-    titulo_temporada = fields.Char(
+    name = fields.Char(
         string="Título de la Temporada", 
         required=True, 
         size=100,
@@ -25,3 +25,4 @@ class Premios(models.Model):
 
 
     #titulo fkpk
+    

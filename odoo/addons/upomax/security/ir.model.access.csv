@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-series_manager,series_manager,model_upomax_serie,group_upomax_manager,1,1,1,1
+serie_manager,serie_manager,model_upomax_serie,group_upomax_manager,1,1,1,1
 series_user,series_user,model_upomax_serie,group_upomax_user,1,0,0,0
+plataforma_manager,plataforma_manager,model_upomax_plataforma,group_upomax_manager,1,1,1,1
+pelicula_manager,pelicula_manager,model_upomax_pelicula,group_upomax_manager,1,1,1,1

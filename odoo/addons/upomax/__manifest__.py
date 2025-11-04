@@ -25,7 +25,9 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         'views/serie.xml',
         'views/menu.xml',
+        'demo/upomax.plataforma.csv',
         'demo/upomax.serie.csv',
+        'demo/upomax.pelicula.csv'
     ],
     # only loaded in demonstration mode
     'demo': [

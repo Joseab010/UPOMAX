@@ -1,6 +1,8 @@
-id,name,fecha_emision,fecha_finalizacion,duracion
-serie1,"Arcane","2021-11-06","2024-11-23","680"
-serie2,"The Good Place","2016-09-19","2020-01-30","2400"
-serie3,"Dark","2017-12-01","2020-06-27","2700"
-serie4,"Fleabag","2016-07-21","2019-04-08","520"
-serie5,"Succession","2018-06-03","2023-05-28","3360"
+id,name,fecha_emision,fecha_finalizacion,duracion,plataformas_ids/id
+serie1,"Arcane","2021-11-06","2024-11-23","680",upomax.plataforma_netflix
+serie2,"The Good Place","2016-09-19","2020-01-30","2400",upomax.plataforma_netflix
+serie3,"Dark","2017-12-01","2020-06-27","2700",upomax.plataforma_netflix
+serie4,"Fleabag","2016-07-21","2019-04-08","520",upomax.plataforma_amazon
+serie5,"Succession","2018-06-03","2023-05-28","3360",upomax.plataforma_netflix
+
+
