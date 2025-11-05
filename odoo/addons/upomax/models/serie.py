@@ -10,6 +10,12 @@ class Serie(models.Model):
     fecha_finalizacion=fields.Date(string="fecha de finalizacion")
     duracion = fields.Integer(string="Duración (min)")
     
-    plataformas_ids= fields.Many2many("upomax.plataforma",string="Plataformas confirmadas")
+    plataformas_ids = fields.Many2many(
+        'upomax.plataforma',
+        'rel_plataforma_serie',
+        'serie_id',
+        'plataforma_id',
+        string="Plataformas confirmadas"
+    )
     
     

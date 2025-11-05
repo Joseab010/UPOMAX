@@ -7,5 +7,11 @@ class plataforma(models.Model):
     name = fields.Char(string="Nombre de la Plataforma", required=True, size=100)
 
 
-    series_ids= fields.Many2many("upomax.serie",string="Series confirmadas") 
+    series_ids = fields.Many2many(
+        'upomax.serie',
+        'rel_plataforma_serie',
+        'plataforma_id',
+        'serie_id',
+        string="Series confirmadas"
+    ) 
     peliculas_ids= fields.Many2many("upomax.pelicula",string="Peliculas confirmadas") 
