@@ -3,7 +3,8 @@
   <menuitem name="UPOMAX" id="main_upomax_menu" groups="group_upomax_manager"/>
 
   <!-- menu categories -->
-  <menuitem name="UPOMAX" id="upomax_menu" groups="group_upomax_manager" parent="main_upomax_menu"/>
+  <menuitem name="SERIES" id="series_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
+  <menuitem name="PELICULAS" id="peliculas_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
 
   <!-- actions -->
   <menuitem name="Series" id="serie_menu" parent="upomax_menu" groups="group_upomax_manager" action="serie_list_action"/>
