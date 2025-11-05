@@ -7,4 +7,7 @@
 
   <!-- actions -->
   <menuitem name="Series" id="serie_menu" parent="upomax_menu" groups="group_upomax_manager" action="serie_list_action"/>
+  <menuitem name="Peliculas" id="pelicula_menu" parent="upomax_menu" groups="group_upomax_manager" action="pelicula_list_action"/>
+  <menuitem name="Plataforma" id="plataforma_menu" parent="upomax_menu" groups="group_upomax_manager" action="plataforma_list_action"/>
+  <menuitem name="Franquicia" id="franquicia_menu" parent="upomax_menu" groups="group_upomax_manager" action="franquicia_list_action"/>
 </odoo>

@@ -1,1 +1,42 @@
-JOSEMA MARICON
+<odoo>
+  <record id="upomax_plataforma_form_view" model="ir.ui.view">
+    <field name="name">upomax.plataforma.form</field>
+    <field name="model">upomax.plataforma</field>
+    <field name="arch" type="xml">
+      <form string="Pelicula">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="series_ids" widget="many2many_tags"/>
+            <field name="peliculas_ids" widget="many2many_tags"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upomax_plataforma_list_view" model="ir.ui.view">
+    <field name="name">upomax.plataforma.list</field>
+    <field name="model">upomax.plataforma</field>
+    <field name="arch" type="xml">
+      <list string="list_string">
+           <field name="name" />
+                      
+            <field name="series_ids" widget="many2many_tags"/>
+            <field name="peliculas_ids" widget="many2many_tags"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="plataforma_list_action" model="ir.actions.act_window">
+    <field name="name">Plataforma</field>
+    <field name="res_model">upomax.plataforma</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Create the first plataforma</p>
+    </field>
+  </record>
+
+  
+
+</odoo>

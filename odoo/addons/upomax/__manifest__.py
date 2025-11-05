@@ -15,6 +15,8 @@ Long description of module's purpose
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
+    
+    'application': True,
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -24,11 +26,16 @@ Long description of module's purpose
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/serie.xml',
+        'views/pelicula.xml',
+        'views/plataforma.xml',
+        'views/franquicia.xml',
         'views/menu.xml',
-        'demo/upomax.plataforma.csv',
         'demo/upomax.serie.csv',
-        'demo/upomax.pelicula.csv'
+        'demo/upomax.pelicula.csv',
+        'demo/upomax.plataforma.csv',
+        'demo/upomax.franquicia.csv'
     ],
+    
     # only loaded in demonstration mode
     'demo': [
         #'demo/demo.xml',

@@ -1,0 +1,6 @@
+id,name,descripcion,anio_inicio,estado,peliculas_ids/id
+upomax.franquicia_starwars,"Star Wars","Saga de ciencia ficción galáctica creada por George Lucas.","1977-05-25","Activa",""
+upomax.franquicia_jurassic,"Jurassic Park / World","Franquicia sobre dinosaurios clonados en un parque temático.","1993-06-11","Activa",""
+upomax.franquicia_mindbenders,"Películas 'Mind-Bender'","Películas que desafían la percepción de la realidad.","1999-03-31","Activa","upomax.pelicula_matrix,upomax.pelicula_inception"
+upomax.franquicia_90sclassics,"Clásicos de los 90","Películas icónicas que definieron la década de 1990.","1994-10-14","Activa","upomax.pelicula_pulpfiction"
+upomax.franquicia_dcu,"DC Extended Universe (DCEU)","Universo compartido de superhéroes basado en DC Comics.","2013-06-14","En Reestructuración",""
