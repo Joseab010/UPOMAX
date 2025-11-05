@@ -6,9 +6,7 @@
   <menuitem name="SERIES" id="series_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
   <menuitem name="PELICULAS" id="peliculas_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
   <menuitem name="PLATAFORMAS" id="plataformas_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
-
-
-
+  
 
   <!-- actions -->
   <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="serie_list_action"/>
