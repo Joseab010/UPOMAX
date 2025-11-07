@@ -8,7 +8,7 @@ class plataforma(models.Model):
 
 
     series_ids = fields.Many2many(
-        'upomax.serie',
+        'upomax.series',
         'rel_plataforma_serie',
         'plataforma_id',
         'serie_id',

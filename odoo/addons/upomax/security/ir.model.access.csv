@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-serie_manager,serie_manager,model_upomax_serie,group_upomax_manager,1,1,1,1
-series_user,series_user,model_upomax_serie,group_upomax_user,1,0,0,0
+serie_manager,serie_manager,model_upomax_series,group_upomax_manager,1,1,1,1
+series_user,series_user,model_upomax_series,group_upomax_user,1,0,0,0
 plataforma_manager,plataforma_manager,model_upomax_plataforma,group_upomax_manager,1,1,1,1
 peliculas_manager,peliculas_manager,model_upomax_peliculas,group_upomax_manager,1,1,1,1
 franquicia_manager,franquicia_manager,model_upomax_franquicia,group_upomax_manager,1,1,1,1

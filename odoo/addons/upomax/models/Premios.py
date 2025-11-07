@@ -19,7 +19,7 @@ class Premios(models.Model):
 
     año=fields.Date(string="Año de emision",requiered=True)
 
-    titulo=fields.char('upomax.serie', 
+    titulo=fields.char('upomax.series', 
         string="Serie",
         required=True,
         help="La serie que recibió el premio.")
