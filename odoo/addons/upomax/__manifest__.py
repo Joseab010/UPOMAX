@@ -26,14 +26,14 @@ Long description of module's purpose
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/serie.xml',
-        'views/peliculas.xml',
+        'views/pelicula.xml',
         'views/plataformas.xml',
         'views/franquicia.xml',
         'views/menu.xml',
-        'demo/upomax.plataforma.csv',
-        'demo/upomax.franquicia.csv',
         'demo/upomax.serie.csv',
-        'demo/upomax.peliculas.csv'
+        'demo/upomax.pelicula.csv',
+        'demo/upomax.plataforma.csv',
+        'demo/upomax.franquicia.csv'
     ],
     
     # only loaded in demonstration mode

@@ -1,6 +1,0 @@
-id,name,descripcion,puntuacion_general,anio,edad_recomendada,duracion,plataformas_ids/id,nombre_franquicia_id/id
-upomax.pelicula_inception,"Inception","Un ladrón que roba secretos corporativos a través del uso de la tecnología de compartir sueños.","8.8","2010-07-16",13,148,"upomax.plataforma_hbo,upomax.plataforma_amazon",upomax.franquicia_mindbenders
-upomax.pelicula_matrix,"The Matrix","Un programador informático descubre que el mundo es una simulación y se une a la rebelión.","8.7","1999-03-31",18,136,upomax.plataforma_hbo,upomax.franquicia_mindbenders
-upomax.pelicula_spiderman,"Spider-Man: No Way Home","Peter Parker pide ayuda al Doctor Strange para hacer que el mundo olvide su identidad, pero el hechizo sale mal.","8.2","2021-12-17",13,148,upomax.plataforma_disney,
-upomax.pelicula_oppenheimer,"Oppenheimer","La historia del científico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.","8.6","2023-07-21",18,180,upomax.plataforma_peacock,
-upomax.pelicula_pulpfiction,"Pulp Fiction","Las vidas de dos sicarios, un boxeador, la esposa de un gánster y un par de ladrones se entrelazan en cuatro historias de violencia y redención.","8.9","1994-10-14",18,154,"upomax.plataforma_netflix,upomax.plataforma_hbo",upomax.franquicia_90sclassics

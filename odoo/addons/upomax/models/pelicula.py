@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
-class Peliculas(models.Model):
-    _name = 'upomax.peliculas'
+class Pelicula(models.Model):
+    _name = 'upomax.pelicula'
     _description = 'Película'
 
     name = fields.Char(string="Título", required=True, size=100)

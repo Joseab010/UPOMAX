@@ -9,4 +9,4 @@ class franquicia(models.Model):
     anio_inicio = fields.Date(string="Año de Inicio")
     estado = fields.Char(string="Estado", size=50)
     
-    peliculas_ids= fields.One2many("upomax.peliculas","nombre_franquicia_id",string="Peliculas confirmadas")
+    peliculas_ids= fields.One2many("upomax.pelicula","nombre_franquicia_id",string="Peliculas confirmadas")

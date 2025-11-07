@@ -14,10 +14,4 @@ class plataforma(models.Model):
         'serie_id',
         string="Series confirmadas"
     ) 
-    peliculas_ids = fields.Many2many(
-        'upomax.peliculas',
-        'rel_plataforma_pelicula',
-        'plataforma_id',
-        'pelicula_id',
-        string="Peliculas confirmadas"
-    ) 
+    peliculas_ids= fields.Many2many("upomax.pelicula",string="Peliculas confirmadas") 
