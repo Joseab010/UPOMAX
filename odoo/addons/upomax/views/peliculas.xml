@@ -1,7 +1,7 @@
 <odoo>
   <record id="upomax_pelicula_form_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.form</field>
-    <field name="model">upomax.pelicula</field>
+    <field name="model">upomax.peliculas</field>
     <field name="arch" type="xml">
       <form string="Pelicula">
         <sheet layout="auto">
@@ -22,7 +22,7 @@
 
   <record id="upomax_pelicula_list_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.list</field>
-    <field name="model">upomax.pelicula</field>
+    <field name="model">upomax.peliculas</field>
     <field name="arch" type="xml">
       <list string="list_string">
            <field name="name" />
@@ -38,8 +38,8 @@
   </record>
 
   <record id="peliculas_list_action" model="ir.actions.act_window">
-    <field name="name">Pelicula</field>
-    <field name="res_model">upomax.pelicula</field>
+    <field name="name">Peliculas</field>
+    <field name="res_model">upomax.peliculas</field>
     <field name="view_mode">list,form</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Create the first pelicula</p>
