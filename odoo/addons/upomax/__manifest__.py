@@ -25,14 +25,14 @@ Long description of module's purpose
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/series.xml',
+        'views/serie.xml',
         'views/peliculas.xml',
         'views/plataformas.xml',
         'views/franquicia.xml',
         'views/menu.xml',
         'demo/upomax.plataforma.csv',
         'demo/upomax.franquicia.csv',
-        'demo/upomax.series.csv',
+        'demo/upomax.serie.csv',
         'demo/upomax.peliculas.csv'
     ],
     

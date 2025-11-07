@@ -9,7 +9,7 @@
   
 
   <!-- actions -->
-  <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="series_list_action"/>
+  <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="serie_list_action"/>
   <menuitem name="Peliculas" id="peliculas_menu" parent="peliculas_tab" groups="group_upomax_manager" action="peliculas_list_action"/>
   <menuitem name="Plataformas" id="plataformas_menu" parent="plataformas_tab" action="plataforma_list_action" groups="group_upomax_manager"/>
   <menuitem name="Franquicia" id="franquicia_menu" parent="plataformas_tab" groups="group_upomax_manager" action="franquicia_list_action"/>

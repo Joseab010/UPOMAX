@@ -1,8 +1,8 @@
 from odoo import models, fields, api
 
 
-class Series(models.Model):
-    _name = 'upomax.series'
+class Serie(models.Model):
+    _name = 'upomax.serie'
     _description = 'Tabla con informacion de las series'
 
     name = fields.Char(string="Titulo", required=True,size=100)
