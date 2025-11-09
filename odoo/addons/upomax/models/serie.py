@@ -17,5 +17,13 @@ class Serie(models.Model):
         'plataforma_id',
         string="Plataformas confirmadas"
     )
-    
+    generos_ids = fields.Many2many(
+        'upomax.genero',           
+        'rel_genero_serie',        
+        'serie_id',                
+        'genero_id',               
+        string="Géneros"
+    )
+  
+    temporadas_ids = fields.One2many('upomax.temporada',inverse_name='serie_id',string='Temporada')
     

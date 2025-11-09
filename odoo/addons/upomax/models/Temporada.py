@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 
-class Premios(models.Model):
+class temporada(models.Model):
     _name = 'upomax.temporada'
     _description = 'Tabla con informacion de las premios'
 
@@ -22,7 +22,5 @@ class Premios(models.Model):
     
 
     cantidad_capitulos = fields.Integer(string="Cantidad de Capítulos")
-
-
-    #titulo fkpk
+    serie_id = fields.Many2one('upomax.serie', string='Serie')
     

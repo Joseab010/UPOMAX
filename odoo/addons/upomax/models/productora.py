@@ -4,10 +4,15 @@ class productora(models.Model):
     _name = 'upomax.productora'
     _description = 'Productora'
 
-    nombre_productora = fields.Char(string="Nombre de la Productora", required=True, size=100)
-    _sql_constraints = [
-        ('nombre_productora_unique', 'UNIQUE(nombre_productora)', 'El nombre de la productora debe ser único.')
-    ]
+    name = fields.Char(string="Nombre de la Productora", required=True, size=100)
+    
     fundacion = fields.Date(string="Fecha de Fundación")
     pais = fields.Char(string="País", size=50)
-    titulo = fields.Char(string="Título Asociado", size=100)
+
+    peliculas_ids = fields.Many2many(
+        'upomax.pelicula',          
+        'rel_productora_pelicula',      
+        'productora_id',                
+        'pelicula_id',              
+        string="Peliculas confirmadas"
+    )

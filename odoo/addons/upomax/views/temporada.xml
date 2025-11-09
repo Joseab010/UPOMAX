@@ -1,0 +1,41 @@
+<odoo>
+  <record id="upomax_temporada_form_view" model="ir.ui.view">
+    <field name="name">upomax.temporada.form</field>
+    <field name="model">upomax.temporada</field>
+    <field name="arch" type="xml">
+      <form string="Temporada">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="num_temporada" />
+            <field name="cantidad_capitulos" />
+            <field name="serie_id" widget="many2one_tags"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upomax_temporada_list_view" model="ir.ui.view">
+    <field name="name">upomax.temporada.list</field>
+    <field name="model">upomax.temporada</field>
+    <field name="arch" type="xml">
+      <list string="list_string">
+         <field name="name" />
+            <field name="num_temporada" />
+            <field name="cantidad_capitulos" />
+            <field name="serie_id" widget="many2one_tags"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="temporada_list_action" model="ir.actions.act_window">
+    <field name="name">Temporada</field>
+    <field name="res_model">upomax.temporada</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Create the first temporada</p>
+    </field>
+  </record>
+
+</odoo>

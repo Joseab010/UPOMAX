@@ -1,0 +1,40 @@
+<odoo>
+
+  <record id="upomax_capitulo_form_view" model="ir.ui.view">
+    <field name="name">upomax.capitulo.form</field>
+    <field name="model">upomax.capitulo</field> <field name="arch" type="xml">
+      <form string="Capitulo">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="num_capitulo" />
+            <field name="duracion" />
+            <field name="temporada_id" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upomax_capitulo_list_view" model="ir.ui.view">
+    <field name="name">upomax.capitulo.list</field> <field name="model">upomax.capitulo</field> <field name="arch" type="xml">
+      <list string="Capitulo"> 
+        <field name="name" />
+        <field name="num_capitulo" />
+        <field name="duracion" />
+        <field name="temporada_id" />
+      </list>
+    </field>
+  </record>
+
+  <record id="capitulo_list_action" model="ir.actions.act_window">
+    <field name="name">Capitulo</field>
+    <field name="res_model">upomax.capitulo</field> <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea el primer capitulo
+      </p>
+    </field>
+  </record>
+
+</odoo>

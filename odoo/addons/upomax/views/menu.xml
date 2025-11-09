@@ -6,11 +6,18 @@
   <menuitem name="SERIES" id="series_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
   <menuitem name="PELICULAS" id="peliculas_tab" groups="group_upomax_manager" parent="main_upomax_menu"/>
   <menuitem name="PLATAFORMAS" id="plataformas_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
-  
+  <menuitem name="GENERO" id="genero_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
+  <menuitem name="TRACKS" id="tracks_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
 
   <!-- actions -->
   <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="serie_list_action"/>
   <menuitem name="Peliculas" id="peliculas_menu" parent="peliculas_tab" groups="group_upomax_manager" action="peliculas_list_action"/>
   <menuitem name="Plataformas" id="plataformas_menu" parent="plataformas_tab" action="plataforma_list_action" groups="group_upomax_manager"/>
-  <menuitem name="Franquicia" id="franquicia_menu" parent="plataformas_tab" groups="group_upomax_manager" action="franquicia_list_action"/>
+  <menuitem name="Franquicia" id="franquicia_menu" parent="peliculas_tab" groups="group_upomax_manager" action="franquicia_list_action"/>
+  <menuitem name="Temporada" id="temporada_menu" parent="series_tab" groups="group_upomax_manager" action="temporada_list_action"/>
+  <menuitem name="Genero" id="Genero_menu" parent="genero_tab" groups="group_upomax_manager" action="genero_list_action"/>
+  <menuitem name="Productora" id="Productora_menu" parent="peliculas_tab" groups="group_upomax_manager" action="productora_list_action"/>
+  <menuitem name="Banda Sonora" id="banda_sonora_menu" parent="peliculas_tab" groups="group_upomax_manager" action="banda_sonora_list_action"/>
+  <menuitem name="Capitulo" id="capitulo_menu" parent="series_tab" groups="group_upomax_manager" action="capitulo_list_action"/>
+  <menuitem name="Track" id="track_menu" parent="tracks_tab" groups="group_upomax_manager" action="track_list_action"/>
 </odoo>

@@ -4,7 +4,22 @@ class genero(models.Model):
     _name = 'upomax.genero'
     _description = 'Género'
 
-    tipo_genero = fields.Char(string="Tipo de Género", required=True, size=100)
-    _sql_constraints = [
-        ('tipo_genero_unique', 'UNIQUE(tipo_genero)', 'El tipo de género debe ser único.')
-    ]
+    name = fields.Char(string="Tipo de Género", required=True, size=100)
+
+    series_ids = fields.Many2many(
+        'upomax.serie',             
+        'rel_genero_serie',         
+        'genero_id',                
+        'serie_id',                 
+        string="Series confirmadas"
+    ) 
+    
+    
+    peliculas_ids = fields.Many2many(
+        'upomax.pelicula',          
+        'rel_genero_pelicula',      
+        'genero_id',                
+        'pelicula_id',              
+        string="Películas confirmadas"
+    )
+    

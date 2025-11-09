@@ -2,10 +2,10 @@ from odoo import models, fields, api
 
 
 class Capitulos(models.Model):
-    _name = 'upomax.capitulos'
+    _name = 'upomax.capitulo'
     _description = 'Tabla con informacion de las capitulos'
 
-    titulo_capitulo = fields.Char(
+    name = fields.Char(
         string="Título del capitulo", 
         required=True, 
         size=100,
@@ -22,5 +22,5 @@ class Capitulos(models.Model):
 
     duracion = fields.Integer(string="Duracion")
 
-    #titulo_temporadaFkpk
+    temporada_id = fields.Many2one('upomax.temporada', string='Temporada')
 

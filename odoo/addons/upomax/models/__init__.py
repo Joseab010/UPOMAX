@@ -4,3 +4,9 @@ from . import plataforma
 from . import pelicula
 from . import categorias
 from . import franquicia
+from . import temporada
+from . import genero
+from . import productora
+from . import Banda_sonora
+from . import Capitulo
+from . import Tracks

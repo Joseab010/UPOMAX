@@ -1,0 +1,39 @@
+<odoo>
+
+  <record id="upomax_banda_sonora_form_view" model="ir.ui.view">
+    <field name="name">upomax.banda.sonora.form</field>
+    <field name="model">upomax.banda.sonora</field> <field name="arch" type="xml">
+      <form string="Banda Sonora">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="anyo" />
+            <field name="pais" />
+            <field name="peliculas_ids" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upomax_banda_sonora_list_view" model="ir.ui.view">
+    <field name="name">upomax.banda.sonora.list</field> <field name="model">upomax.banda.sonora</field> <field name="arch" type="xml">
+      <list string="Banda Sonora"> <field name="name" />
+        <field name="anyo" />
+        <field name="pais" />
+        <field name="peliculas_ids" />
+      </list>
+    </field>
+  </record>
+
+  <record id="banda_sonora_list_action" model="ir.actions.act_window">
+    <field name="name">Banda Sonora</field>
+    <field name="res_model">upomax.banda.sonora</field> <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea la primera Banda sonora
+      </p>
+    </field>
+  </record>
+
+</odoo>

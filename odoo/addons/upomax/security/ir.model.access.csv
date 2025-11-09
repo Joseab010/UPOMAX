@@ -5,3 +5,9 @@ plataforma_manager,plataforma_manager,model_upomax_plataforma,group_upomax_manag
 pelicula_manager,pelicula_manager,model_upomax_pelicula,group_upomax_manager,1,1,1,1
 plataforma_manager,plataforma_manager,model_upomax_plataforma,group_upomax_manager,1,1,1,1
 franquicia_manager,franquicia_manager,model_upomax_franquicia,group_upomax_manager,1,1,1,1
+temporada_manager,temporada_manager,model_upomax_temporada,group_upomax_manager,1,1,1,1
+genero_manager,genero_manager,model_upomax_genero,group_upomax_manager,1,1,1,1
+productora_manager,productora_manager,model_upomax_productora,group_upomax_manager,1,1,1,1
+banda_sonora_manager,banda_sonora_manager,model_upomax_banda_sonora,group_upomax_manager,1,1,1,1
+capitulo_manager,capitulo_manager,model_upomax_capitulo,group_upomax_manager,1,1,1,1
+track_manager,track_manager,model_upomax_track,group_upomax_manager,1,1,1,1

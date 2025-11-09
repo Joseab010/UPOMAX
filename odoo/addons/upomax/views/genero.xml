@@ -1,0 +1,43 @@
+<odoo>
+  <record id="upomax_genero_tree_view" model="ir.ui.view">
+    <field name="name">upomax.genero.tree</field>
+    <field name="model">upomax.genero</field>
+    <field name="arch" type="xml">
+      <list string="Genero">
+        <field name="name"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="upomax_Genero_form_view" model="ir.ui.view">
+    <field name="name">upomax.genero.form</field>
+    <field name="model">upomax.genero</field>
+    <field name="arch" type="xml">
+      <form string="Genero">
+        <sheet>
+          <group>
+            <field name="name"/>
+          </group>
+          <notebook>
+            <page string="Series">
+              <field name="series_ids"/>
+              </page>
+            <page string="Películas">
+            <field name="peliculas_ids"/>
+          
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Action -->
+  <record id="genero_list_action" model="ir.actions.act_window">
+    <field name="name">Genero</field>
+    <field name="res_model">upomax.genero</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <!-- Menu -->
+</odoo>

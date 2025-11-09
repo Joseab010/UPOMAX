@@ -1,0 +1,12 @@
+id,name,num_capitulo,duracion,temporada_id/id
+upomax.cap_arcane_s1_e1,"Welcome to the Playground",1,41,upomax.temp_arcane_s1
+upomax.cap_arcane_s1_e2,"Some Mysteries Are Better Left Unsolved",2,40,upomax.temp_arcane_s1
+upomax.cap_arcane_s1_e3,"The Base Violence Necessary for Change",3,42,upomax.temp_arcane_s1
+upomax.cap_goodplace_s1_e1,"Everything Is Fine",1,22,upomax.temp_goodplace_s1
+upomax.cap_goodplace_s1_e2,"Flying",2,22,upomax.temp_goodplace_s1
+upomax.cap_dark_s1_e1,"Secrets",1,53,upomax.temp_dark_s1
+upomax.cap_dark_s1_e2,"Lies",2,51,upomax.temp_dark_s1
+upomax.cap_fleabag_s1_e1,"Episode 1",1,27,upomax.temp_fleabag_s1
+upomax.cap_fleabag_s1_e2,"Episode 2",2,24,upomax.temp_fleabag_s1
+upomax.cap_got_s1_e1,"Winter Is Coming",1,62,upomax.temp_got_s1
+upomax.cap_got_s1_e2,"The Kingsroad",2,56,upomax.temp_got_s1

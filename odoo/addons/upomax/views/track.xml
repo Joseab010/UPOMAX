@@ -1,0 +1,43 @@
+<odoo>
+
+  <record id="upomax_track_form_view" model="ir.ui.view">
+    <field name="name">upomax.track.form</field>
+    <field name="model">upomax.track</field>
+    <field name="arch" type="xml">
+      <form string="Track">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="duracion" />
+            <field name="capitulo_id" />
+            
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="upomax_track_list_view" model="ir.ui.view">
+    <field name="name">upomax.track.list</field>
+    <field name="model">upomax.track</field>
+    <field name="arch" type="xml">
+      <list string="Track">
+        <field name="name" />
+        <field name="duracion" />
+        <field name="capitulo_id" />
+      </list>
+    </field>
+  </record>
+
+  <record id="track_list_action" model="ir.actions.act_window">
+    <field name="name">Track</field>
+    <field name="res_model">upomax.track</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea el priemr track
+      </p>
+    </field>
+  </record>
+
+</odoo>

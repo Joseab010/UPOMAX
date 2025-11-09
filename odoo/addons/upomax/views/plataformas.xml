@@ -21,6 +21,10 @@
           <notebook>
             <page string="Series">
               <field name="series_ids"/>
+              </page>
+            <page string="Películas">
+            <field name="peliculas_ids"/>
+          
             </page>
           </notebook>
         </sheet>
