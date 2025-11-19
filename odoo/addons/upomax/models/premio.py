@@ -6,7 +6,7 @@ class premio(models.Model):
     _name = 'upomax.premio'
     _description = 'Tabla con informacion de las premio'
 
-    name = fields.char(
+    nombre = fields.char(
             'upomax.nombrepremio', 
             string="Nombre del Premio",
             required=True,size=100,
@@ -20,12 +20,12 @@ class premio(models.Model):
 
     año=fields.Date(string="Año de emision",requiered=True)
 
-    titulo_s=fields.char('upomax.serie', 
+    titulo_serie=fields.One2one('upomax.serie', 
         string="Serie",
         required=True,
         help="La serie que recibió el premio.")
     
-    titulo_p=fields.char('upomax.pelicula', 
+    titulo_pelicula=fields.One2one('upomax.pelicula', 
         string="Pelicula",
         required=True,
         help="La serie que recibió el premio.")
