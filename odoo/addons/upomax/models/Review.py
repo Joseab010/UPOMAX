@@ -15,5 +15,5 @@ class Review(models.Model):
     
     fecha =fields.Date(string="fecha de publicacion")
     
-    like = fields.Boolean(string="Me Gusta")
+    like = fields.Boolean(string="Me gusta")
      

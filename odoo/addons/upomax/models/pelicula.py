@@ -32,3 +32,5 @@ class Pelicula(models.Model):
         'productora_id',               
         string="Productoras"
     )
+
+    premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_pelicula',string='Premios') #on2many obligatorio inversename
