@@ -1,11 +1,12 @@
 from odoo import models, fields, api
 
 
-class Premios(models.Model):
-    _name = 'upomax.premios'
-    _description = 'Tabla con informacion de las premios'
+class premio(models.Model):
+    
+    _name = 'upomax.premio'
+    _description = 'Tabla con informacion de las premio'
 
-    nombre = fields.char(
+    name = fields.char(
             'upomax.nombrepremio', 
             string="Nombre del Premio",
             required=True,size=100,
@@ -19,7 +20,12 @@ class Premios(models.Model):
 
     año=fields.Date(string="Año de emision",requiered=True)
 
-    titulo=fields.char('upomax.serie', 
+    titulo_s=fields.char('upomax.serie', 
         string="Serie",
+        required=True,
+        help="La serie que recibió el premio.")
+    
+    titulo_p=fields.char('upomax.pelicula', 
+        string="Pelicula",
         required=True,
         help="La serie que recibió el premio.")

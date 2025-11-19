@@ -7,6 +7,7 @@ from . import franquicia
 from . import temporada
 from . import genero
 from . import productora
-from . import Banda_sonora
-from . import Capitulo
-from . import Tracks
+from . import banda_sonora
+from . import capitulo
+from . import tracks
+from . import persona

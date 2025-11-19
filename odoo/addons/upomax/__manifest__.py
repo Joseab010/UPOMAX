@@ -35,26 +35,27 @@ Long description of module's purpose
         'views/banda_sonora.xml',
         'views/capitulo.xml',
         'views/track.xml',
+        'views/persona.xml',
         'views/menu.xml',
-        'demo/upomax.productora.csv',
-        'demo/upomax.track.csv',
-        'demo/upomax.capitulo.csv',
-        'demo/upomax.banda.sonora.csv',
+        
         'demo/upomax.genero.csv',
-        'demo/upomax.serie.csv',
-        'demo/upomax.pelicula.csv',
         'demo/upomax.plataforma.csv',
         'demo/upomax.franquicia.csv',
-        'demo/upomax.temporada.csv'
-        
-
-
+        'demo/upomax.serie.csv',
+        'demo/upomax.productora.csv',
+        'demo/upomax.temporada.csv',
+        'demo/upomax.capitulo.csv',
+        'demo/upomax.track.csv',
+        'demo/upomax.banda.sonora.csv',
+        'demo/upomax.pelicula.csv',
+        'demo/upomax.persona.csv'
     ],
     
     # only loaded in demonstration mode
     'demo': [
         #'demo/demo.xml',
     ],
-    'application':True
+    
+    
 }
 
