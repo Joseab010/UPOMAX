@@ -16,4 +16,13 @@ class Review(models.Model):
     fecha =fields.Date(string="fecha de publicacion")
     
     like = fields.Boolean(string="Me gusta")
-     
+
+
+    id_usuario = fields.Many2one('upomax.usuario',string="Usuario que hizo la review", required=True)
+    
+    serie_id = fields.Many2one('upomax.serie',string="Serie reseñada")
+
+    pelicula_id = fields.Many2one('upomax.pelicula', string="Pelicula reseñada")
+
+    
+    

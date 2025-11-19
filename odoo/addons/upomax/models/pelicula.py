@@ -34,3 +34,5 @@ class Pelicula(models.Model):
     )
 
     premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_pelicula',string='Premios') #on2many obligatorio inversename
+
+    reviews_ids=fields.One2many('upomax.review',inverse_name='pelicula_id',string='Reseñas')

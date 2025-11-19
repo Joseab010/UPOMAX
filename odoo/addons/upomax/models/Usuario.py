@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class Usuario(models.Model):
-    _name = 'upomax.Usuario'
+    _name = 'upomax.usuario'
     _description = 'Tabla con informacion de los usuarios'
     
     name = fields.Char(string="nombre usuario", required=True,size=100, help="Nombre de Usuario")
