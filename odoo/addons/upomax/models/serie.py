@@ -31,3 +31,5 @@ class Serie(models.Model):
     premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_serie',string='Premios')
 
     reviews_ids = fields.One2many('upomax.review',inverse_name='serie_id',string='Reseñas')
+
+    

@@ -23,4 +23,8 @@ class temporada(models.Model):
 
     cantidad_capitulos = fields.Integer(string="Cantidad de Capítulos")
     serie_id = fields.Many2one('upomax.serie', string='Serie')
+    capitulo_ids = fields.One2many('upomax.capitulo',
+                                   'temporada_id',
+                                   string='Capítulos de la Temporada')
+    
     

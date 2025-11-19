@@ -22,5 +22,20 @@ class Capitulos(models.Model):
 
     duracion = fields.Integer(string="Duracion")
 
-    temporada_id = fields.Many2one('upomax.temporada', string='Temporada')
+    temporada_id = fields.Many2one('upomax.temporada',
+                                   string='Temporada',
+                                   required=True)
 
+
+    persona_ids = fields.Many2many('upomax.tipo', 
+                                    'rel_capitulo_persona', 
+                                    'capitulo_id',
+                                    'persona_tipo_id',
+                                    string="Persona con participación específica",
+                                    required=True)
+
+    #uso de capa ORM ma g 
+
+    
+
+    
