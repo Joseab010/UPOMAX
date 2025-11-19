@@ -7,6 +7,13 @@ class Tipo(models.Model):
 
 
     id_tipo=fields.Integer(String="Tipo de persona",required=True)
+    
     nombre_tipo=fields.char(String="Nombre del tipo",
                             size=50,
                             help="Ej: David")
+    
+    pelicula_ids = fields.Many2Many('upomax.pelicula',
+                                    "rel_persona_pelicula",
+                                    "persona_id",
+                                    "pelicula_id",
+                                    string="Pelciualas en las que ha participado")
