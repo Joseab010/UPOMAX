@@ -1,0 +1,5 @@
+id,name,titulo,calificacion,comentario,fecha,like,id_usuario/id,serie_id/id,pelicula_id/id
+review_001,1001,Gran película,5,Me encantó el final inesperado.,2023-10-01,True,usuario_demo_01,,pelicula_matrix
+review_002,1002,Serie aburrida,2,Muy lenta al principio.,2023-10-05,False,usuario_demo_02,serie_dark,
+review_003,1003,Obra maestra,5,Increíble fotografía.,2023-10-10,True,usuario_demo_01,,pelicula_interstellar
+review_004,1004,Pasable,3,Es entretenida para un domingo.,2023-10-12,True,usuario_demo_03,serie_friends,

@@ -12,3 +12,6 @@ banda_sonora_manager,banda_sonora_manager,model_upomax_banda_sonora,group_upomax
 capitulo_manager,capitulo_manager,model_upomax_capitulo,group_upomax_manager,1,1,1,1
 track_manager,track_manager,model_upomax_track,group_upomax_manager,1,1,1,1
 persona_manager,persona_manager,model_upomax_persona,group_upomax_manager,1,1,1,1
+premio_manager,premio_manager,model_upomax_premio,group_upomax_manager,1,1,1,1
+review_manager,review_manager,model_upomax_review,group_upomax_manager,1,1,1,1
+usuario_manager,usuario_manager,model_upomax_usuario,group_upomax_manager,1,1,1,1

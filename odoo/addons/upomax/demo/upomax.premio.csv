@@ -1,0 +1,26 @@
+id,nombre,categoria,año,titulo_serie/id,titulo_pelicula/id
+premio_oscars_got,Oscars,Mejor Serie Dramática,2019-02-24,serie6,
+premio_emmy_succession,Emmys,Mejor Serie Dramática,2022-09-12,serie5,
+premio_globos_dark,Globos de Oro,Mejor Serie Internacional,2020-01-05,serie3,
+premio_oscar_dune,Oscars,Mejores Efectos Visuales,2022-03-27,,upomax.pelicula_dune
+premio_oscars_gladiator,Oscars,Mejor Película,2001-03-25,,upomax.pelicula_gladiator
+premio_globos_lalaland,Globos de Oro,Mejor Comedia o Musical,2017-01-08,,upomax.pelicula_lalaland
+premio_oscars_matrix,Oscars,Mejores Efectos Visuales,2000-03-26,,upomax.pelicula_matrix
+premio_emmy_breakingbad,Emmys,Mejor Actor,2014-08-25,,
+premio_globos_irlandes,Globos de Oro,Mejor Película Dramática,2020-01-05,,upomax.pelicula_irlandes
+premio_oscars_padrino,Oscars,Mejor Película,1973-03-27,,upomax.pelicula_padrino
+premio_globos_strangerthings,Globos de Oro,Mejor Serie,2018-01-07,,
+premio_emmy_chernobyl,Emmys,Mejor Miniserie,2019-09-22,,
+premio_oscars_parasitos,Oscars,Mejor Película,2020-02-09,,upomax.pelicula_parasitos
+premio_globos_shrek,Globos de Oro,Mejor Película Animada,2002-01-20,,upomax.pelicula_shrek
+premio_oscars_gladiator_fx,Oscars,Mejor Sonido,2001-03-25,,upomax.pelicula_gladiator
+premio_emmy_fargo,Emmys,Mejor Miniserie,2014-08-25,,
+premio_globos_theoffice,Globos de Oro,Mejor Serie Comedia,2006-01-16,,
+premio_oscars_joker,Oscars,Mejor Actor,2020-02-09,,upomax.pelicula_joker
+premio_globos_bojack,Globos de Oro,Mejor Serie Animada,2016-01-10,,
+premio_emmy_handmaidstale,Emmys,Mejor Serie Dramática,2017-09-17,,
+premio_oscars_forestgump,Oscars,Mejor Película,1995-03-27,,upomax.pelicula_forestgump
+premio_globos_westworld,Globos de Oro,Mejor Serie Dramática,2017-01-08,,
+premio_oscar_titanic,Oscars,Mejor Película,1998-03-23,,upomax.pelicula_titanic
+premio_oscars_inception_fx,Oscars,Mejores Efectos Visuales,2011-02-27,,upomax.pelicula_inception
+premio_globos_interstellar,Globos de Oro,Mejor Banda Sonora,2014-12-11,,upomax.pelicula_interstellar

@@ -1,0 +1,46 @@
+<odoo>
+  
+  <record id="upomax_premio_form_view" model="ir.ui.view">
+    <field name="name">upomax.premio.form</field>
+    <field name="model">upomax.premio</field>
+    <field name="arch" type="xml">
+      <form string="Premio">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="categoria" />
+            <field name="año" />
+            <field name="titulo_serie" />
+            <field name="titulo_pelicula" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  
+  <record id="upomax_premio_list_view" model="ir.ui.view">
+    <field name="name">upomax.premio.list</field>
+    <field name="model">upomax.premio</field>
+    <field name="arch" type="xml">
+      <list string="Premios">
+        <field name="name" />
+        <field name="categoria" />
+        <field name="año" />
+        <field name="titulo_serie" />
+        <field name="titulo_pelicula" />
+      </list>
+    </field>
+  </record>
+
+  
+  <record id="premio_list_action" model="ir.actions.act_window">
+    <field name="name">Premios</field>
+    <field name="res_model">upomax.premio</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Crea el primer premio</p>
+    </field>
+  </record>
+
+</odoo>

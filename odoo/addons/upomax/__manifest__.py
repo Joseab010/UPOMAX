@@ -36,6 +36,9 @@ Long description of module's purpose
         'views/capitulo.xml',
         'views/track.xml',
         'views/persona.xml',
+        'views/review.xml',
+        'views/usuario.xml',
+        'views/premio.xml',
         'views/menu.xml',
         
         'demo/upomax.genero.csv',
@@ -48,7 +51,10 @@ Long description of module's purpose
         'demo/upomax.track.csv',
         'demo/upomax.banda.sonora.csv',
         'demo/upomax.pelicula.csv',
-        'demo/upomax.persona.csv'
+        'demo/upomax.persona.csv',
+        'demo/upomax.premio.csv',
+        'demo/upomax.usuario.csv',
+        'demo/upomax.review.csv'
     ],
     
     # only loaded in demonstration mode

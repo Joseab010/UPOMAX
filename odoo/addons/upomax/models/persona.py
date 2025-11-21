@@ -19,8 +19,10 @@ class Persona(models.Model):
 
    
 
-    tipos_ids = fields.Many2many('upomax.tipo', #tabla a la que va
+    tipos_ids = fields.Many2many('upomax.tipo',     #tabla a la que va
                                  'rel_persona_tipo', #tabla intermedia
-                                 'persona_id', #primer id tabla intermedia
-                                 'tipo_id', #segundo id tabla intermedia
+                                 'persona_id',        #primer id tabla intermedia
+                                 'tipo_id',             #segundo id tabla intermedia
                                  string="Tipos de Persona. Papel que desempeña")
+    
+    

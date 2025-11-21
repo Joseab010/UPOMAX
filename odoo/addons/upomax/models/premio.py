@@ -6,7 +6,7 @@ class premio(models.Model):
     _name = 'upomax.premio'
     _description = 'Tabla con informacion de las premio'
 
-    nombre = fields.char(
+    name = fields.char(
             'upomax.nombrepremio', 
             string="Nombre del Premio",
             required=True,size=100,
