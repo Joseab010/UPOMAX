@@ -9,6 +9,7 @@
   <menuitem name="GENERO" id="genero_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
   <menuitem name="TRACKS" id="tracks_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
   <menuitem name="PERSONAS" id="persona_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
+  <menuitem name="REVIEWS" id="reviews_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
 
   <!-- actions -->
   <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="serie_list_action"/>
@@ -22,6 +23,7 @@
   <menuitem name="Capitulo" id="capitulo_menu" parent="series_tab" groups="group_upomax_manager" action="capitulo_list_action"/>
   <menuitem name="Track" id="track_menu" parent="tracks_tab" groups="group_upomax_manager" action="track_list_action"/>
   <menuitem name="Persona" id="persona_menu" parent="persona_tab" groups="group_upomax_manager" action="personas_list_action"/>
+  <menuitem name="Reviews" id="reviews_menu" parent="reviews_tab" groups="group_upomax_manager" action="review_list_action"/>
 
 personas_list_action
 

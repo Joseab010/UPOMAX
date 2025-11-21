@@ -32,4 +32,6 @@ class Serie(models.Model):
 
     reviews_ids = fields.One2many('upomax.review',inverse_name='serie_id',string='Reseñas')
 
+    participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones (persona + rol)")
+    
     

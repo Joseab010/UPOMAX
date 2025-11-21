@@ -26,15 +26,10 @@ class Capitulos(models.Model):
                                    string='Temporada',
                                    required=True)
 
+    participacion_ids = fields.One2many('upomax.persona.tipo', 'capitulo_id', string="Participaciones (persona + rol)")
 
-    persona_ids = fields.Many2many('upomax.tipo', 
-                                    'rel_capitulo_persona', 
-                                    'capitulo_id',
-                                    'persona_tipo_id',
-                                    string="Persona con participación específica",
-                                    required=True)
 
-    tracks_ids=fields.One2many("upomax.tracks","capitulo_id",string="Tracks del capitulo")
+    tracks_ids=fields.One2many("upomax.track","capitulo_id",string="Tracks del capitulo")
     #uso de capa ORM ma g 
 
     

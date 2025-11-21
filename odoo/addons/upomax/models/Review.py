@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 
 class Review(models.Model):
-    _name = 'upomax.Review'
+    _name = 'upomax.review'
     _description = 'Tabla con informacion de las review'
     
     name = fields.Integer(string="id review",required=True)

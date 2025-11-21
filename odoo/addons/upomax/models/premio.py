@@ -6,26 +6,22 @@ class premio(models.Model):
     _name = 'upomax.premio'
     _description = 'Tabla con informacion de las premio'
 
-    name = fields.char(
-            'upomax.nombrepremio', 
+    name = fields.Char(
             string="Nombre del Premio",
             required=True,size=100,
             help="Ej: Oscars, Emmys, Globos de Oro")
     
-    categoria= fields.char(
-        'upomax.categorias', 
+    categoria= fields.Char(
         string="Categoría",
         required=True,size=100,
         help="Ej: Mejor Serie Dramática, Mejor Actor")
 
-    año=fields.Date(string="Año de emision",requiered=True)
+    año=fields.Date(string="Año de emision",required=True)
 
-    titulo_serie=fields.One2one('upomax.serie', 
+    titulo_serie=fields.Many2one('upomax.serie', 
         string="Serie",
-        required=True,
         help="La serie que recibió el premio.")
     
-    titulo_pelicula=fields.One2one('upomax.pelicula', 
+    titulo_pelicula=fields.Many2one('upomax.pelicula', 
         string="Pelicula",
-        required=True,
-        help="La serie que recibió el premio.")
+        help="La película que recibió el premio.")

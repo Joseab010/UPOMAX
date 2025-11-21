@@ -1,4 +1,4 @@
-id,name,correo_Electronico,contrasenya,biografia,amigos_ids/id
-usuario_demo_01,"Carlos Pérez","carlos.perez@example.com","1234","Amante del cine de ciencia ficción.","usuario_demo_02"
-usuario_demo_02,"Lucía Gómez","lucia.gomez@example.com","abcd","Me gustan las series largas.","usuario_demo_01"
-usuario_demo_03,"Miguel Torres","miguel.torres@example.com","pass123","Fan de las sitcoms clásicas.",
+id,name,correo_Electronico,contrasenya,biografia
+usuario_demo_01,"Carlos Pérez","carlos.perez@example.com","1234","Amante del cine de ciencia ficción."
+usuario_demo_02,"Lucía Gómez","lucia.gomez@example.com","abcd","Me gustan las series largas."
+usuario_demo_03,"Miguel Torres","miguel.torres@example.com","pass123","Fan de las sitcoms clásicas."

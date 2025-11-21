@@ -38,13 +38,8 @@ class Pelicula(models.Model):
         string="Productoras"
     )
 
-    premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_pelicula',string='Premios') #on2many obligatorio inversename
+    premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_pelicula',string='Premios')
 
     reviews_ids=fields.One2many('upomax.review',inverse_name='pelicula_id',string='Reseñas')
     
-    personas_ids = fields.Many2many('upomax.tipo', 
-                                    'rel_pelicula_persona', 
-                                    'pelicula_id',
-                                    'persona_tipo_id',
-                                    string="Persona con participación específica",
-                                    required=True)
+    participacion_ids = fields.One2many('upomax.persona.tipo', 'pelicula_id', string="Participaciones (persona + rol)")

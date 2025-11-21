@@ -16,13 +16,13 @@ class Persona(models.Model):
 
     biografia = fields.Text(string="Biografía", size=300)
 
+    participacion_ids = fields.One2many('upomax.persona.tipo', 'persona_id', string="Participaciones en películas/series")
 
-   
-
-    tipos_ids = fields.Many2many('upomax.tipo',     #tabla a la que va
-                                 'rel_persona_tipo', #tabla intermedia
-                                 'persona_id',        #primer id tabla intermedia
-                                 'tipo_id',             #segundo id tabla intermedia
-                                 string="Tipos de Persona. Papel que desempeña")
+    tipos_ids = fields.Many2many('upomax.tipo',
+                                 'rel_persona_tipo',
+                                 'persona_id',
+                                 'tipo_id',
+                                 string="Roles disponibles")
+    
     
     

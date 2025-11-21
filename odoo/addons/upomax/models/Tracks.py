@@ -10,8 +10,8 @@ class Tracks(models.Model):
     capitulo_id = fields.Many2one('upomax.capitulo',inverse_name= "tracks_ids" ,string='Capitulo')
 
     
-    banda_sonora_id = fields.Many2many('upomax.banda_sonora',
+    banda_sonora_id = fields.Many2many('upomax.banda.sonora',
                           'rel_banda_sonora_tracks',
                           'tracks_id',
                           'banda_sonora_id',
-                          string='Banda sonora inlcuidas')
+                          string='Banda sonora incluidas')
