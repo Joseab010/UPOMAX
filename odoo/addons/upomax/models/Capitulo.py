@@ -34,6 +34,7 @@ class Capitulos(models.Model):
                                     string="Persona con participación específica",
                                     required=True)
 
+    tracks_ids=fields.One2many("upomax.tracks","capitulo_id",string="Tracks del capitulo")
     #uso de capa ORM ma g 
 
     

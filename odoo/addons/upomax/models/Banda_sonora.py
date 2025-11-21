@@ -11,3 +11,9 @@ class Banda_sonora(models.Model):
     anyo = fields.Date(string="fecha de salida")
     pais = fields.Char(string="Pais", size=100)
     peliculas_ids= fields.One2many("upomax.pelicula","nombre_banda_id",string="Peliculas confirmadas")
+
+    tracks_id=fields.Many2many("upomax.tracks",
+                         "rel_banda_sonora_tracks",
+                         "banda_sonora_id",
+                         "tracks_id",
+                         string="Tracks incluidos")
