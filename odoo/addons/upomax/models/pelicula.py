@@ -12,9 +12,14 @@ class Pelicula(models.Model):
     edad_recomendada = fields.Integer(string="Edad Recomendada")
     duracion = fields.Integer(string="Duración (minutos)")
     
-    plataformas_ids= fields.Many2many("upomax.plataforma",string="Plataformas confirmadas")
-    nombre_franquicia_id = fields.Many2one('upomax.franquicia', string='Franquicia')
-    nombre_banda_id = fields.Many2one('upomax.banda.sonora', string='Banda Sonora') 
+    plataformas_ids= fields.Many2many("upomax.plataforma",
+                                      'rel_plataforma_pelicula',
+                                      'pelicula_id',
+                                      'plataforma_id',
+                                       string="Plataformas confirmadas")
+    
+    nombre_franquicia_id = fields.Many2one('upomax.franquicia',inverse_name="peliculas_ids" ,string='Franquicia')
+    nombre_banda_id = fields.Many2one('upomax.banda.sonora', inverse_name='peliculas_ids', string='Banda Sonora') 
     
     
     generos_ids = fields.Many2many(
