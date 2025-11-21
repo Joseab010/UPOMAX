@@ -17,3 +17,4 @@ class Banda_sonora(models.Model):
                          "banda_sonora_id",
                          "tracks_id",
                          string="Tracks incluidos")
+    

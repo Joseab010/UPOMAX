@@ -1,4 +1,3 @@
-from . import models
 from . import serie
 from . import plataforma
 from . import pelicula
@@ -11,3 +10,8 @@ from . import banda_sonora
 from . import capitulo
 from . import tracks
 from . import persona
+from . import persona_tipo
+from . import review
+from . import premio
+from . import usuario
+from . import tipo
