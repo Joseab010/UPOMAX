@@ -13,5 +13,5 @@ from . import persona
 from . import persona_tipo
 from . import Review
 from . import premio
-from . import Usuario
+from . import usuario
 from . import Tipo
