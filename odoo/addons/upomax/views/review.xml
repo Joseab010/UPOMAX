@@ -8,7 +8,6 @@
       <form string="Review">
         <sheet layout="auto">
           <group>
-            <field name="name" />
             <field name="titulo" />
             <field name="calificacion" />
             <field name="comentario" />
@@ -29,7 +28,6 @@
     <field name="model">upomax.review</field>
     <field name="arch" type="xml">
       <list string="Reviews">
-        <field name="name" />
         <field name="titulo" />
         <field name="calificacion" />
         <field name="fecha" />
