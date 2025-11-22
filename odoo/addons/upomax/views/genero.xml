@@ -43,6 +43,8 @@
         <graph string="Estadísticas por Género" type="bar">
             <field name="name"/> 
             <field name="series_count" type="measure"/>
+            <field name="name"/> 
+            <field name="peliculas_count" type="measure"/>
         </graph>
     </field>
 </record>
