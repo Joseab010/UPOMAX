@@ -40,8 +40,6 @@
       <graph>
         <field name="name"/>
         <field name="peliculas_count" type="measure"/>
-      
-      
       </graph>
     </field>
   </record>
