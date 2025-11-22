@@ -69,7 +69,7 @@
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
       <graph string="Análisis de Películas" type="bar">
-        <field name="anio"/>
+        <field name="name"/>
         <field name="puntuacion_general" type="measure"/>
       </graph>
     </field>
