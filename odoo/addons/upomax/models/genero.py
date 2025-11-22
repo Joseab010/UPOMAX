@@ -23,3 +23,13 @@ class genero(models.Model):
         string="Películas confirmadas"
     )
     
+
+    series_count = fields.Integer(
+        string="Nº Series", 
+        compute='_compute_conteo', 
+        store=True
+    )
+    @api.depends('series_ids')
+    def _compute_conteo(self):
+        for record in self:
+            record.series_count = len(record.series_ids)
