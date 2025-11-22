@@ -16,3 +16,13 @@ class productora(models.Model):
         'pelicula_id',              
         string="Peliculas confirmadas"
     )
+
+    peliculas_count = fields.Integer(
+        string="Nº Películas", 
+        compute='_compute_conteo', 
+        store=True
+    )
+    @api.depends("peliculas_ids")
+    def _compute_conteo(self):
+        for record in self:
+            record.peliculas_count=len(record.peliculas_ids)
