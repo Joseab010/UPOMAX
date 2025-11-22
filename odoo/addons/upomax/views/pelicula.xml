@@ -1,19 +1,21 @@
 <odoo>
+
   <record id="upomax_pelicula_form_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.form</field>
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
       <form string="Pelicula">
-        <sheet layout="auto">
+        <sheet>
           <group>
-            <field name="name" />
-            <field name="descripcion" />
-            <field name="puntuacion_general" />
-            <field name="anio" />
-            <field name="edad_recomendada" />
-            <field name="duracion" />
-            
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="puntuacion_general"/>
+            <field name="anio"/>
+            <field name="edad_recomendada"/>
+            <field name="duracion"/>
             <field name="plataformas_ids" widget="many2many_tags"/>
+            <field name="generos_ids" widget="many2many_tags"/>
+            <field name="productoras_ids" widget="many2many_tags"/>
           </group>
         </sheet>
       </form>
@@ -24,31 +26,33 @@
     <field name="name">upomax.pelicula.list</field>
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
-      <list string="list_string">
-           <field name="name" />
-            <!-- <field name="descripcion" /> -->
-            <field name="puntuacion_general" />
-            <field name="anio" />
-            <field name="edad_recomendada" />
-            <field name="duracion" />
-            
+      <list string="Listado de Películas">
+            <field name="name"/>
+            <field name="puntuacion_general"/>
+            <field name="anio"/>
+            <field name="edad_recomendada"/>
+            <field name="duracion"/>
             <field name="plataformas_ids" widget="many2many_tags"/>
       </list>
     </field>
   </record>
 
-  <record id="upomax_pelicula_search_view" model="ir.ui.view">
+  <!--<record id="upomax_pelicula_search_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.search</field>
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
       <search string="Buscar Película">
-      
         <field name="name"/>
         <field name="descripcion"/>
         <field name="anio"/>
-        <field name="generos_ids"/> <filter string="Para Adultos (+18)" name="adultos" domain="[('edad_recomendada', '>=', 18)]"/>
+        <field name="generos_ids"/>
+
+        <filter string="Para Adultos (+18)" name="adultos" domain="[('edad_recomendada', '>=', 18)]"/>
         <filter string="Aptas para todos (-12)" name="niños" domain="[('edad_recomendada', '&lt;', 12)]"/>
-        <separator/> <filter string="Obras Maestras (>8.5)" name="top" domain="[('puntuacion_general', '>', 8.5)]"/>
+        
+        <separator/>
+        
+        <filter string="Obras Maestras (>8.5)" name="top" domain="[('puntuacion_general', '>', 8.5)]"/>
 
         <group expand="0" string="Agrupar Por">
             <filter string="Año" name="group_anio" context="{'group_by': 'anio'}"/>
@@ -56,17 +60,28 @@
             <filter string="Franquicia" name="group_franquicia" context="{'group_by': 'nombre_franquicia_id'}"/>
             <filter string="Productora" name="group_productora" context="{'group_by': 'productoras_ids'}"/>
         </group>
-
       </search>
+    </field>
+  </record>-->
+
+  <record id="upomax_pelicula_graph_view" model="ir.ui.view">
+    <field name="name">upomax.pelicula.graph</field>
+    <field name="model">upomax.pelicula</field>
+    <field name="arch" type="xml">
+      <graph string="Análisis de Películas" type="bar">
+        <field name="anio"/>
+        <field name="puntuacion_general" type="measure"/>
+      </graph>
     </field>
   </record>
 
   <record id="peliculas_list_action" model="ir.actions.act_window">
     <field name="name">Pelicula</field>
     <field name="res_model">upomax.pelicula</field>
-    <field name="view_mode">list,form</field>
+    <field name="view_mode">list,form,graph</field>
+    <!--<field name="search_view_id" ref="upomax_pelicula_search_view"/>-->
     <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">Create the first pelicula</p>
+      <p class="o_view_nocontent_smiling_face">Crea la primera película</p>
     </field>
   </record>
 
