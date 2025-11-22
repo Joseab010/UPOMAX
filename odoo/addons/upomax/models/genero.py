@@ -29,19 +29,16 @@ class genero(models.Model):
         compute='_compute_conteo', 
         store=True
     )
-    @api.depends('series_ids')
-    def _compute_conteo(self):
-        for record in self:
-            record.series_count = len(record.series_ids)
-
+   
     peliculas_count = fields.Integer(
         string="Nº Películas", 
         compute='_compute_conteo', 
         store=True
     )
-    @api.depends('series_ids')
+    @api.depends("peliculas_ids","series_ids")
     def _compute_conteo(self):
         for record in self:
             record.peliculas_count = len(record.peliculas_ids)
+            record.series_count = len(record.series_ids)
 
     

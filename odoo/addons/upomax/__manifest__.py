@@ -27,7 +27,7 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         'views/serie.xml',
         'views/pelicula.xml',
-        'views/plataformas.xml',
+        'views/plataforma.xml',
         'views/franquicia.xml',
         'views/temporada.xml',
         'views/genero.xml',
