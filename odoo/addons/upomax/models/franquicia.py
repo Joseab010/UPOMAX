@@ -16,7 +16,7 @@ class franquicia(models.Model):
         compute='_compute_conteo', 
         store=True
     )
-    @api.depends("peliculas_ids","series_ids")
+    @api.depends("peliculas_ids")
     def _compute_conteo(self):
         for record in self:
             record.peliculas_count=len(record.peliculas_ids)
