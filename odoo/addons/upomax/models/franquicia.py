@@ -11,11 +11,11 @@ class franquicia(models.Model):
     
     peliculas_ids= fields.One2many("upomax.pelicula","nombre_franquicia_id",string="Peliculas confirmadas")
 
-    peliculas_ids= fields.Many2many("upomax.pelicula",
-                                    "rel_plataforma_pelicula",
-                                    "plataforma_id",
-                                    "pelicula_id",
-                                    string="Peliculas confirmadas") 
+    peliculas_count = fields.Integer(
+        string="Nº Películas", 
+        compute='_compute_conteo', 
+        store=True
+    )
     @api.depends("peliculas_ids","series_ids")
     def _compute_conteo(self):
         for record in self:
