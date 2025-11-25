@@ -19,7 +19,7 @@ class Usuario(models.Model):
                                   'usuario_id',
                                   'amigo_id',
                                   string="Lista de amigos")
-
+    @api.constrains('name')
     def _check_name(self):
         for rec in self:
             if not rec.name or len(rec.name.strip()) < 3:
