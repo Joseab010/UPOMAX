@@ -21,7 +21,9 @@ class Banda_sonora(models.Model):
     
     @api.constrains('anyo')
     def _check_anyo(self):
-        current_year = datetime.now().year
-        for rec in self:
-            if rec.anyo and not (1900 <= rec.anyo <= current_year):
+     current_year = datetime.now().year
+     for rec in self:
+        if rec.anyo:
+            anio_rec = rec.anyo.year 
+            if not (1900 <= anio_rec <= current_year):
                 raise ValidationError(f"El año debe estar entre 1900 y {current_year}.")
