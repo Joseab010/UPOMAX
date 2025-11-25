@@ -19,6 +19,13 @@ class Review(models.Model):
     like = fields.Boolean(string="Me gusta")
 
 
+    # Validacion para el titulo
+    @api.constrains('titulo')
+    def _check_titulo(self):
+        for rec in self:
+            if not rec.titulo or len(rec.titulo.strip()) < 5:
+                raise ValidationError("El título debe tener al menos 5 caracteres.")
+
     # Validacion para la calificacion
     @api.constrains('calificacion')
     def _check_calificacion(self):
