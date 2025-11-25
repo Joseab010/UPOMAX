@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Pelicula(models.Model):
     _name = 'upomax.pelicula'
@@ -43,3 +44,9 @@ class Pelicula(models.Model):
     reviews_ids=fields.One2many('upomax.review',inverse_name='pelicula_id',string='Reseñas')
     
     participacion_ids = fields.One2many('upomax.persona.tipo', 'pelicula_id', string="Participaciones (persona + rol)")
+    
+    
+    @api.constrains('duracion')
+    def _check_age(self):  
+     if self.duracion < 0:
+       raise ValidationError("La duración no puede ser negativa.")

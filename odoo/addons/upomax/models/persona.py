@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Persona(models.Model):
     _name = 'upomax.persona'
@@ -25,4 +25,7 @@ class Persona(models.Model):
                                  string="Roles disponibles")
     
     
-    
+    @api.constrains('edad')
+    def _check_age(self):  
+     if self.edad < 0:
+       raise ValidationError("La edad no puede ser negativa.")
