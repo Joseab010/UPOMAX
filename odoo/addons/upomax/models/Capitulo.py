@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError 
 
 class Capitulos(models.Model):
     _name = 'upomax.capitulo'
@@ -31,7 +31,11 @@ class Capitulos(models.Model):
 
     tracks_ids=fields.One2many("upomax.track","capitulo_id",string="Tracks del capitulo")
     #uso de capa ORM ma g 
-
+    
+    @api.constrains("duracion")
+    def _check_duracion(self):
+        if self.duracion<0:
+            raise ValidationError("La duración no puede ser Negativo")
     
 
     

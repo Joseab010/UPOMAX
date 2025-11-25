@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError
 
 class Tracks(models.Model):
     _name = 'upomax.track'
@@ -15,3 +15,8 @@ class Tracks(models.Model):
                           'tracks_id',
                           'banda_sonora_id',
                           string='Banda sonora incluidas')
+    
+    @api.constrains("duracion")
+    def _check_duracion(self):
+        if self.duracion<0:
+            raise ValidationError("La duración no puede ser Negativa")
