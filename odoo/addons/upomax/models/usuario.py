@@ -19,6 +19,8 @@ class Usuario(models.Model):
                                   'usuario_id',
                                   'amigo_id',
                                   string="Lista de amigos")
+    
+    #Validacion para el nombre
     @api.constrains('name')
     def _check_name(self):
         for rec in self:
@@ -26,4 +28,16 @@ class Usuario(models.Model):
                 raise ValidationError("El nombre debe tener al menos 3 caracteres.")
             if not re.match(r'^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+$', rec.name):
                 raise ValidationError("El nombre solo puede contener letras y espacios.")      
+    
+    #Validacion para el correo
+    @api.constrains('correo_Electronico')
+    def _check_email(self):
+        for rec in self:
+            if not rec.correo_Electronico:
+                raise ValidationError("El correo no puede estar vacio.")
+            if not re.match(r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$', rec.correo_Electronico):
+                raise ValidationError("El email no cumple el formato.") 
+    
+    
+
             

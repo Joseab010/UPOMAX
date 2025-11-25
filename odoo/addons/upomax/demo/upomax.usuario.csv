@@ -1,4 +1,4 @@
 id,name,correo_Electronico,contrasenya,biografia
-usuario_demo_01,"Carlos Pérez","carlos.perez@example.com","1234","Amante del cine de ciencia ficción."
-usuario_demo_02,"Lucía Gómez","lucia.gomez@example.com","abcd","Me gustan las series largas."
-usuario_demo_03,"Miguel Torres","miguel.torres@example.com","pass123","Fan de las sitcoms clásicas."
+usuario_demo_01,"Carlos Pérez","carlosperez@example.com","Abc12345","Amante del cine de ciencia ficción."
+usuario_demo_02,"Lucía Gómez","luciagomez@example.com","Xyz56789","Me gustan las series largas."
+usuario_demo_03,"Miguel Torres","migueltorres@example.com","Mnp01234","Fan de las sitcoms clásicas."
