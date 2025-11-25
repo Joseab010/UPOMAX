@@ -37,24 +37,20 @@
     </field>
   </record>
 
-  <!--<record id="upomax_pelicula_search_view" model="ir.ui.view">
+  <record id="upomax_pelicula_search_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.search</field>
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
-      <search string="Buscar Película">
-        <field name="name"/>
-        <field name="descripcion"/>
-        <field name="anio"/>
-        <field name="generos_ids"/>
+      <search>
+       
 
         <filter string="Para Adultos (+18)" name="adultos" domain="[('edad_recomendada', '>=', 18)]"/>
         <filter string="Aptas para todos (-12)" name="niños" domain="[('edad_recomendada', '&lt;', 12)]"/>
         
-        <separator/>
         
         <filter string="Obras Maestras (>8.5)" name="top" domain="[('puntuacion_general', '>', 8.5)]"/>
 
-        <group expand="0" string="Agrupar Por">
+        <group>
             <filter string="Año" name="group_anio" context="{'group_by': 'anio'}"/>
             <filter string="Edad Recomendada" name="group_edad" context="{'group_by': 'edad_recomendada'}"/>
             <filter string="Franquicia" name="group_franquicia" context="{'group_by': 'nombre_franquicia_id'}"/>
@@ -62,7 +58,7 @@
         </group>
       </search>
     </field>
-  </record>-->
+  </record>
 
   <record id="upomax_pelicula_graph_view" model="ir.ui.view">
     <field name="name">upomax.pelicula.graph</field>
@@ -79,7 +75,7 @@
     <field name="name">Pelicula</field>
     <field name="res_model">upomax.pelicula</field>
     <field name="view_mode">list,form,graph</field>
-    <!--<field name="search_view_id" ref="upomax_pelicula_search_view"/>-->
+    <field name="search_view_id" ref="upomax_pelicula_search_view"/>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Crea la primera película</p>
     </field>
