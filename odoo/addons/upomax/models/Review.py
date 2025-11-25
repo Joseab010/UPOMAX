@@ -16,8 +16,7 @@ class Review(models.Model):
     
     fecha =fields.Date(string="fecha de publicacion")
     
-    like = fields.Boolean(string="Me gusta")
-
+    like = fields.Boolean(string="Me gusta", required=True, default=None)
 
     # Validacion para el titulo
     @api.constrains('titulo')
@@ -51,3 +50,10 @@ class Review(models.Model):
                 raise ValidationError("La review debe estar asociada a una serie o a una película.")
             if rec.serie_id and rec.pelicula_id:
                 raise ValidationError("La review no puede estar asociada a una serie y a una película al mismo tiempo.")
+
+    # Validacion para el like
+    @api.constrains('like')
+    def _check_like(self):
+        for rec in self:
+            if rec.like is None:
+                raise ValidationError("Debes indicar si te gusta o no.")
