@@ -9,7 +9,7 @@
           <group>
             <field name="name" />
             <field name="correo_Electronico" />
-            <field name="contrasenya" password="True"/>
+            <field name="contrasenya" />
             <field name="biografia" />
             <field name="reviews_ids" />
             <field name="amigos_ids" widget="many2many_tags"/>
@@ -27,6 +27,7 @@
         <field name="name" />
         <field name="correo_Electronico" />
         <field name="biografia" />
+        <field name="reviews_ids" />
       </list>
     </field>
   </record>
