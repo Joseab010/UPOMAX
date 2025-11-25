@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError
+import re    #para las expresiones regulares
 
 class Usuario(models.Model):
     _name = 'upomax.usuario'
@@ -19,3 +20,10 @@ class Usuario(models.Model):
                                   'amigo_id',
                                   string="Lista de amigos")
 
+    def _check_name(self):
+        for rec in self:
+            if not rec.name or len(rec.name.strip()) < 3:
+                raise ValidationError("El nombre debe tener al menos 3 caracteres.")
+            if not re.match(r'^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+$', rec.name):
+                raise ValidationError("El nombre solo puede contener letras y espacios.")      
+            
