@@ -37,4 +37,4 @@ class Serie(models.Model):
     @api.contrains("duracion")
     def _check_name_size(self):
         if len(self.duracion)<0:
-            raise ValidationError("No puede ser Negativo");
+            raise ValidationError("No puede ser Negativo")
