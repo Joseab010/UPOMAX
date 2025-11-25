@@ -36,5 +36,11 @@ class Review(models.Model):
 
     pelicula_id = fields.Many2one('upomax.pelicula', string="Pelicula reseñada")
 
-    
-    
+    # Validacion para que la review este asociada a una serie o pelicula pero no a ambas
+    @api.constrains('serie_id', 'pelicula_id')
+    def _check_serie_or_pelicula(self):
+        for rec in self:
+            if not rec.serie_id and not rec.pelicula_id:
+                raise ValidationError("La review debe estar asociada a una serie o a una película.")
+            if rec.serie_id and rec.pelicula_id:
+                raise ValidationError("La review no puede estar asociada a una serie y a una película al mismo tiempo.")
