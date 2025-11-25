@@ -38,6 +38,13 @@ class Usuario(models.Model):
             if not re.match(r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$', rec.correo_Electronico):
                 raise ValidationError("El email no cumple el formato.") 
     
-    
+    #Validacion para password    
+    @api.constrains('contrasenya')     
+    def _check_password(self):         
+        for rec in self:             
+            if not rec.contrasenya:            
+                raise ValidationError("La contraseña no puede estar vacia.")           
+            if not re.match(r'^(?=(?:.*\d){4,})(?=.*[a-z])(?=.*[A-Z]).*$', rec.contrasenya):        
+                raise ValidationError("La contraseña no cumple el formato debe contener al menos una mayuscula, una minuscula y 4 dígitos.") 
 
             
