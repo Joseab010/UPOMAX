@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+from openerp.exceptions import ValidationError
 
 class Serie(models.Model):
     _name = 'upomax.serie'
@@ -34,4 +34,7 @@ class Serie(models.Model):
 
     participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones (persona + rol)")
     
-    
+    @api.contrains("duracion")
+    def _check_name_size(self):
+        if len(self.duracion)<0:
+            raise ValidationError("No puede ser Negativo");
