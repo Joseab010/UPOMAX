@@ -34,7 +34,7 @@ class Serie(models.Model):
 
     participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones (persona + rol)")
     
-    @api.contrains("duracion")
-    def _check_name_size(self):
-        if len(self.duracion)<0:
+    @api.constrains("duracion")
+    def _check_duracion(self):
+        if self.duracion<0:
             raise ValidationError("La duración no puede ser Negativo")

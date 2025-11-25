@@ -47,6 +47,6 @@ class Pelicula(models.Model):
     
     
     @api.constrains('duracion')
-    def _check_age(self):  
+    def _check_duracion(self):  
      if self.duracion < 0:
        raise ValidationError("La duración no puede ser negativa.")
