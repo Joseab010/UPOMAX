@@ -1,5 +1,5 @@
-from pydantic import ValidationError
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Review(models.Model):
@@ -34,6 +34,23 @@ class Review(models.Model):
             if not isinstance(rec.calificacion, int):
                 raise ValidationError("La calificación debe ser un número entero.")
             
+    # Corrección de calificación
+    @api.onchange('calificacion')
+    def _onchange_calificacion(self):
+        for rec in self:
+            if rec.calificacion is not None:
+                if rec.calificacion < 1:
+                    rec.calificacion = 1
+                elif rec.calificacion > 5:
+                    rec.calificacion = 5
+
+    # Validacion para el like
+    @api.constrains('like')
+    def _check_like(self):
+        for rec in self:
+            if rec.like is None:
+                raise ValidationError("Debes indicar si te gusta o no.")
+            
 
     # Relaciones
     id_usuario = fields.Many2one('upomax.usuario',string="Usuario que hizo la review", required=True)
@@ -50,10 +67,3 @@ class Review(models.Model):
                 raise ValidationError("La review debe estar asociada a una serie o a una película.")
             if rec.serie_id and rec.pelicula_id:
                 raise ValidationError("La review no puede estar asociada a una serie y a una película al mismo tiempo.")
-
-    # Validacion para el like
-    @api.constrains('like')
-    def _check_like(self):
-        for rec in self:
-            if rec.like is None:
-                raise ValidationError("Debes indicar si te gusta o no.")
