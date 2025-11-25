@@ -22,6 +22,7 @@ class productora(models.Model):
         compute='_compute_conteo', 
         store=True
     )
+    
     @api.depends("peliculas_ids")
     def _compute_conteo(self):
         for record in self:
