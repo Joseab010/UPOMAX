@@ -9,7 +9,7 @@
           <group>
             <field name="name" />
             <field name="categoria" />
-            <field name="año" />
+            <field name="ano" />
             <field name="titulo_serie" />
             <field name="titulo_pelicula" />
           </group>
@@ -26,7 +26,7 @@
       <list string="Premios">
         <field name="name" />
         <field name="categoria" />
-        <field name="año" />
+        <field name="ano" />
         <field name="titulo_serie" />
         <field name="titulo_pelicula" />
       </list>

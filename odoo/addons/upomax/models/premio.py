@@ -16,7 +16,7 @@ class premio(models.Model):
         required=True,size=100,
         help="Ej: Mejor Serie Dramática, Mejor Actor")
 
-    año=fields.Date(string="Año de emision",required=True)
+    ano=fields.Date(string="Año de emision",required=True)
 
     titulo_serie=fields.Many2one('upomax.serie', 
         string="Serie",
