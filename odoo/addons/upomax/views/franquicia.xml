@@ -52,12 +52,12 @@
       <search>
        
 
-        <filter string="Mayor 2000" name="mayor2000" domain="[('anio_inicio', '&gt;=', 2000)]"/>
-        <filter string="Menor 2000" name="menor2000" domain="[('anio_inicio', '&lt;', 2000)]"/>
+        <filter string="Mayor 2000" name="mayor2000" domain="[('anio_inicio', '&gt;=', '2000-01-01')]"/>
+        <filter string="Menor 2000" name="menor2000" domain="[('anio_inicio', '&lt;', '2000-01-01')]"/>
         
         
-        <filter string="Activa" name="top" domain="[('estado', =', Activa)]"/>
-        <filter string="En restrucuracion" name="top" domain="[('estado', =', En Reestructuración)]"/>
+        <filter string="Activa" name="top" domain="[('estado', '=', 'Activa')]"/>
+        <filter string="En restrucuracion" name="top" domain="[('estado', '=', 'En Reestructuración')]"/>
         <group>
             <filter string="Año" name="group_anio" context="{'group_by': 'anio_inicio'}"/>
             <filter string="Estado" name="group_estado" context="{'group_by': 'estado'}"/>
