@@ -9,7 +9,7 @@ class Usuario(models.Model):
     name = fields.Char(string="Nombre usuario", required=True,size=100, help="Nombre de Usuario")
     correo_Electronico = fields.Char(string="Correo electronico", size=100,required=True, help="Nombre de Correo")
     contrasenya = fields.Char(string="Contraseña", size=100,required=True, help="Contraseña usuario")
-    biografia = fields.Char(string="biografia", size=100, help="biografia de usuario")
+    biografia = fields.Char(string="biografia", size=400, help="biografia de usuario")
 
 
     reviews_ids = fields.One2many('upomax.review',inverse_name='id_usuario',string="Reseñas de usuarios")
@@ -47,4 +47,9 @@ class Usuario(models.Model):
             if not re.match(r'^(?=(?:.*\d){4,})(?=.*[a-z])(?=.*[A-Z]).*$', rec.contrasenya):        
                 raise ValidationError("La contraseña no cumple el formato debe contener al menos una mayuscula, una minuscula y 4 dígitos.") 
 
-            
+    #Validacion para biografia    
+    @api.constrains('biografia')     
+    def _check_password(self):         
+        for rec in self:             
+            if rec.biografia and len(rec.biografia)>400:      
+                raise ValidationError(f"La biografía es demasiado larga. Tienes {len(rec.biografia)} caracteres, pero el límite es 400.")
