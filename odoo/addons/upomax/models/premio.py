@@ -25,3 +25,22 @@ class premio(models.Model):
     titulo_pelicula=fields.Many2one('upomax.pelicula', 
         string="Pelicula",
         help="La película que recibió el premio.")
+    
+    series_count = fields.Integer(
+        string="Nº Series", 
+        compute='_compute_conteo', 
+        store=True
+    )
+   
+    peliculas_count = fields.Integer(
+        string="Nº Películas", 
+        compute='_compute_conteo', 
+        store=True
+    )
+    @api.depends("titulo_serie","titulo_pelicula")
+    def _compute_conteo(self):
+        for record in self:
+            record.peliculas_count = len(record.titulo_pelicula)
+            record.series_count = len(record.titulo_serie)
+
+    
