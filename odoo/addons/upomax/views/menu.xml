@@ -11,7 +11,7 @@
   <menuitem name="PERSONAS" id="persona_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
   <menuitem name="REVIEWS" id="reviews_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
   <menuitem name="USUARIO" id="usuario_tab" parent="main_upomax_menu" groups="group_upomax_manager"/>
-
+  <menuitem name="PREMIO" id="premio_tab" parent="main_upomax_menu" groups="group_upomax_manager"/> 
   <!-- actions -->
   <menuitem name="Series" id="series_menu" parent="series_tab" groups="group_upomax_manager" action="serie_list_action"/>
   <menuitem name="Peliculas" id="peliculas_menu" parent="peliculas_tab" groups="group_upomax_manager" action="peliculas_list_action"/>
@@ -26,6 +26,7 @@
   <menuitem name="Persona" id="persona_menu" parent="persona_tab" groups="group_upomax_manager" action="personas_list_action"/>
   <menuitem name="Reviews" id="reviews_menu" parent="reviews_tab" groups="group_upomax_manager" action="review_list_action"/>
   <menuitem name="Usuario" id="usuario_menu" parent="usuario_tab" groups="group_upomax_manager" action="usuario_list_action"/>
+  <menuitem name="Premio" id="premio_menu" parent="premio_tab" groups="group_upomax_manager" action="premio_list_action"/>
 
 personas_list_action
 

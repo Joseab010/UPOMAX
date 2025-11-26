@@ -15,3 +15,4 @@ persona_manager,persona_manager,model_upomax_persona,group_upomax_manager,1,1,1,
 premio_manager,premio_manager,model_upomax_premio,group_upomax_manager,1,1,1,1
 review_manager,review_manager,model_upomax_review,group_upomax_manager,1,1,1,1
 usuario_manager,usuario_manager,model_upomax_usuario,group_upomax_manager,1,1,1,1
+premio_manager,premio_manager,model_upomax_premio,group_upomax_manager,1,1,1,1
