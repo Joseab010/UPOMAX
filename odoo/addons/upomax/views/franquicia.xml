@@ -45,6 +45,26 @@
     </field>
   </record>
 
+  <record id="upomax_franquicia_search_view" model="ir.ui.view">
+    <field name="name">upomax.franquicia.search</field>
+    <field name="model">upomax.franquicia</field>
+    <field name="arch" type="xml">
+      <search>
+       
+
+        <filter string="Mayor 2000" name="mayor2000" domain="[('anio_inicio', '&gt;=', 2000)]"/>
+        <filter string="Menor 2000" name="menor2000" domain="[('anio_inicio', '&lt;', 2000)]"/>
+        
+        
+        <filter string="Activa" name="top" domain="[('estado', =', Activa)]"/>
+        <filter string="En restrucuracion" name="top" domain="[('estado', =', En Reestructuración)]"/>
+        <group>
+            <filter string="Año" name="group_anio" context="{'group_by': 'anio_inicio'}"/>
+            <filter string="Edad Recomendada" name="group_edad" context="{'group_by': 'edad_recomendada'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
   <record id="franquicia_list_action" model="ir.actions.act_window">
     <field name="name">Franquicia</field>
     <field name="res_model">upomax.franquicia</field>
