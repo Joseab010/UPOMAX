@@ -56,4 +56,14 @@ class Pelicula(models.Model):
     def _check_descripcion(self):         
         for rec in self:             
             if rec.descripcion and len(rec.descripcion)>500:      
-                raise ValidationError(f"La descripción es demasiado larga. Tienes {len(rec.biografia)} caracteres, pero el límite es 500.")
+                raise ValidationError(f"La descripción es demasiado larga. Tienes {len(rec.descripcion)} caracteres, pero el límite es 500.")
+            
+    @api.depends('reviews_ids.calificacion')   
+    def _compute_puntuacion_general(self):
+        for pelicula in self:
+            if pelicula.reviews_ids:
+                calificaciones = [r.calificacion for r in pelicula.reviews_ids]
+                promedio = sum(calificaciones)/ len(calificaciones)
+                pelicula.puntuacion_general = promedio
+            else:
+                pelicula.puntuacion_general = 0.0         

@@ -1,5 +1,21 @@
 id,name,titulo,calificacion,comentario,fecha,like,id_usuario/id,serie_id/id,pelicula_id/id
-review_001,1001,Gran película,5,Me encantó el final inesperado.,2023-10-01,True,usuario_demo_01,,upomax.pelicula_matrix
-review_002,1002,Serie aburrida,2,Muy lenta al principio.,2023-10-05,False,usuario_demo_02,serie3,
-review_003,1003,Obra maestra,5,Increíble fotografía.,2023-10-10,True,usuario_demo_01,,upomax.pelicula_interstellar
-review_004,1004,Pasable,3,Es entretenida para un domingo.,2023-10-12,True,usuario_demo_03,serie2,
+review_001,1001,Obra Maestra,10,Increíble de principio a fin.,2023-10-01,True,usuario_demo_01,,upomax.pelicula_matrix
+review_002,1002,Sobrevalorada,6,Ha envejecido un poco mal.,2023-10-02,False,usuario_demo_02,,upomax.pelicula_matrix
+review_003,1003,Visualmente única,10,Una experiencia religiosa.,2023-10-10,True,usuario_demo_01,,upomax.pelicula_interstellar
+review_004,1004,Muy larga,8,Buena pero sobra media hora.,2023-10-12,True,usuario_demo_03,,upomax.pelicula_interstellar
+review_005,1005,Brutal,9,Nolan lo vuelve a hacer.,2023-11-01,True,usuario_demo_01,,upomax.pelicula_inception
+review_006,1006,No entendí nada,5,Demasiado liosa.,2023-11-02,False,usuario_demo_02,,upomax.pelicula_inception
+review_007,1007,Perfecta,10,El guion es un reloj suizo.,2023-11-03,True,usuario_demo_03,,upomax.pelicula_inception
+review_008,1008,Diálogos top,10,Tarantino en estado puro.,2023-11-04,True,usuario_demo_01,,upomax.pelicula_pulpfiction
+review_009,1009,Aburrida,4,Demasiada violencia gratuita.,2023-11-05,False,usuario_demo_02,,upomax.pelicula_pulpfiction
+review_010,1010,Divertida,8,Buen fan service.,2023-11-12,True,usuario_demo_03,,upomax.pelicula_spiderman
+review_011,1011,Joker legendario,10,Heath Ledger se sale.,2023-11-20,True,usuario_demo_01,,upomax.pelicula_dark_knight
+review_012,1012,Batman flojo,7,Bale podría haberlo hecho mejor.,2023-11-21,True,usuario_demo_02,,upomax.pelicula_dark_knight
+review_013,1013,Clásico total,10,La mejor saga de la historia.,2023-12-25,True,usuario_demo_03,,upomax.pelicula_star_wars_anh
+review_014,1014,Infancia,9,Me trae muy buenos recuerdos.,2023-12-28,True,usuario_demo_02,,upomax.pelicula_harry_potter_ps
+review_015,1015,Serie Top,10,Lo mejor de Netflix.,2023-11-01,True,usuario_demo_01,serie1,
+review_016,1016,Final malo,4,Arruinaron la serie al final.,2023-11-02,False,usuario_demo_02,serie6,
+review_017,1017,Comedia inteligente,10,Increíble guion.,2023-11-08,True,usuario_demo_03,serie4,
+review_018,1018,Muy lenta,5,Me dormí en el primer capítulo.,2023-10-05,False,usuario_demo_02,serie3,
+review_019,1019,Entretenida,7,Para pasar el rato está bien.,2023-10-12,True,usuario_demo_03,serie2,
+review_020,1020,Intensa,9,No apta para cardíacos.,2023-11-15,True,usuario_demo_01,serie5,
