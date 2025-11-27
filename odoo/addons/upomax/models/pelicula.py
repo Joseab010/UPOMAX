@@ -8,7 +8,7 @@ class Pelicula(models.Model):
     name = fields.Char(string="Título", required=True, size=100)
     
     descripcion = fields.Text(string="Descripción", size=500)
-    puntuacion_general = fields.Float(string="Puntuación General", digits=(2, 2))
+    puntuacion_general = fields.Float(string="Puntuación General", digits=(2, 2), compute='_compute_puntuacion_general', store=True)
     anio = fields.Date(string="Año de Estreno")
     edad_recomendada = fields.Integer(string="Edad Recomendada")
     duracion = fields.Integer(string="Duración (minutos)")
@@ -50,3 +50,10 @@ class Pelicula(models.Model):
     def _check_duracion(self):  
      if self.duracion < 0:
        raise ValidationError("La duración no puede ser negativa.")
+   
+   #Validacion para descripcion    
+    @api.constrains('descripcion')     
+    def _check_descripcion(self):         
+        for rec in self:             
+            if rec.descripcion and len(rec.descripcion)>500:      
+                raise ValidationError(f"La descripción es demasiado larga. Tienes {len(rec.biografia)} caracteres, pero el límite es 500.")
