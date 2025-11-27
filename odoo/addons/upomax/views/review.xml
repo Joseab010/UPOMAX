@@ -39,6 +39,27 @@
     </field>
   </record>
 
+  <record id="upomax_review_search_view" model="ir.ui.view">
+    <field name="name">upomax.review.search</field>
+    <field name="model">upomax.review</field>
+    <field name="arch" type="xml">
+      <search>
+       
+
+        <filter string="Con mas de 5 puntos" name="aprobadas" domain="[('calificacion', '>=', 5)]"/>
+        <filter string="Con menos de 5 puntos" name="suspensas" domain="[('calificacion', '&lt;', 5)]"/>
+
+        <group>
+            <filter string="Calificacíon" name="group_calificacion" context="{'group_by': 'calificacion'}"/>
+            <filter string="Usuario" name="group_usuario" context="{'group_by': 'id_usuario'}"/>
+            <filter string="Pelicula" name="group_pelicula" context="{'group_by': 'pelicula_id'}"/>
+            <filter string="Serie" name="group_serie" context="{'group_by': 'serie_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+
   
   <record id="review_list_action" model="ir.actions.act_window">
     <field name="name">Reviews</field>

@@ -18,6 +18,17 @@ class Review(models.Model):
     
     like = fields.Boolean(string="Me gusta", required=True, default=None)
 
+
+    
+    # Relaciones
+    id_usuario = fields.Many2one('upomax.usuario',string="Usuario que hizo la review", required=True)
+    
+    serie_id = fields.Many2one('upomax.serie',string="Serie reseñada")
+
+    pelicula_id = fields.Many2one('upomax.pelicula', string="Pelicula reseñada")
+
+
+
     # Validacion para el titulo
     @api.constrains('titulo')
     def _check_titulo(self):
@@ -29,8 +40,8 @@ class Review(models.Model):
     @api.constrains('calificacion')
     def _check_calificacion(self):
         for rec in self:
-            if rec.calificacion < 1 or rec.calificacion > 5:
-                raise ValidationError("La calificación debe estar entre 1 y 5.")
+            if rec.calificacion < 1 or rec.calificacion > 10:
+                raise ValidationError("La calificación debe estar entre 1 y 10.")
             if not isinstance(rec.calificacion, int):
                 raise ValidationError("La calificación debe ser un número entero.")
             
@@ -41,8 +52,8 @@ class Review(models.Model):
             if rec.calificacion is not None:
                 if rec.calificacion < 1:
                     rec.calificacion = 1
-                elif rec.calificacion > 5:
-                    rec.calificacion = 5
+                elif rec.calificacion > 10:
+                    rec.calificacion = 10
 
     # Validacion para el like
     @api.constrains('like')
@@ -51,13 +62,6 @@ class Review(models.Model):
             if rec.like is None:
                 raise ValidationError("Debes indicar si te gusta o no.")
             
-
-    # Relaciones
-    id_usuario = fields.Many2one('upomax.usuario',string="Usuario que hizo la review", required=True)
-    
-    serie_id = fields.Many2one('upomax.serie',string="Serie reseñada")
-
-    pelicula_id = fields.Many2one('upomax.pelicula', string="Pelicula reseñada")
 
     # Validacion para que la review este asociada a una serie o pelicula pero no a ambas
     @api.constrains('serie_id', 'pelicula_id')
