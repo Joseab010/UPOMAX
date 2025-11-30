@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="peliculas_template">
+    <t t-call="web.external_layout">
+      <t t-foreach="docs" t-as="doc">
+        <div class="page">
+          <h2 t-esc="doc.name"/>
+          <p><strong>Título:</strong> <span t-esc="doc.titulo"/></p>
+          <p><strong>Descripción:</strong> <span t-esc="doc.descripcion"/></p>
+          <p><strong>Género:</strong> <span t-esc="doc.genero"/></p>
+          <p><strong>Fecha de estreno:</strong> <span t-esc="doc.fecha_estreno"/></p>
+          <p><strong>Calificación:</strong> <span t-esc="doc.calificacion"/></p>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>

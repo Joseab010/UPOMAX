@@ -54,7 +54,11 @@ Long description of module's purpose
         'demo/upomax.persona.csv',
         'demo/upomax.premio.csv',
         'demo/upomax.usuario.csv',
-        'demo/upomax.review.csv'
+        'demo/upomax.review.csv',
+
+        'reports/reports.xml',
+        'reports/peliculas_report.xml'
+        
     ],
     
     # only loaded in demonstration mode
