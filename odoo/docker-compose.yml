@@ -13,7 +13,7 @@ services:
     networks:
       - compose-network
     restart: always
-      
+
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -28,10 +28,10 @@ services:
       - db
     networks:
       - compose-network
-  
+
   odoo:
     container_name: odoo
-    image: odoo:latest
+    build: .
     depends_on:
       - db
     ports:
@@ -51,6 +51,6 @@ volumes:
   odoo-db-data:
   odoo-web-data:
 
-networks: 
+networks:
   compose-network:
     driver: bridge

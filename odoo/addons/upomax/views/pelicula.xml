@@ -5,6 +5,7 @@
     <field name="model">upomax.pelicula</field>
     <field name="arch" type="xml">
       <form string="Pelicula">
+      
         <sheet>
           <group>
             <field name="name"/>

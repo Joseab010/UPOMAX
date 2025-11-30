@@ -23,6 +23,8 @@ Long description of module's purpose
 
     # always loaded
     'data': [
+        'reports/peliculas_report.xml',
+        'reports/reports.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/serie.xml',
@@ -55,9 +57,6 @@ Long description of module's purpose
         'demo/upomax.premio.csv',
         'demo/upomax.usuario.csv',
         'demo/upomax.review.csv',
-
-        'reports/reports.xml',
-        'reports/peliculas_report.xml'
         
     ],
     
