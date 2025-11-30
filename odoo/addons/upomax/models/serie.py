@@ -9,7 +9,10 @@ class Serie(models.Model):
     fecha_emision=fields.Date(string="fecha de emision")
     fecha_finalizacion=fields.Date(string="fecha de finalizacion")
     duracion = fields.Integer(string="Duración (min)")
-    
+    edad_recomendada = fields.Integer(string="Edad Recomendada")
+    puntuacion_general = fields.Float(string="Puntuación General", digits=(2, 2), compute='_compute_puntuacion_general', store=True)
+
+
     plataformas_ids = fields.Many2many(
         'upomax.plataforma',
         'rel_plataforma_serie',
@@ -38,3 +41,13 @@ class Serie(models.Model):
     def _check_duracion(self):
         if self.duracion<0:
             raise ValidationError("La duración no puede ser Negativa")
+
+    @api.depends('reviews_ids.calificacion')   
+    def _compute_puntuacion_general(self):
+        for pelicula in self:
+            if pelicula.reviews_ids:
+                calificaciones = [r.calificacion for r in pelicula.reviews_ids]
+                promedio = sum(calificaciones)/ len(calificaciones)
+                pelicula.puntuacion_general = promedio
+            else:
+                pelicula.puntuacion_general = 0.0  

@@ -10,6 +10,8 @@
             <field name="fecha_emision" />
             <field name="fecha_finalizacion" />
             <field name="duracion" />
+            <field name="puntuacion_general"/>
+            <field name="edad_recomendada"/>
             <field name="plataformas_ids" widget="many2many_tags"/>
           </group>
         </sheet>
@@ -26,6 +28,8 @@
           <field name="fecha_emision" />
           <field name="fecha_finalizacion" />
           <field name="duracion" />
+          <field name="puntuacion_general"/>
+          <field name="edad_recomendada"/>
           <field name="plataformas_ids" widget="many2many_tags"/>
       </list>
     </field>
