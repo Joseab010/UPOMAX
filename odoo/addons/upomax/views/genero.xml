@@ -33,6 +33,16 @@
     </field>
   </record>
 
+  <record id="upomax_genero_search_view" model="ir.ui.view">
+    <field name="name">upomax.genero.search</field>
+    <field name="model">upomax.genero</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Género">
+        <field name="name"/>
+      </search>
+    </field>
+  </record>
+
   <record id="genero_list_action" model="ir.actions.act_window">
     <field name="name">Géneros</field>
     <field name="res_model">upomax.genero</field>
