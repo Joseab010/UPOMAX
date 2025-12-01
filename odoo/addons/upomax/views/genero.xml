@@ -1,19 +1,21 @@
 <odoo>
-  <record id="upomax_genero_tree_view" model="ir.ui.view">
-    <field name="name">upomax.genero.tree</field>
+  <record id="upomax_genero_list_view" model="ir.ui.view">
+    <field name="name">upomax.genero.list</field>
     <field name="model">upomax.genero</field>
     <field name="arch" type="xml">
-      <list string="Genero">
+      <list string="Géneros">
         <field name="name"/>
+        <field name="series_count"/>
+        <field name="peliculas_count"/>
       </list>
     </field>
   </record>
 
-  <record id="upomax_Genero_form_view" model="ir.ui.view">
+  <record id="upomax_genero_form_view" model="ir.ui.view">
     <field name="name">upomax.genero.form</field>
     <field name="model">upomax.genero</field>
     <field name="arch" type="xml">
-      <form string="Genero">
+      <form string="Género">
         <sheet>
           <group>
             <field name="name"/>
@@ -21,43 +23,19 @@
           <notebook>
             <page string="Series">
               <field name="series_ids"/>
-              </page>
+            </page>
             <page string="Películas">
-            <field name="peliculas_ids"/>
-          
+              <field name="peliculas_ids"/>
             </page>
           </notebook>
-          
         </sheet>
       </form>
-
-     
     </field>
   </record>
 
-<!-- Grafo genero -->
-  <record id="upomax_genero_graph_view" model="ir.ui.view">
-    <field name="name">upomax.genero.graph</field>
-    <field name="model">upomax.genero</field>
-    <field name="arch" type="xml">
-        <graph string="Estadísticas por Género" type="bar">
-            <field name="name"/> 
-            <field name="series_count" type="measure"/>
-            <field name="name"/> 
-            <field name="peliculas_count" type="measure"/>
-        </graph>
-    </field>
-</record>
-
-  <!-- Action -->
   <record id="genero_list_action" model="ir.actions.act_window">
-    <field name="name">Genero</field>
+    <field name="name">Géneros</field>
     <field name="res_model">upomax.genero</field>
-    <field name="view_mode">list,form,graph</field>
+    <field name="view_mode">list,form</field>
   </record>
-
-
-
-
-  <!-- Menu -->
 </odoo>
