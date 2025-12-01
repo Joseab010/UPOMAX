@@ -39,13 +39,28 @@
     <field name="arch" type="xml">
       <search string="Buscar Género">
         <field name="name"/>
+        <separator/>
+        <filter string="Con Películas" name="with_movies" domain="[('peliculas_count', '>', 0)]"/>
+        <filter string="Con Series" name="with_series" domain="[('series_count', '>', 0)]"/>
       </search>
+    </field>
+  </record>
+
+  <record id="upomax_genero_graph_view" model="ir.ui.view">
+    <field name="name">upomax.genero.graph</field>
+    <field name="model">upomax.genero</field>
+    <field name="arch" type="xml">
+        <graph string="Estadísticas por Género" type="bar" stacked="True">
+            <field name="name"/> 
+            <field name="series_count" type="measure"/>
+            <field name="peliculas_count" type="measure"/>
+        </graph>
     </field>
   </record>
 
   <record id="genero_list_action" model="ir.actions.act_window">
     <field name="name">Géneros</field>
     <field name="res_model">upomax.genero</field>
-    <field name="view_mode">list,form</field>
+    <field name="view_mode">list,form,graph</field>
   </record>
 </odoo>
