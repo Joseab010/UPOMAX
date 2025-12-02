@@ -18,7 +18,6 @@
     </field>
   </record>
 
-  
   <record id="upomax_premio_list_view" model="ir.ui.view">
     <field name="name">upomax.premio.list</field>
     <field name="model">upomax.premio</field>
@@ -43,6 +42,19 @@
         <field name="name"/> 
         <field name="peliculas_count" type="measure"/>
       </graph>
+    </field>
+  </record>
+
+  <record id="upomax_premio_search_view" model="ir.ui.view">
+    <field name="name">upomax.premio.search</field>
+    <field name="model">upomax.premio</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Premio">
+        <field name="name"/>
+        <field name="categoria"/>
+        <field name="titulo_serie"/>
+        <field name="titulo_pelicula"/>
+      </search>
     </field>
   </record>
   
