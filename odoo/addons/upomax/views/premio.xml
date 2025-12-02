@@ -52,8 +52,12 @@
       <search string="Buscar Premio">
         <field name="name"/>
         <field name="categoria"/>
-        <field name="titulo_serie"/>
-        <field name="titulo_pelicula"/>
+        
+        <separator/>
+        
+        <filter string="De Películas" name="is_movie" domain="[('titulo_pelicula', '!=', False)]"/>
+        <filter string="De Series" name="is_series" domain="[('titulo_serie', '!=', False)]"/>
+        
       </search>
     </field>
   </record>
