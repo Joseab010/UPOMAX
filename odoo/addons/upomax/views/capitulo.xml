@@ -31,6 +31,17 @@
     </field>
   </record>
 
+  <record id="upomax_capitulo_calendar_view" model="ir.ui.view">
+    <field name="name">upomax.capitulo.calendar</field>
+    <field name="model">upomax.capitulo</field>
+    <field name="arch" type="xml">
+      <calendar string="Emisión de Capítulos" date_start="fecha_emision" color="temporada_id" mode="month">
+        <field name="name"/>
+        <field name="num_capitulo"/>
+      </calendar>
+    </field>
+  </record>
+
   <record id="upomax_capitulo_search_view" model="ir.ui.view">
     <field name="name">upomax.capitulo.search</field>
     <field name="model">upomax.capitulo</field>
@@ -46,7 +57,8 @@
     <field name="name">Capitulo</field>
     <field name="res_model">upomax.capitulo</field> 
     <field name="view_mode">list,form</field>
-    <field name="search_view_id" ref="upomax_capitulo_search_view"/> <field name="help" type="html">
+    <field name="search_view_id" ref="upomax_capitulo_search_view"/>
+    <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
         Crea el primer capitulo
       </p>
