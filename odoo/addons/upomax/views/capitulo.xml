@@ -56,8 +56,7 @@
   <record id="capitulo_list_action" model="ir.actions.act_window">
     <field name="name">Capitulo</field>
     <field name="res_model">upomax.capitulo</field> 
-    <field name="view_mode">list,form</field>
-    <field name="search_view_id" ref="upomax_capitulo_search_view"/>
+    <field name="view_mode">list,form,calendar</field> <field name="search_view_id" ref="upomax_capitulo_search_view"/>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
         Crea el primer capitulo
