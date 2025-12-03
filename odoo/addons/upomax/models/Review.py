@@ -7,7 +7,7 @@ class Review(models.Model):
     _description = 'Tabla con informacion de las review'
     _rec_name = 'titulo'
     
-    name = fields.Integer(string="id review",required=True , autoincrement=True)
+
     
     titulo = fields.Char(string="Titulo de la review",required=True,size=100)
     

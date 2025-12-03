@@ -1,21 +1,21 @@
-id,name,titulo,calificacion,comentario,fecha,like,id_usuario/id,serie_id/id,pelicula_id/id
-review_001,1001,Obra Maestra,10,Increíble de principio a fin.,2025-10-01,True,usuario_demo_01,,upomax.pelicula_matrix
-review_002,1002,Sobrevalorada,6,Ha envejecido un poco mal.,2025-10-02,False,usuario_demo_02,,upomax.pelicula_matrix
-review_003,1003,Visualmente única,10,Una experiencia religiosa.,2025-10-10,True,usuario_demo_01,,upomax.pelicula_interstellar
-review_004,1004,Muy larga,8,Buena pero sobra media hora.,2025-10-12,True,usuario_demo_03,,upomax.pelicula_interstellar
-review_005,1005,Brutal,9,Nolan lo vuelve a hacer.,2025-11-01,True,usuario_demo_01,,upomax.pelicula_inception
-review_006,1006,No entendí nada,5,Demasiado liosa.,2025-11-02,False,usuario_demo_02,,upomax.pelicula_inception
-review_007,1007,Perfecta,10,El guion es un reloj suizo.,2025-11-03,True,usuario_demo_03,,upomax.pelicula_inception
-review_008,1008,Diálogos top,10,Tarantino en estado puro.,2025-11-04,True,usuario_demo_01,,upomax.pelicula_pulpfiction
-review_009,1009,Aburrida,4,Demasiada violencia gratuita.,2025-11-05,False,usuario_demo_02,,upomax.pelicula_pulpfiction
-review_010,1010,Divertida,8,Buen fan service.,2025-11-12,True,usuario_demo_03,,upomax.pelicula_spiderman
-review_011,1011,Joker legendario,10,Heath Ledger se sale.,2025-11-20,True,usuario_demo_01,,upomax.pelicula_dark_knight
-review_012,1012,Batman flojo,7,Bale podría haberlo hecho mejor.,2025-11-21,True,usuario_demo_02,,upomax.pelicula_dark_knight
-review_013,1013,Clásico total,10,La mejor saga de la historia.,2025-12-25,True,usuario_demo_03,,upomax.pelicula_star_wars_anh
-review_014,1014,Infancia,9,Me trae muy buenos recuerdos.,2025-12-28,True,usuario_demo_02,,upomax.pelicula_harry_potter_ps
-review_015,1015,Serie Top,10,Lo mejor de Netflix.,2025-11-01,True,usuario_demo_01,serie1,
-review_016,1016,Final malo,6,Arruinaron la serie al final.,2025-11-02,False,usuario_demo_02,serie6,
-review_017,1017,Comedia inteligente,10,Increíble guion.,2025-11-08,True,usuario_demo_03,serie4,
-review_018,1018,Muy lenta,5,Me dormí en el primer capítulo.,2025-10-05,False,usuario_demo_02,serie3,
-review_019,1019,Entretenida,7,Para pasar el rato está bien.,2025-10-12,True,usuario_demo_03,serie2,
-review_020,1020,Intensa,9,No apta para cardíacos.,2025-11-15,True,usuario_demo_01,serie5,
+id,titulo,calificacion,comentario,fecha,like,id_usuario/id,serie_id/id,pelicula_id/id
+review_001,Obra Maestra,10,Increíble de principio a fin.,2025-10-01,True,usuario_demo_01,,upomax.pelicula_matrix
+review_002,Sobrevalorada,6,Ha envejecido un poco mal.,2025-10-02,False,usuario_demo_02,,upomax.pelicula_matrix
+review_003,Visualmente única,10,Una experiencia religiosa.,2025-10-10,True,usuario_demo_01,,upomax.pelicula_interstellar
+review_004,Muy larga,8,Buena pero sobra media hora.,2025-10-12,True,usuario_demo_03,,upomax.pelicula_interstellar
+review_005,Brutal,9,Nolan lo vuelve a hacer.,2025-11-01,True,usuario_demo_01,,upomax.pelicula_inception
+review_006,No entendí nada,5,Demasiado liosa.,2025-11-02,False,usuario_demo_02,,upomax.pelicula_inception
+review_007,Perfecta,10,El guion es un reloj suizo.,2025-11-03,True,usuario_demo_03,,upomax.pelicula_inception
+review_008,Diálogos top,10,Tarantino en estado puro.,2025-11-04,True,usuario_demo_01,,upomax.pelicula_pulpfiction
+review_009,Aburrida,4,Demasiada violencia gratuita.,2025-11-05,False,usuario_demo_02,,upomax.pelicula_pulpfiction
+review_010,Divertida,8,Buen fan service.,2025-11-12,True,usuario_demo_03,,upomax.pelicula_spiderman
+review_011,Joker legendario,10,Heath Ledger se sale.,2025-11-20,True,usuario_demo_01,,upomax.pelicula_dark_knight
+review_012,Batman flojo,7,Bale podría haberlo hecho mejor.,2025-11-21,True,usuario_demo_02,,upomax.pelicula_dark_knight
+review_013,Clásico total,10,La mejor saga de la historia.,2025-12-25,True,usuario_demo_03,,upomax.pelicula_star_wars_anh
+review_014,Infancia,9,Me trae muy buenos recuerdos.,2025-12-28,True,usuario_demo_02,,upomax.pelicula_harry_potter_ps
+review_015,Serie Top,10,Lo mejor de Netflix.,2025-11-01,True,usuario_demo_01,serie1,
+review_016,Final malo,6,Arruinaron la serie al final.,2025-11-02,False,usuario_demo_02,serie6,
+review_017,Comedia inteligente,10,Increíble guion.,2025-11-08,True,usuario_demo_03,serie4,
+review_018,Muy lenta,5,Me dormí en el primer capítulo.,2025-10-05,False,usuario_demo_02,serie3,
+review_019,Entretenida,7,Para pasar el rato está bien.,2025-10-12,True,usuario_demo_03,serie2,
+review_020,Intensa,9,No apta para cardíacos.,2025-11-15,True,usuario_demo_01,serie5,
