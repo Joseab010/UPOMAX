@@ -5,8 +5,9 @@ from odoo.exceptions import ValidationError
 class Review(models.Model):
     _name = 'upomax.review'
     _description = 'Tabla con informacion de las review'
+    _rec_name = 'titulo'
     
-    name = fields.Integer(string="id review",required=True)
+    name = fields.Integer(string="id review",required=True , autoincrement=True)
     
     titulo = fields.Char(string="Titulo de la review",required=True,size=100)
     
@@ -71,3 +72,6 @@ class Review(models.Model):
                 raise ValidationError("La review debe estar asociada a una serie o a una película.")
             if rec.serie_id and rec.pelicula_id:
                 raise ValidationError("La review no puede estar asociada a una serie y a una película al mismo tiempo.")
+
+
+    
