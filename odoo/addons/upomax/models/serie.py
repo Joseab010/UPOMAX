@@ -5,13 +5,17 @@ class Serie(models.Model):
     _name = 'upomax.serie'
     _description = 'Tabla con informacion de las series'
 
-    name = fields.Char(string="Titulo", required=True,size=100)
-    fecha_emision=fields.Date(string="fecha de emision")
-    fecha_finalizacion=fields.Date(string="fecha de finalizacion")
+    name = fields.Char(string="Titulo", required=True, size=100)
+    fecha_emision = fields.Date(string="Fecha de emision")
+    fecha_finalizacion = fields.Date(string="Fecha de finalizacion")
     duracion = fields.Integer(string="Duración (min)")
     edad_recomendada = fields.Integer(string="Edad Recomendada")
-    puntuacion_general = fields.Float(string="Puntuación General", digits=(2, 2), compute='_compute_puntuacion_general', store=True)
-
+    puntuacion_general = fields.Float(
+        string="Puntuación General", 
+        digits=(2, 2), 
+        compute='_compute_puntuacion_general', 
+        store=True
+    )
 
     plataformas_ids = fields.Many2many(
         'upomax.plataforma',
@@ -22,32 +26,33 @@ class Serie(models.Model):
     )
     
     generos_ids = fields.Many2many(
-        'upomax.genero',           
-        'rel_genero_serie',        
-        'serie_id',                
-        'genero_id',               
+        'upomax.genero',          
+        'rel_genero_serie',       
+        'serie_id',               
+        'genero_id',              
         string="Géneros"
     )
   
-    temporadas_ids = fields.One2many('upomax.temporada',inverse_name='serie_id',string='Temporada')
-
-    premios_ids = fields.One2many('upomax.premio',inverse_name='titulo_serie',string='Premios')
-
-    reviews_ids = fields.One2many('upomax.review',inverse_name='serie_id',string='Reseñas')
-
-    participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones (persona + rol)")
+    # Asegúrate de que los modelos relacionados (upomax.temporada, etc.) existan y estén cargados
+    temporadas_ids = fields.One2many('upomax.temporada', inverse_name='serie_id', string='Temporada')
+    premios_ids = fields.One2many('upomax.premio', inverse_name='titulo_serie', string='Premios')
+    reviews_ids = fields.One2many('upomax.review', inverse_name='serie_id', string='Reseñas')
+    participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones")
     
     @api.constrains("duracion")
     def _check_duracion(self):
-        if self.duracion<0:
-            raise ValidationError("La duración no puede ser Negativa")
+        # IMPORTANTE: Siempre iterar sobre self para evitar el error "Expected Singleton"
+        for record in self:
+            if record.duracion < 0:
+                raise ValidationError("La duración no puede ser negativa")
 
     @api.depends('reviews_ids.calificacion')   
     def _compute_puntuacion_general(self):
-        for pelicula in self:
-            if pelicula.reviews_ids:
-                calificaciones = [r.calificacion for r in pelicula.reviews_ids]
-                promedio = sum(calificaciones)/ len(calificaciones)
-                pelicula.puntuacion_general = promedio
+        for serie in self:
+            if serie.reviews_ids:
+                # Asegúrate que el campo en review se llame 'calificacion'
+                calificaciones = [r.calificacion for r in serie.reviews_ids]
+                promedio = sum(calificaciones) / len(calificaciones)
+                serie.puntuacion_general = promedio
             else:
-                pelicula.puntuacion_general = 0.0  
+                serie.puntuacion_general = 0.0
