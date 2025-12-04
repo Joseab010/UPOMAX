@@ -10,12 +10,8 @@
             <field name="name" />
             <field name="categoria" />
             <field name="ano" />
-            
-            <separator string="Ganador"/>
-            <group>
-                <field name="titulo_serie" />
-                <field name="titulo_pelicula" />
-            </group>
+            <field name="titulo_serie" />
+            <field name="titulo_pelicula" />
           </group>
         </sheet>
       </form>
@@ -30,12 +26,8 @@
         <field name="name" />
         <field name="categoria" />
         <field name="ano" />
-        
-        <field name="obra_nombre" />
-        
-        <field name="tipo_obra" widget="badge" 
-               decoration-info="tipo_obra == 'serie'" 
-               decoration-success="tipo_obra == 'pelicula'"/>
+        <field name="titulo_serie" />
+        <field name="titulo_pelicula" />
       </list>
     </field>
   </record>
@@ -45,7 +37,10 @@
     <field name="model">upomax.premio</field>
     <field name="arch" type="xml">
       <graph string="Analisis de Premios" type="bar">
-        <field name="categoria"/> 
+        <field name="name"/> 
+        <field name="series_count" type="measure"/>
+        <field name="name"/> 
+        <field name="peliculas_count" type="measure"/>
       </graph>
     </field>
   </record>
@@ -57,9 +52,13 @@
       <search string="Buscar Premio">
         <field name="name"/>
         <field name="categoria"/>
+        
         <separator/>
         
-        </search>
+        <filter string="De Películas" name="is_movie" domain="[('titulo_pelicula', '!=', False)]"/>
+        <filter string="De Series" name="is_series" domain="[('titulo_serie', '!=', False)]"/>
+        
+      </search>
     </field>
   </record>
   
