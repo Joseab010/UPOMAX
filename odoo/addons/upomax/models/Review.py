@@ -15,7 +15,12 @@ class Review(models.Model):
     
     comentario= fields.Char(string="comentario de la pelicula",size=500)
     
-    fecha =fields.Date(string="fecha de publicacion")
+    fecha = fields.Date(
+        string="Fecha de publicación",
+        default=fields.Date.context_today,
+        required=True,
+        readonly=True
+    )
     
     like = fields.Boolean(string="Me gusta", required=True, default=None)
 

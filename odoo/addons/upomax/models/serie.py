@@ -41,7 +41,7 @@ class Serie(models.Model):
     
     @api.constrains("duracion")
     def _check_duracion(self):
-        # IMPORTANTE: Siempre iterar sobre self para evitar el error "Expected Singleton"
+        
         for record in self:
             if record.duracion < 0:
                 raise ValidationError("La duración no puede ser negativa")
@@ -50,7 +50,6 @@ class Serie(models.Model):
     def _compute_puntuacion_general(self):
         for serie in self:
             if serie.reviews_ids:
-                # Asegúrate que el campo en review se llame 'calificacion'
                 calificaciones = [r.calificacion for r in serie.reviews_ids]
                 promedio = sum(calificaciones) / len(calificaciones)
                 serie.puntuacion_general = promedio
