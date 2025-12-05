@@ -98,3 +98,10 @@ class Serie(models.Model):
                 raise ValidationError("La edad recomendada no puede ser negativa.")
             if rec.edad_recomendada > 18:
                 raise ValidationError("La clasificación por edades estándar llega hasta 18 años (adultos).")
+    
+    # Obligar a que tenga al menos un género
+    @api.constrains('generos_ids')
+    def _check_tiene_generos(self):
+        for rec in self:
+            if not rec.generos_ids:
+                raise ValidationError("La serie debe tener clasificado al menos un Género.")
