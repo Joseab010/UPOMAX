@@ -38,3 +38,17 @@ class productora(models.Model):
             ]
             if self.search_count(domain) > 0:
                 raise ValidationError(f"La productora '{rec.name}' ya existe en la base de datos.")
+
+    # Comprueba que ninguna película sea anterior a la fundación de la productora
+    @api.constrains('fundacion', 'peliculas_ids')
+    def _check_coherencia_peliculas(self):
+        for rec in self:
+            if rec.fundacion and rec.peliculas_ids:
+                for peli in rec.peliculas_ids:
+                    # Campo anio
+                    if peli.anio and peli.anio < rec.fundacion:
+                        raise ValidationError(
+                            f"Incoherencia temporal detectada:\n"
+                            f"- La película '{peli.name}' se estrenó el {peli.anio}.\n"
+                            f"- Pero la productora '{rec.name}' no se fundó hasta el {rec.fundacion}.\n"
+                        )
