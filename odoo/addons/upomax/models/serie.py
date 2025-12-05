@@ -80,6 +80,8 @@ class Serie(models.Model):
                 ]
                 if self.search_count(domain) > 0:
                     raise ValidationError(f"Ya existe la serie '{rec.name}' con esa fecha de emisión.")
+
+      
                 
     @api.constrains("name")
     def _check_name(self):
