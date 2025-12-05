@@ -24,10 +24,13 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        'reports/peliculas_report.xml',
-        'reports/reports.xml',
+        
         'security/security.xml',
         'security/ir.model.access.csv',
+
+        'reports/peliculas_report.xml',
+        'reports/reports.xml',
+
         'views/serie.xml',
         'views/pelicula.xml',
         'views/plataforma.xml',

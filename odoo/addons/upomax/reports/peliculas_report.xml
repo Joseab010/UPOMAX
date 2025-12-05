@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <template id="peliculas_template">
-    
     <t t-call="web.html_container">
-      
       <t t-foreach="docs" t-as="doc">
-        
         <t t-call="web.external_layout">
-          
           <div class="page">
             <h2 t-field="doc.name"/>
             
             <p><strong>Título:</strong> <span t-field="doc.name"/></p>
             <p><strong>Descripción:</strong> <span t-field="doc.descripcion"/></p>
-            <p><strong>Género:</strong> <span t-field="doc.generos_ids"/></p>
+            
+            <p><strong>Género:</strong> 
+                <span t-foreach="doc.generos_ids" t-as="genero">
+                    <span t-field="genero.name"/>, 
+                </span>
+            </p>
+
+            <p><strong>Duracion:</strong> <span t-field="doc.duracion"/> min</p>
             <p><strong>Fecha de estreno:</strong> <span t-field="doc.anio"/></p>
             <p><strong>Calificación:</strong> <span t-field="doc.puntuacion_general"/></p>
+            <p><strong>Edad recomendada:</strong> <span t-field="doc.edad_recomendada"/></p>
+            
+            <p><strong>Plataforma:</strong> 
+                 <span t-foreach="doc.plataformas_ids" t-as="plat">
+                    <span t-field="plat.name"/> 
+                 </span>
+            </p>
+            
+            <p><strong>Productora:</strong> 
+                 <span t-foreach="doc.productoras_ids" t-as="prod">
+                    <span t-field="prod.name"/> 
+                 </span>
+            </p>
           </div>
-          
-        </t> </t> </t> </template>
+        </t> 
+      </t> 
+    </t> 
+  </template>
 </odoo>
