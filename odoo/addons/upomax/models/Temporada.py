@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-
+import re
 
 class temporada(models.Model):
     _name = 'upomax.temporada'
@@ -62,3 +62,19 @@ class temporada(models.Model):
         for rec in self:
             if len(rec.name.strip()) < 3:
                 raise ValidationError("El título de la temporada es demasiado corto. Sé más descriptivo.")
+            
+    #validar coherencia entre título y número de temporada (IMPORTANTE)
+    @api.constrains('name', 'num_temporada')
+    def _check_coherencia_nombre_numero(self):
+        for rec in self:
+            # Buscamos números dentro del nombre
+            match = re.search(r'\d+', rec.name)
+            if match:
+                numero_en_nombre = int(match.group())
+                # Si el nombre dice "Temporada 5" y el campo numero es 1, error.
+                if numero_en_nombre != rec.num_temporada:
+                    raise ValidationError(
+                        f"Incoherencia detectada: En el título escribiste '{numero_en_nombre}' "
+                        f"pero en el campo 'Número de Temporada' pusiste '{rec.num_temporada}'. "
+                        "Deben coincidir."
+                    )
