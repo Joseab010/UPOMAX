@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError 
+from odoo.exceptions import ValidationError
+import re    #para las expresiones regulares
 
 class Capitulo(models.Model):
     _name = 'upomax.capitulo'
@@ -54,3 +55,11 @@ class Capitulo(models.Model):
         for record in self:
             if record.duracion < 0:
                 raise ValidationError("La duración no puede ser negativa")
+            
+    @api.constrains("name")
+    def _check_name(self):
+        for record in self:
+            if not record.name or len(record.name.strip())<3:
+                raise ValidationError("El nombre debe tener al menos 3 caracteres.")
+            if not re.match(r'^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s\.,:;!?\-\(\)\'"&]+$',record.name):
+                raise ValidationError("El nombre solo puede contener letras y espacios.")
