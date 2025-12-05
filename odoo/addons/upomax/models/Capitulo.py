@@ -56,10 +56,10 @@ class Capitulo(models.Model):
             if record.duracion < 0:
                 raise ValidationError("La duración no puede ser negativa")
             
-    @api.contrains("name")
+    @api.constrains("name")
     def _check_name(self):
         for record in self:
             if not record.name or len(record.name.strip())<3:
                 raise ValidationError("El nombre debe tener al menos 3 caracteres.")
-            if not record.match(r'^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s\.,:;!?\-\(\)\'"&]+$',record.name):
+            if not re.match(r'^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s\.,:;!?\-\(\)\'"&]+$',record.name):
                 raise ValidationError("El nombre solo puede contener letras y espacios.")
