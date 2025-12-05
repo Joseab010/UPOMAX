@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import re    #para las expresiones regulares
 
 class Serie(models.Model):
     _name = 'upomax.serie'
@@ -80,4 +81,10 @@ class Serie(models.Model):
                 if self.search_count(domain) > 0:
                     raise ValidationError(f"Ya existe la serie '{rec.name}' con esa fecha de emisión.")
                 
-  
+    @api.constrains("name")
+    def _check_name(self):
+        for record in self:
+            if not record.name or len(record.name.strip())<3:
+                raise ValidationError("El nombre debe tener al menos 3 caracteres.")
+            if not re.match(r'^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s\.,:;!?\-\(\)\'"&]+$',record.name):
+                raise ValidationError("El nombre solo puede contener letras y espacios.")
