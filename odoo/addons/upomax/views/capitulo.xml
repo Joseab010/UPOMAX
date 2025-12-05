@@ -11,6 +11,7 @@
             <field name="num_capitulo" />
             <field name="duracion" />
             <field name="temporada_id" />
+            <field name="serie_id" />
           </group>
         </sheet>
       </form>
@@ -27,6 +28,7 @@
         <field name="fecha_emision" />
         <field name="duracion" />
         <field name="temporada_id" />
+        <field name="serie_id" />
       </list>
     </field>
   </record>
