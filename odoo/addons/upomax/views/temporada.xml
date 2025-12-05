@@ -7,7 +7,6 @@
         <sheet layout="auto">
           <group>
             <field name="name" />
-            <field name="num_temporada" />
             <field name="cantidad_capitulos" />
             <field name="serie_id" widget="many2one_tags"/>
           </group>
@@ -22,9 +21,8 @@
     <field name="arch" type="xml">
       <list string="list_string">
          <field name="name" />
-            <field name="num_temporada" />
-            <field name="cantidad_capitulos" />
-            <field name="serie_id" widget="many2one_tags"/>
+         <field name="cantidad_capitulos" />
+         <field name="serie_id" widget="many2one_tags"/>
       </list>
     </field>
   </record>
