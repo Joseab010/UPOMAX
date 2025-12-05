@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="productora_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        
+        <t t-call="web.basic_layout">
+          
+          <div class="page">
+            <div class="container" style="margin-top: 50px;">
+                
+                <div class="card border-info" style="border-width: 4px;">
+                    
+                    <div class="card-header bg-info text-white text-center">
+                        <h2 class="mb-0 text-uppercase">
+                            <i class="fa fa-video-camera"></i> Ficha Técnica Productora
+                        </h2>
+                    </div>
+
+                    <div class="card-body p-5">
+                        
+                        <div class="text-center mb-4">
+                            <h1 class="display-4 font-weight-bold text-dark">
+                                <span t-field="doc.name"/>
+                            </h1>
+                            <hr class="w-50 border-info"/>
+                        </div>
+
+                        <div class="row mt-4 mb-4 text-center">
+                            <div class="col-6 border-right">
+                                <span class="text-muted text-uppercase small">País de Origen</span><br/>
+                                <strong class="h4">
+                                    <span t-if="doc.pais" t-field="doc.pais"/>
+                                    <span t-else="" class="text-muted">- No definido -</span>
+                                </strong>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-muted text-uppercase small">Fundada en</span><br/>
+                                <strong class="h4">
+                                    <span t-if="doc.fundacion" t-field="doc.fundacion"/>
+                                    <span t-else="" class="text-muted">- Desconocido -</span>
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-secondary text-center mt-4">
+                            <span class="h5">Total Películas Producidas: </span>
+                            <span class="badge badge-info h4" style="font-size: 1.2rem;">
+                                <span t-field="doc.peliculas_count"/>
+                            </span>
+                        </div>
+
+                        <div class="mt-4 p-3 border rounded">
+                            <h5 class="text-info mb-3 border-bottom pb-2">Catálogo de Películas</h5>
+                            
+                            <t t-if="doc.peliculas_ids">
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Título</th>
+                                            <th class="text-right">Año</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.peliculas_ids" t-as="peli">
+                                            <td><span t-field="peli.name"/></td>
+                                            <td class="text-right"><span t-field="peli.anio"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-else="">
+                                <p class="text-muted text-center font-italic">No hay películas registradas para esta productora.</p>
+                            </t>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer bg-white text-muted text-center small">
+                        <p class="mb-0">Generado por Sistema UPOMAX | <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/></p>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>
