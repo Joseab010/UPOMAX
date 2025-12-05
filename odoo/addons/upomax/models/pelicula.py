@@ -67,3 +67,12 @@ class Pelicula(models.Model):
                 pelicula.puntuacion_general = promedio
             else:
                 pelicula.puntuacion_general = 0.0         
+
+    # Validacion para la edad recomendada
+    @api.constrains('edad_recomendada')
+    def _check_edad_recomendada(self):
+        for rec in self:
+            if rec.edad_recomendada < 0:
+                raise ValidationError("La edad recomendada no puede ser negativa.")
+            if rec.edad_recomendada > 18:
+                raise ValidationError("La edad recomendada suele ser hasta 18 años. Para adultos usa 18.")
