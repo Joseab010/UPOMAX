@@ -26,6 +26,18 @@
       </list>
     </field>
   </record>
+   <record id="upomax_temporada_search_view" model="ir.ui.view">
+    <field name="name">upomax.capitulo.search</field>
+    <field name="model">upomax.capitulo</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Capítulo">
+        <field name="name"/>
+        <field name="temporada_id"/>
+        <field name="serie_id" string="Serie"/>
+        <filter string="Serie" name="group_by_serie" context="{'group_by': 'serie_id'}"/>
+      </search>
+    </field>
+  </record>
 
   <record id="temporada_list_action" model="ir.actions.act_window">
     <field name="name">Temporada</field>
