@@ -82,7 +82,6 @@ class Serie(models.Model):
                     raise ValidationError(f"Ya existe la serie '{rec.name}' con esa fecha de emisión.")
 
       
-                
     @api.constrains("name")
     def _check_name(self):
         for record in self:
@@ -90,3 +89,12 @@ class Serie(models.Model):
                 raise ValidationError("El nombre debe tener al menos 3 caracteres.")
             if not re.match(r'^[a-zA-Z0-9áéíóúüñÁÉÍÓÚÜÑ\s\.,:;!?\-\(\)\'"&]+$',record.name):
                 raise ValidationError("El nombre solo puede contener letras y espacios.")
+
+    # Validación para la edad recomendada
+    @api.constrains('edad_recomendada')
+    def _check_edad_recomendada(self):
+        for rec in self:
+            if rec.edad_recomendada < 0:
+                raise ValidationError("La edad recomendada no puede ser negativa.")
+            if rec.edad_recomendada > 18:
+                raise ValidationError("La clasificación por edades estándar llega hasta 18 años (adultos).")
