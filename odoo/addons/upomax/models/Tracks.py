@@ -27,3 +27,16 @@ class Tracks(models.Model):
         for rec in self:
             if not rec.capitulo_id and not rec.banda_sonora_id:
                 raise ValidationError("El track debe estar vinculado a un Capítulo o a una Banda Sonora. No puede quedar flotando en el sistema.")
+    
+    #Valiación de duplicados en el mismo capítulo
+    @api.constrains('name', 'capitulo_id')
+    def _check_duplicado_en_capitulo(self):
+        for rec in self:
+            if rec.capitulo_id:
+                domain = [
+                    ('name', '=ilike', rec.name),          
+                    ('capitulo_id', '=', rec.capitulo_id.id),
+                    ('id', '!=', rec.id)                  
+                ]
+                if self.search_count(domain) > 0:
+                    raise ValidationError(f"El track '{rec.name}' ya existe en el capítulo seleccionado.")
