@@ -10,8 +10,8 @@
 
               <div class="row mb-4">
                 <div class="col-12 text-center">
-                    <h5 class="text-muted text-uppercase">Ficha de Productora</h5>
-                    <h1 class="font-weight-bold" style="font-size: 50px;">
+                    <h5 class="text-muted text-uppercase small letter-spacing-1">Informe Oficial</h5>
+                    <h1 class="font-weight-bold text-dark" style="font-size: 48px;">
                         <span t-field="doc.name"/>
                     </h1>
                 </div>
@@ -27,76 +27,92 @@
 
               <div class="row mt-3">
                   <div class="col-6">
-                      <span class="text-muted small text-uppercase">País de Origen:</span><br/>
-                      <span class="h4 font-weight-bold" t-field="doc.pais"/>
+                      <div class="p-2">
+                        <span class="text-muted small text-uppercase">País de Origen</span><br/>
+                        <span class="h4 font-weight-bold text-dark" t-field="doc.pais"/>
+                      </div>
                   </div>
                   <div class="col-6">
-                      <span class="text-muted small text-uppercase">Fecha de Fundación:</span><br/>
-                      <span class="h4 font-weight-bold" t-field="doc.fundacion"/>
+                      <div class="p-2">
+                        <span class="text-muted small text-uppercase">Fecha de Fundación</span><br/>
+                        <i class="fa fa-calendar-o mr-1 text-muted"></i>
+                        <span class="h4 font-weight-bold text-dark" t-field="doc.fundacion"/>
+                      </div>
                   </div>
               </div>
 
               <div class="row mt-5">
                   <div class="col-12">
-                      <h5 style="color: #17a2b8;" class="text-uppercase font-weight-bold">
-                          <i class="fa fa-film"></i> Producción Total
+                      <h5 style="color: #17a2b8;" class="text-uppercase font-weight-bold mb-3">
+                          <i class="fa fa-bar-chart"></i> Producción Total
                       </h5>
-                      <div class="p-4" style="background-color: #f8f9fa; border-top: 4px solid #17a2b8;">
-                          
-                          <div class="display-4 font-weight-bold text-dark">
-                              <span t-field="doc.peliculas_count"/>
+                      <div class="p-4 shadow-sm" style="background-color: #f8f9fa; border-top: 4px solid #17a2b8; border-radius: 4px;">
+                          <div class="row text-center align-items-center">
+                              <div class="col-12">
+                                  <div class="display-4 font-weight-bold text-dark">
+                                      <span t-field="doc.peliculas_count"/>
+                                  </div>
+                                  <div class="text-muted text-uppercase small">Películas Registradas</div>
+                              </div>
                           </div>
-                          <div class="text-muted text-uppercase small">Películas registradas</div>
-                          
                       </div>
                   </div>
               </div>
 
               <div class="row mt-5">
                  <div class="col-12">
-                     <h5 style="border-bottom: 3px solid #28a745; padding-bottom: 5px;" class="text-uppercase text-muted font-weight-bold">
-                         Catálogo de Películas
+                     <h5 style="border-bottom: 3px solid #28a745; padding-bottom: 10px; margin-bottom: 20px;" class="text-uppercase text-muted font-weight-bold d-flex justify-content-between align-items-center">
+                         <span>Catálogo de Películas</span>
+                         <span class="badge badge-success badge-pill shadow-sm" style="font-size: 14px;">
+                             <span t-field="doc.peliculas_count"/> títulos
+                         </span>
                      </h5>
-                     <span class="badge badge-success rounded-pill px-3"><span t-field="doc.peliculas_count"/> películas</span>
                  </div>
               </div>
 
-              <div class="row mt-3">
+              <div class="row">
                   <div class="col-12">
-                      <table class="table table-borderless table-striped mt-2">
-                          <thead class="bg-light text-uppercase text-muted small">
-                              <tr>
-                                  <th>Título</th>
-                                  <th class="text-right">Año Estreno</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <t t-foreach="doc.peliculas_ids" t-as="peli">
-                                  <tr>
-                                      <td class="align-middle">
-                                          <span class="font-weight-bold" t-field="peli.name"/>
-                                      </td>
-                                      <td class="text-right align-middle">
-                                          <span class="badge badge-light border" style="font-size: 14px;">
-                                              <span t-field="peli.anio"/>
-                                          </span>
-                                      </td>
-                                  </tr>
-                              </t>
-                          </tbody>
-                      </table>
+                      <t t-if="doc.peliculas_ids">
+                          <div class="card shadow-sm border-0 rounded" style="background-color: white; border: 1px solid #eee;">
+                              <div class="card-body p-0"> <table class="table table-borderless mb-0">
+                                      <thead>
+                                          <tr style="border-bottom: 1px solid #f0f0f0;">
+                                              <th class="text-uppercase font-weight-bold text-dark pl-4 py-3" style="width: 70%;">
+                                                  Título
+                                              </th>
+                                              <th class="text-center text-uppercase font-weight-bold text-dark py-3" style="width: 30%;">
+                                                  Año Estreno
+                                              </th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr t-foreach="doc.peliculas_ids" t-as="peli">
+                                              <td class="align-middle pl-4 py-3">
+                                                  <span class="font-weight-bold text-dark" style="font-size: 16px;" t-field="peli.name"/>
+                                              </td>
+                                              <td class="text-center align-middle py-3">
+                                                  <span class="text-success font-weight-bold" t-field="peli.anio"/>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+
+                              </div>
+                          </div>
+                      </t>
                       
-                      <t t-if="not doc.peliculas_ids">
-                          <div class="alert alert-warning mt-2 text-center">
-                              No hay películas asociadas a esta productora.
+                      <t t-else="">
+                          <div class="card shadow-sm border-0 rounded p-5 text-center">
+                              <p class="text-muted mb-0 font-italic">No hay películas asociadas a esta productora.</p>
                           </div>
                       </t>
                   </div>
               </div>
 
-              <div class="footer text-center" style="border-top: 1px solid #ddd; margin-top: 50px; padding-top: 10px;">
+              <div class="footer text-center" style="border-top: 1px solid #eee; margin-top: 60px; padding-top: 15px;">
                   <small class="text-muted">
-                      Informe generado por UPOMAX | <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                      Documento oficial UPOMAX | Generado el 
+                      <span class="font-weight-bold" t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
                   </small>
               </div>
 
