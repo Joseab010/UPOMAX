@@ -26,34 +26,6 @@ class Premio(models.Model):
         help="La película que recibió el premio.")
     
     
-    obra_nombre = fields.Char(
-        string="Obra Premiada", 
-        compute='_compute_obra_info', 
-        store=True
-    )
-    
-    tipo_obra = fields.Selection([
-        ('serie', 'Serie'),
-        ('pelicula', 'Película')
-    ], string="Tipo", compute='_compute_obra_info', store=True)
-
-   
-    @api.depends('titulo_serie', 'titulo_pelicula')
-    def _compute_obra_info(self):
-        for record in self:
-            if record.titulo_serie:
-                # Si hay serie, cogemos su nombre y marcamos tipo serie
-                record.obra_nombre = record.titulo_serie.name 
-                record.tipo_obra = 'serie'
-            elif record.titulo_pelicula:
-                # Si hay peli, cogemos su nombre y marcamos tipo pelicula
-                record.obra_nombre = record.titulo_pelicula.name
-                record.tipo_obra = 'pelicula'
-            else:
-                record.obra_nombre = "Desconocido"
-                record.tipo_obra = False
-
-    
     series_count = fields.Integer(
         string="Nº Series", 
         compute='_compute_conteo', 

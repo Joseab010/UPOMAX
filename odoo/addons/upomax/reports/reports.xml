@@ -11,4 +11,15 @@
         <field name="binding_model_id" ref="model_upomax_pelicula"/>
         <field name="binding_type">report</field>
     </record>
+    <record id="premios_report" model="ir.actions.report">
+        <field name="name">Premios</field>
+        <field name="model">upomax.premio</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upomax.premios_template</field>
+        <field name="report_file">upomax.premios_template</field>
+        <field name="print_report_name">'Premio - %s' % (object.name)</field>
+
+        <field name="binding_model_id" ref="model_upomax_premio"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>

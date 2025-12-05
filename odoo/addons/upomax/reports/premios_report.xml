@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="premios_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        
+        <t t-call="web.basic_layout">
+          
+          <div class="page">
+            
+            <div class="container" style="margin-top: 50px;">
+                
+                <div class="card border-warning" style="border-width: 4px;">
+                    
+                    <div class="card-header bg-warning text-white text-center">
+                        <h1 class="mb-0 text-uppercase">
+                            <i class="fa fa-trophy"></i> CERTIFICADO DE PREMIO
+                        </h1>
+                    </div>
+
+                    <div class="card-body text-center p-5">
+                        
+                        <h2 class="display-4 text-dark mb-4">
+                            <span t-field="doc.name"/>
+                        </h2>
+
+                        <hr class="w-50" />
+
+                        <div class="row mt-4 mb-4">
+                            <div class="col-6 text-right border-right">
+                                <span class="text-muted text-uppercase small">Categoría</span><br/>
+                                <strong class="h4"><span t-field="doc.categoria"/></strong>
+                            </div>
+                            <div class="col-6 text-left">
+                                <span class="text-muted text-uppercase small">Año de entrega</span><br/>
+                                <strong class="h4"><span t-field="doc.ano"/></strong>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 p-4 rounded border">
+                            
+                            <h5 class="text-muted mb-3">OTORGADO A:</h5>
+
+                            <div t-if="doc.titulo_pelicula" class="alert alert-success mb-0">
+                                <i class="fa fa-film fa-2x mb-2"></i><br/>
+                                <span class="display-5 font-weight-bold" style="font-size: 28px;">
+                                    <span t-field="doc.titulo_pelicula"/>
+                                </span>
+                                <br/>
+                              
+                            </div>
+
+                            <div t-if="doc.titulo_serie" class="alert alert-info mb-0">
+                                <i class="fa fa-play-circle fa-2x mb-2"></i><br/>
+                                <span class="display-5 font-weight-bold" style="font-size: 28px;">
+                                    <span t-field="doc.titulo_serie"/>
+                                </span>
+                                <br/>
+                               
+                            </div>
+
+                            <div t-if="not doc.titulo_pelicula and not doc.titulo_serie" class="alert alert-secondary">
+                                <em>Pendiente de asignación</em>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-muted text-center">
+                        <small>Sistema de Gestión UPOMAX</small>
+                    </div>
+
+                </div>
+            </div>
+
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>
