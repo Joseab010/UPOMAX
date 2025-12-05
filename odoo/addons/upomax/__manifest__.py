@@ -15,8 +15,9 @@ Long description of module's purpose
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
-    
     'application': True,
+    'icon': 'upomax/static/description/logo.png',
+
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
