@@ -41,4 +41,11 @@ class temporada(models.Model):
                     ('id', '!=', rec.id)  # Excluimos el registro que estamos editando
                 ]
                 if self.search_count(domain) > 0:
-                    raise ValidationError(f"La serie '{rec.serie_id.name}' ya tiene registrada la Temporada {rec.num_temporada}.")    
+                    raise ValidationError(f"La serie '{rec.serie_id.name}' ya tiene registrada la Temporada {rec.num_temporada}.")
+
+    #Validación numérica lógica
+    @api.constrains('num_temporada')
+    def _check_numero_logico(self):
+        for rec in self:
+            if rec.num_temporada < 1:
+                raise ValidationError("El número de temporada debe ser 1 o superior.") 
