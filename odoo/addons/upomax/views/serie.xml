@@ -41,13 +41,12 @@
     <field name="arch" type="xml">
       <search>
        
-
         <filter string="Para Adultos (+18)" name="adultos" domain="[('edad_recomendada', '>=', 18)]"/>
         <filter string="Aptas para todos (-12)" name="niños" domain="[('edad_recomendada', '&lt;', 12)]"/>
         <filter string="Obras Maestras (>8.5)" name="top" domain="[('puntuacion_general', '>', 8.5)]"/>
 
         <group>
-            <filter string="Año" name="group_anio" context="{'group_by': 'anio'}"/>
+            
             <filter string="Edad Recomendada" name="group_edad" context="{'group_by': 'edad_recomendada'}"/>
             
         </group>
