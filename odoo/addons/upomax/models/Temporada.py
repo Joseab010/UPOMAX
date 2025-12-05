@@ -49,3 +49,9 @@ class temporada(models.Model):
         for rec in self:
             if rec.num_temporada < 1:
                 raise ValidationError("El número de temporada debe ser 1 o superior.") 
+            
+    @api.constrains('serie_id')
+    def _check_serie_obligatoria(self):
+        for rec in self:
+            if not rec.serie_id:
+                raise ValidationError("Toda temporada debe pertenecer a una Serie. El campo no puede estar vacío.")
