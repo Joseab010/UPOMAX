@@ -22,4 +22,16 @@
         <field name="binding_model_id" ref="model_upomax_premio"/>
         <field name="binding_type">report</field>
     </record>
+
+    <record id="productora_report" model="ir.actions.report">
+        <field name="name">Ficha de Productora</field>
+        <field name="model">upomax.productora</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">upomax.productora_template</field>
+        <field name="report_file">upomax.productora_template</field>
+        <field name="print_report_name">'Productora - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_upomax_productora"/>
+        <field name="binding_type">report</field>
+    </record>
+
 </odoo>
