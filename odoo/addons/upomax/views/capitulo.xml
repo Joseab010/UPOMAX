@@ -51,6 +51,7 @@
       <search string="Buscar Capítulo">
         <field name="name"/>
         <field name="temporada_id"/>
+        <field name="serie_id" string="Serie"/>
         <filter string="Serie" name="group_by_serie" context="{'group_by': 'serie_id'}"/>
       </search>
     </field>
