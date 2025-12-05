@@ -63,3 +63,16 @@ class Serie(models.Model):
             if rec.fecha_emision and rec.fecha_finalizacion:
                 if rec.fecha_finalizacion < rec.fecha_emision:
                     raise ValidationError("La fecha de finalización no puede ser anterior a la fecha de emisión.")
+
+    #Evitar duplicidad ya que puede haber reboots pero no con misma fecha de emision            
+    @api.constrains('name', 'fecha_emision')
+    def _check_nombre_emision_unico(self):
+        for rec in self:
+            if rec.name and rec.fecha_emision:
+                domain = [
+                    ('name', '=', rec.name),
+                    ('fecha_emision', '=', rec.fecha_emision),
+                    ('id', '!=', rec.id)
+                ]
+                if self.search_count(domain) > 0:
+                    raise ValidationError(f"Ya existe la serie '{rec.name}' con esa fecha de emisión.")
