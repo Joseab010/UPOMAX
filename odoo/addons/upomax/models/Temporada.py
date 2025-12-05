@@ -28,4 +28,23 @@ class temporada(models.Model):
     def _compute_cantidad_capitulos(self):
         for record in self:
             record.cantidad_capitulos = len(record.capitulo_ids)
-    
+
+    #Validación para que el número de temporada sea lógico
+    @api.constrains('num_temporada')
+    def _check_numero_logico(self):
+        for rec in self:
+            if rec.num_temporada < 1:
+                raise ValidationError("El número de temporada debe ser 1 o superior. No existen temporadas negativas o cero.")
+            
+    #validación unicidad temporada por serie
+    @api.constrains('serie_id', 'num_temporada')
+    def _check_temporada_duplicada(self):
+        for rec in self:
+            if rec.serie_id and rec.num_temporada:
+                domain = [
+                    ('serie_id', '=', rec.serie_id.id),
+                    ('num_temporada', '=', rec.num_temporada),
+                    ('id', '!=', rec.id)  # Excluimos el registro que estamos editando
+                ]
+                if self.search_count(domain) > 0:
+                    raise ValidationError(f"La serie '{rec.serie_id.name}' ya tiene registrada la Temporada {rec.num_temporada}.")    

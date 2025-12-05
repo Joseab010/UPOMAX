@@ -76,3 +76,16 @@ class Pelicula(models.Model):
                 raise ValidationError("La edad recomendada no puede ser negativa.")
             if rec.edad_recomendada > 18:
                 raise ValidationError("La edad recomendada suele ser hasta 18 años. Para adultos usa 18.")
+            
+    #Validacion para nombre y año único. (Importante porque pueden haber "remakes")
+    @api.constrains('name', 'anio')
+    def _check_pelicula_unica(self):
+        for rec in self:
+            if rec.name and rec.anio:
+                domain = [
+                    ('name', '=ilike', rec.name), 
+                    ('anio', '=', rec.anio),      
+                    ('id', '!=', rec.id)          
+                ]
+                if self.search_count(domain) > 0:
+                    raise ValidationError(f"Ya existe una película llamada '{rec.name}' estrenada en {rec.anio}. ¿Seguro que no está duplicada?")
