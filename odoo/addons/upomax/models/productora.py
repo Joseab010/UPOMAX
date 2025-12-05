@@ -27,3 +27,14 @@ class productora(models.Model):
     def _compute_conteo(self):
         for record in self:
             record.peliculas_count=len(record.peliculas_ids)
+
+    #Validación duplicidad nombre productora
+    @api.constrains('name')
+    def _check_nombre_unico(self):
+        for rec in self:
+            domain = [
+                ('name', '=ilike', rec.name),
+                ('id', '!=', rec.id) # Q no sea el mismo
+            ]
+            if self.search_count(domain) > 0:
+                raise ValidationError(f"La productora '{rec.name}' ya existe en la base de datos.")
