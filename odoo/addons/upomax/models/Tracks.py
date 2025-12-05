@@ -20,3 +20,10 @@ class Tracks(models.Model):
     def _check_duracion(self):
         if self.duracion<0:
             raise ValidationError("La duración no puede ser Negativa")
+        
+    #impedir capítulos huérfanos
+    @api.constrains('capitulo_id', 'banda_sonora_id')
+    def _check_track_huerfano(self):
+        for rec in self:
+            if not rec.capitulo_id and not rec.banda_sonora_id:
+                raise ValidationError("El track debe estar vinculado a un Capítulo o a una Banda Sonora. No puede quedar flotando en el sistema.")
