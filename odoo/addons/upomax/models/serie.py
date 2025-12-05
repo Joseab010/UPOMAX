@@ -39,6 +39,9 @@ class Serie(models.Model):
     reviews_ids = fields.One2many('upomax.review', inverse_name='serie_id', string='Reseñas')
     participacion_ids = fields.One2many('upomax.persona.tipo', 'serie_id', string="Participaciones")
     
+
+    
+    image = fields.Image(string="Carátula", max_width=1024, max_height=1024)
     @api.constrains("duracion")
     def _check_duracion(self):
         
