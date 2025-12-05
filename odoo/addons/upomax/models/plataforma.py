@@ -45,3 +45,21 @@ class plataforma(models.Model):
             ]
             if self.search_count(domain) > 0:
                 raise ValidationError(f"La plataforma '{rec.name}' ya existe. No crees duplicados.")
+            
+    # Validación calidad nombre plataforma
+    @api.constrains('name')
+    def _check_nombre_calidad(self):
+        for rec in self:
+            nombre = rec.name.strip()
+            # Longitud mínima
+            if len(nombre) < 2:
+                raise ValidationError("El nombre es demasiado corto para una plataforma.")
+            
+            # No empezar por número
+            if nombre[0].isdigit():
+                raise ValidationError("El nombre de una plataforma no debería empezar por un número.")
+            
+            # Caracteres prohibidos
+            forbidden = ['@', '$', '%', '/', '\\', '{', '}']
+            if any(char in nombre for char in forbidden):
+                raise ValidationError("El nombre contiene caracteres inválidos que no parecen un nombre comercial.")
