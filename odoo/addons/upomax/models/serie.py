@@ -55,3 +55,11 @@ class Serie(models.Model):
                 serie.puntuacion_general = promedio
             else:
                 serie.puntuacion_general = 0.0
+
+    #Validacion para fechas coherentes
+    @api.constrains('fecha_emision', 'fecha_finalizacion')
+    def _check_fechas_coherentes(self):
+        for rec in self:
+            if rec.fecha_emision and rec.fecha_finalizacion:
+                if rec.fecha_finalizacion < rec.fecha_emision:
+                    raise ValidationError("La fecha de finalización no puede ser anterior a la fecha de emisión.")
