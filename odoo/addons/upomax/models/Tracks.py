@@ -40,3 +40,9 @@ class Tracks(models.Model):
                 ]
                 if self.search_count(domain) > 0:
                     raise ValidationError(f"El track '{rec.name}' ya existe en el capítulo seleccionado.")
+                
+    @api.constrains('name')
+    def _check_nombre_calidad(self):
+        for rec in self:
+            if len(rec.name.strip()) < 3:
+                raise ValidationError("El título del track es demasiado corto. Debe tener al menos 3 caracteres.")
