@@ -31,6 +31,7 @@ Long description of module's purpose
         'reports/peliculas_report.xml',
         'reports/reports.xml',
         'reports/premios_report.xml',
+        'reports/productora_report.xml',
 
         'views/serie.xml',
         'views/pelicula.xml',
