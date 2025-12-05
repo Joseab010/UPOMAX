@@ -40,6 +40,12 @@ class Capitulo(models.Model):
         "capitulo_id", 
         string="Tracks del capítulo"
     )
+
+    serie_id = fields.Many2one(
+        'upomax.serie',
+        string='Serie',
+        required=True
+    )
     
     @api.constrains("duracion")
     def _check_duracion(self):
