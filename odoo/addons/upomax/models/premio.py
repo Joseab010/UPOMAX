@@ -43,3 +43,13 @@ class Premio(models.Model):
         for record in self:
             record.peliculas_count = 1 if record.titulo_pelicula else 0
             record.series_count = 1 if record.titulo_serie else 0
+    
+    # Validación fecha histórica premios
+    @api.constrains('ano')
+    def _check_fecha_historica(self):
+        for rec in self:
+            if rec.ano:
+                if rec.ano.year < 1929:
+                    raise ValidationError(f"Los premios de cine modernos empezaron en 1929. El año {rec.ano.year} no parece válido.")
+                if rec.ano > fields.Date.today():
+                    raise ValidationError("No puedes registrar premios con fecha futura.")
