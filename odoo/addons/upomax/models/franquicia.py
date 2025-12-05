@@ -24,11 +24,13 @@ class franquicia(models.Model):
         for record in self:
             record.peliculas_count=len(record.peliculas_ids)
            
-    @api.constrains('anyo')
-    def _check_anyo(self):
-     current_year = datetime.now().year
-     for rec in self:
-        if rec.anyo:
-            anio_rec = rec.anyo.year 
-            if not (1900 <= anio_rec <= current_year):
-                raise ValidationError(f"El año debe estar entre 1900 y {current_year}.")
+    @api.constrains('anio_inicio')
+    def _check_anio_inicio(self):
+        current_year = datetime.now().year
+        for rec in self:
+            if rec.anio_inicio:
+                anio = rec.anio_inicio.year 
+                if anio < 1895:
+                    raise ValidationError("El cine se inventó en 1895. La franquicia no puede ser anterior.")
+                if anio > current_year + 5:
+                    raise ValidationError("La fecha de inicio es demasiado lejana en el futuro.")
