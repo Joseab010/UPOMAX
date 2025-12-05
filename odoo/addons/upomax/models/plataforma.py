@@ -34,4 +34,14 @@ class plataforma(models.Model):
         for record in self:
             record.peliculas_count=len(record.peliculas_ids)
             record.series_count=len(record.series_ids)
-           
+    
+    # Validación unicidad nombre plataforma
+    @api.constrains('name')
+    def _check_nombre_unico(self):
+        for rec in self:
+            domain = [
+                ('name', '=ilike', rec.name), 
+                ('id', '!=', rec.id)        # Q no sea el mismo
+            ]
+            if self.search_count(domain) > 0:
+                raise ValidationError(f"La plataforma '{rec.name}' ya existe. No crees duplicados.")
