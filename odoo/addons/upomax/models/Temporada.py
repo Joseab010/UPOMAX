@@ -55,3 +55,10 @@ class temporada(models.Model):
         for rec in self:
             if not rec.serie_id:
                 raise ValidationError("Toda temporada debe pertenecer a una Serie. El campo no puede estar vacío.")
+    
+    #Validación calidad nombre temporada
+    @api.constrains('name')
+    def _check_nombre_calidad(self):
+        for rec in self:
+            if len(rec.name.strip()) < 3:
+                raise ValidationError("El título de la temporada es demasiado corto. Sé más descriptivo.")
