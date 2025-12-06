@@ -27,3 +27,10 @@ class Banda_sonora(models.Model):
             anio_rec = rec.anyo.year 
             if not (1900 <= anio_rec <= current_year):
                 raise ValidationError(f"El año debe estar entre 1900 y {current_year}.")
+            
+    @api.constrains('name')
+    def _check_name(self):
+       for rec in self:
+          if not rec.name or len(rec.name.strip()) < 3:
+             raise ValidationError("El nombre de la banda sonora debe tener al menos 3 caracteres.")
+
