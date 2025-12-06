@@ -40,4 +40,9 @@ class Banda_sonora(models.Model):
           if not rec.pais or len(rec.pais.strip()) < 4:
              raise ValidationError("El nombre del pais debe tener al menos 4 caracteres.")
           
-    
+    @api.constrains('peliculas_ids')
+    def _check_peliculas_ids(self):
+       for rec in self:
+          if not rec.peliculas_ids:
+             raise ValidationError("La banda sonora debe estar asociada al menos a una pelicula.")
+          
