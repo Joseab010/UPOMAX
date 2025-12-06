@@ -7,9 +7,9 @@
         <sheet layout="auto">
           <group>
             <field name="name" />
-            <field name="anyo" />
+            <field name="anyo" string="Fecha de publicación"/>
             <field name="pais" />
-            <field name="peliculas_ids" />
+            <field name="peliculas_ids" string="Peliculas asociadas"/>
           </group>
         </sheet>
       </form>
