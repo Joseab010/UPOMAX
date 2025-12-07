@@ -4,10 +4,14 @@
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h2 t-esc="doc.name"/>
-
+                        <h1 t-esc="doc.name"/>
+                        <h5>Informe Oficial</h5>
                         <p>
                             <strong>Series:</strong>
+                             <p>
+                            <strong>Numero de Series:</strong>
+                            <span t-esc="doc.series_count"/>
+                            </p>
                             <ul>
                                 <t t-foreach="doc.series_ids" t-as="serie">
                                     <li>
@@ -19,6 +23,10 @@
                         
                         <p>
                             <strong>Peliculas:</strong>
+                             <p>
+                            <strong>Numero de peliculas:</strong>
+                            <span t-esc="doc.peliculas_count"/>
+                        </p>
                             <ul>
                                 <t t-foreach="doc.peliculas_ids" t-as="pelicula">
                                     <li>
@@ -28,14 +36,7 @@
                             </ul>
                         </p>
 
-                        <p>
-                            <strong>Numero de Series:</strong>
-                            <span t-esc="doc.series_count"/>
-                        </p>
-                        <p>
-                            <strong>Numero de peliculas:</strong>
-                            <span t-esc="doc.peliculas_count"/>
-                        </p>
+                        
                     </div>
                 </t>
             </t>
