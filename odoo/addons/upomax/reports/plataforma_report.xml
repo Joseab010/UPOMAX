@@ -5,13 +5,30 @@
         <t t-call="web.external_layout">
              <div class="page">
             <h2 t-esc="doc.name"/>
+
              <p>
-    <strong>Series:</strong>
-    <span t-esc="doc.series_ids"/>
-    </p>
+                <strong>Series:</strong>
+                <ul>
+                   <t t-foreach="doc.series_ids" t-as="serie">
+                        <li>
+                            <span t-field="serie.name"/>
+                        </li>
+                    </t>
+
+                </ul>
+               
+            </p>
     <p>
     <strong>Peliculas:</strong>
-    <span t-esc="doc.peliculas_ids"/>
+            <ul>
+                   <t t-foreach="doc.peliculas_ids" t-as="serie">
+                        <li>
+                            <span t-field="pelicula.name"/>
+                        </li>
+                    </t>
+
+                </ul>
+               
     </p>
     <p>
     <strong>Numero de Series:</strong>
