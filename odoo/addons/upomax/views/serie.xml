@@ -1,4 +1,28 @@
 <odoo>
+
+  <record id="upomax_reparto_simple_tree" model="ir.ui.view">
+    <field name="name">upomax.reparto.simple.tree</field>
+    <field name="model">upomax.persona.tipo</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="tipo_id" column_invisible="True"/> 
+        <field name="persona_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="upomax_reparto_actor_tree" model="ir.ui.view">
+    <field name="name">upomax.reparto.actor.tree</field>
+    <field name="model">upomax.persona.tipo</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="tipo_id" column_invisible="True"/>
+        <field name="persona_id"/>
+        <field name="personaje"/>
+      </list>
+    </field>
+  </record>
+
   <record id="upomax_serie_form_view" model="ir.ui.view">
     <field name="name">upomax.serie.form</field>
     <field name="model">upomax.serie</field>
@@ -14,6 +38,29 @@
             <field name="edad_recomendada"/>
             <field name="plataformas_ids" widget="many2many_tags"/>
           </group>
+
+          <notebook>
+            <page string="Reparto">
+                <group string="Dirección">
+                    <field name="directores_ids" 
+                           context="{'default_tipo_id': %(upomax.tipo_director)d, 'tree_view_ref': 'upomax.upomax_reparto_simple_tree'}"/>
+                </group>
+
+                <group string="Actores">
+                    <field name="actores_ids" 
+                           context="{'default_tipo_id': %(upomax.tipo_actor)d, 'tree_view_ref': 'upomax.upomax_reparto_actor_tree'}"/>
+                </group>
+
+                <group string="Compositores">
+                    <field name="compositores_ids" 
+                           context="{'default_tipo_id': %(upomax.tipo_compositor)d, 'tree_view_ref': 'upomax.upomax_reparto_simple_tree'}"/>
+                </group>
+            </page>
+
+            <page string="General">
+                 <field name="participacion_ids"/>
+            </page>
+          </notebook>
         </sheet>
       </form>
     </field>
@@ -23,14 +70,10 @@
     <field name="name">upomax.serie.list</field>
     <field name="model">upomax.serie</field>
     <field name="arch" type="xml">
-      <list string="list_string">
+      <list string="Series">
           <field name="name" />
-          <field name="fecha_emision" />
-          <field name="fecha_finalizacion" />
-          <field name="duracion" />
           <field name="puntuacion_general"/>
-          <field name="edad_recomendada"/>
-          <field name="plataformas_ids" widget="many2many_tags"/>
+          <field name="fecha_emision" />
       </list>
     </field>
   </record>
@@ -40,16 +83,7 @@
     <field name="model">upomax.serie</field>
     <field name="arch" type="xml">
       <search>
-       
-        <filter string="Para Adultos (+18)" name="adultos" domain="[('edad_recomendada', '>=', 18)]"/>
-        <filter string="Aptas para todos (-12)" name="niños" domain="[('edad_recomendada', '&lt;', 12)]"/>
-        <filter string="Obras Maestras (>8.5)" name="top" domain="[('puntuacion_general', '>', 8.5)]"/>
-
-        <group>
-            
-            <filter string="Edad Recomendada" name="group_edad" context="{'group_by': 'edad_recomendada'}"/>
-            
-        </group>
+        <field name="name"/>
       </search>
     </field>
   </record>
@@ -58,9 +92,5 @@
     <field name="name">Serie</field>
     <field name="res_model">upomax.serie</field>
     <field name="view_mode">list,form</field>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">Create the first serie</p>
-    </field>
   </record>
-
 </odoo>

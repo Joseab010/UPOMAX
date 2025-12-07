@@ -1,0 +1,31 @@
+id,persona_id/id,tipo_id/id,pelicula_id/id,serie_id/id,personaje
+pt_leo_inception,upomax.persona_dicaprio,upomax.tipo_actor,upomax.pelicula_inception,,"Dominick Cobb"
+pt_spielberg_inception,upomax.persona_spielberg,upomax.tipo_director,upomax.pelicula_inception,,
+pt_tarantino_pulp_dir,upomax.persona_tarantino,upomax.tipo_director,upomax.pelicula_pulpfiction,,
+pt_tarantino_pulp_act,upomax.persona_tarantino,upomax.tipo_actor,upomax.pelicula_pulpfiction,,"Jimmie Dimmick"
+pt_eastwood_pulp,upomax.persona_eastwood,upomax.tipo_actor,upomax.pelicula_pulpfiction,,"Mr. White (Cameo)"
+pt_cate_lotr,upomax.persona_blanchett,upomax.tipo_actor,upomax.pelicula_lotr_fotr,,"Galadriel"
+pt_hopkins_lotr,upomax.persona_hopkins,upomax.tipo_actor,upomax.pelicula_lotr_fotr,,"Gandalf (Demo)"
+pt_hisaishi_inception,upomax.persona_hisaishi,upomax.tipo_compositor,upomax.pelicula_inception,,
+pt_morricone_gladiator,upomax.persona_morricone,upomax.tipo_compositor,upomax.pelicula_gladiator,,
+pt_crowe_gladiator,upomax.persona_eastwood,upomax.tipo_actor,upomax.pelicula_gladiator,,"General Maximus (Versión Eastwood)"
+pt_scott_gladiator,upomax.persona_spielberg,upomax.tipo_director,upomax.pelicula_gladiator,,
+pt_hopkins_got,upomax.persona_hopkins,upomax.tipo_actor,,upomax.serie_got,"Maestre Aemon"
+pt_streep_got,upomax.persona_streep,upomax.tipo_actor,,upomax.serie_got,"Olenna Tyrell"
+pt_deltoro_got_dir,upomax.persona_deltoro,upomax.tipo_director,,upomax.serie_got,
+pt_morricone_arcane,upomax.persona_morricone,upomax.tipo_compositor,,upomax.serie_arcane,
+pt_hisaishi_goodplace,upomax.persona_hisaishi,upomax.tipo_compositor,,upomax.serie_goodplace,
+pt_deltoro_dark,upomax.persona_deltoro,upomax.tipo_director,,upomax.serie_dark,
+pt_dicaprio_dark,upomax.persona_dicaprio,upomax.tipo_actor,,upomax.serie_dark,"Jonas Kahnwald (Adulto)"
+pt_streep_succession,upomax.persona_streep,upomax.tipo_actor,,upomax.serie_succession,"Gerri Kellman"
+pt_hopkins_succession,upomax.persona_hopkins,upomax.tipo_actor,,upomax.serie_succession,"Logan Roy"
+pt_tarantino_fleabag,upomax.persona_tarantino,upomax.tipo_director,,upomax.serie_fleabag,
+pt_blanchett_dune,upomax.persona_blanchett,upomax.tipo_actor,upomax.pelicula_dune,,"Lady Jessica"
+pt_hisaishi_dune,upomax.persona_hisaishi,upomax.tipo_compositor,upomax.pelicula_dune,,
+pt_spielberg_starwars,upomax.persona_spielberg,upomax.tipo_director,upomax.pelicula_star_wars_anh,,
+pt_eastwood_starwars,upomax.persona_eastwood,upomax.tipo_actor,upomax.pelicula_star_wars_anh,,"Obi-Wan Kenobi"
+pt_morricone_matrix,upomax.persona_morricone,upomax.tipo_compositor,upomax.pelicula_matrix,,
+pt_dicaprio_matrix,upomax.persona_dicaprio,upomax.tipo_actor,upomax.pelicula_matrix,,"Neo"
+pt_blanchett_matrix,upomax.persona_blanchett,upomax.tipo_actor,upomax.pelicula_matrix,,"Trinity"
+pt_deltoro_harrypotter,upomax.persona_deltoro,upomax.tipo_director,upomax.pelicula_harry_potter_ps,,
+pt_streep_harrypotter,upomax.persona_streep,upomax.tipo_actor,upomax.pelicula_harry_potter_ps,,"Profesora McGonagall"

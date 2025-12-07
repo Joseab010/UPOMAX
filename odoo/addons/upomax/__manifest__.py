@@ -23,18 +23,31 @@ Long description of module's purpose
     'depends': ['base'],
 
     # always loaded
-    'data': [
-        
+   'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        
+        'demo/upomax.tipo.csv',
+        'demo/upomax.persona.tipo.csv',
+        'demo/upomax.genero.csv',
+        'demo/upomax.plataforma.csv',
+        'demo/upomax.franquicia.csv',
+        'demo/upomax.productora.csv',
+        'demo/upomax.banda.sonora.csv',
+        'demo/upomax.usuario.csv', 
+        'demo/upomax.persona.csv',  
+        
+        'demo/upomax.serie.csv',
+        'demo/upomax.pelicula.csv',
 
-        'reports/peliculas_report.xml',
-        'reports/reports.xml',
-        'reports/premios_report.xml',
-        'reports/productora_report.xml',
-        'reports/series_report.xml',
-        'reports/plataforma_report.xml',
+        
+        'demo/upomax.temporada.csv',
+        'demo/upomax.capitulo.csv',
+        'demo/upomax.track.csv',
+        'demo/upomax.premio.csv',
+        'demo/upomax.review.csv',
 
+        
         'views/serie.xml',
         'views/pelicula.xml',
         'views/plataforma.xml',
@@ -50,22 +63,13 @@ Long description of module's purpose
         'views/usuario.xml',
         'views/premio.xml',
         'views/menu.xml',
-        
-        'demo/upomax.genero.csv',
-        'demo/upomax.plataforma.csv',
-        'demo/upomax.franquicia.csv',
-        'demo/upomax.serie.csv',
-        'demo/upomax.productora.csv',
-        'demo/upomax.temporada.csv',
-        'demo/upomax.capitulo.csv',
-        'demo/upomax.track.csv',
-        'demo/upomax.banda.sonora.csv',
-        'demo/upomax.pelicula.csv',
-        'demo/upomax.persona.csv',
-        'demo/upomax.premio.csv',
-        'demo/upomax.usuario.csv',
-        'demo/upomax.review.csv',
-        
+
+        'reports/reports.xml',
+        'reports/peliculas_report.xml',
+        'reports/premios_report.xml',
+        'reports/productora_report.xml',
+        'reports/series_report.xml',
+        'reports/plataforma_report.xml',
     ],
     
     # only loaded in demonstration mode

@@ -13,9 +13,9 @@ review_011,Joker legendario,10,Heath Ledger se sale.,2025-11-20,True,usuario_dem
 review_012,Batman flojo,7,Bale podría haberlo hecho mejor.,2025-11-21,True,usuario_demo_02,,upomax.pelicula_dark_knight
 review_013,Clásico total,10,La mejor saga de la historia.,2025-12-25,True,usuario_demo_03,,upomax.pelicula_star_wars_anh
 review_014,Infancia,9,Me trae muy buenos recuerdos.,2025-12-28,True,usuario_demo_02,,upomax.pelicula_harry_potter_ps
-review_015,Serie Top,10,Lo mejor de Netflix.,2025-11-01,True,usuario_demo_01,serie1,
-review_016,Final malo,6,Arruinaron la serie al final.,2025-11-02,False,usuario_demo_02,serie6,
-review_017,Comedia inteligente,10,Increíble guion.,2025-11-08,True,usuario_demo_03,serie4,
-review_018,Muy lenta,5,Me dormí en el primer capítulo.,2025-10-05,False,usuario_demo_02,serie3,
-review_019,Entretenida,7,Para pasar el rato está bien.,2025-10-12,True,usuario_demo_03,serie2,
-review_020,Intensa,9,No apta para cardíacos.,2025-11-15,True,usuario_demo_01,serie5,
+review_015,Serie Top,10,Lo mejor de Netflix.,2025-11-01,True,usuario_demo_01,upomax.serie_arcane,
+review_016,Final malo,6,Arruinaron la serie al final.,2025-11-02,False,usuario_demo_02,upomax.serie_got,
+review_017,Comedia inteligente,10,Increíble guion.,2025-11-08,True,usuario_demo_03,upomax.serie_fleabag,
+review_018,Muy lenta,5,Me dormí en el primer capítulo.,2025-10-05,False,usuario_demo_02,upomax.serie_dark,
+review_019,Entretenida,7,Para pasar el rato está bien.,2025-10-12,True,usuario_demo_03,upomax.serie_goodplace,
+review_020,Intensa,9,No apta para cardíacos.,2025-11-15,True,usuario_demo_01,upomax.serie_succession,

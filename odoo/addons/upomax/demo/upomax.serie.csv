@@ -1,8 +1,8 @@
 id,name,fecha_emision,fecha_finalizacion,duracion,plataformas_ids/id,generos_ids/id,edad_recomendada
-serie1,"Arcane","2021-11-06","2024-11-23","680",upomax.plataforma_netflix,"upomax.genero_animacion,upomax.genero_accion,upomax.genero_scifi",13
-serie2,"The Good Place","2016-09-19","2020-01-30","2400",upomax.plataforma_netflix,"upomax.genero_comedia,upomax.genero_fantasia,upomax.genero_drama",12
-serie3,"Dark","2017-12-01","2020-06-27","2700",upomax.plataforma_netflix,"upomax.genero_scifi,upomax.genero_thriller,upomax.genero_drama",16
-serie4,"Fleabag","2016-07-21","2019-04-08","520",upomax.plataforma_amazon,"upomax.genero_comedia,upomax.genero_drama",18
-serie5,"Succession","2018-06-03","2023-05-28","3360",upomax.plataforma_netflix,"upomax.genero_drama,upomax.genero_comedia",16
-serie6,"Juego de Tronos","2011-04-17","2019-05-19","4214",upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18
-serie7,"La Casa del Dragón","2022-08-21","","1155",upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18
+serie_arcane,"Arcane","2021-11-06","2024-11-23",680,upomax.plataforma_netflix,"upomax.genero_animacion,upomax.genero_accion,upomax.genero_scifi",13
+serie_goodplace,"The Good Place","2016-09-19","2020-01-30",2400,upomax.plataforma_netflix,"upomax.genero_comedia,upomax.genero_fantasia,upomax.genero_drama",12
+serie_dark,"Dark","2017-12-01","2020-06-27",2700,upomax.plataforma_netflix,"upomax.genero_scifi,upomax.genero_thriller,upomax.genero_drama",16
+serie_fleabag,"Fleabag","2016-07-21","2019-04-08",520,upomax.plataforma_amazon,"upomax.genero_comedia,upomax.genero_drama",18
+serie_succession,"Succession","2018-06-03","2023-05-28",3360,upomax.plataforma_netflix,"upomax.genero_drama,upomax.genero_comedia",16
+serie_got,"Juego de Tronos","2011-04-17","2019-05-19",4214,upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18
+serie_hotd,"La Casa del Dragón","2022-08-21",,1155,upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18

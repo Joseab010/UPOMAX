@@ -1,7 +1,7 @@
 id,name,categoria,ano,titulo_serie/id,titulo_pelicula/id
-premio_oscars_got,Oscars,Mejor Serie Dramática,2019-02-24,serie6,
-premio_emmy_succession,Emmys,Mejor Serie Dramática,2022-09-12,serie5,
-premio_globos_dark,Globos de Oro,Mejor Serie Internacional,2020-01-05,serie3,
+premio_oscars_got,Oscars,Mejor Serie Dramática,2019-02-24,upomax.serie_got,
+premio_emmy_succession,Emmys,Mejor Serie Dramática,2022-09-12,upomax.serie_succession,
+premio_globos_dark,Globos de Oro,Mejor Serie Internacional,2020-01-05,upomax.serie_dark,
 premio_oscar_dune,Oscars,Mejores Efectos Visuales,2022-03-27,,upomax.pelicula_dune
 premio_oscars_gladiator,Oscars,Mejor Película,2001-03-25,,upomax.pelicula_gladiator
 premio_globos_lalaland,Globos de Oro,Mejor Comedia o Musical,2017-01-08,,upomax.pelicula_lalaland
