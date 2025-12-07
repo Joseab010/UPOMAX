@@ -1,46 +1,44 @@
 <odoo>
     <template id="plataforma_template">
         <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="doc">
-        <t t-call="web.external_layout">
-             <div class="page">
-            <h2 t-esc="doc.name"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-esc="doc.name"/>
 
-             <p>
-                <strong>Series:</strong>
-                <ul>
-                   <t t-foreach="doc.series_ids" t-as="serie">
-                        <li>
-                            <span t-field="serie.name"/>
-                        </li>
-                    </t>
+                        <p>
+                            <strong>Series:</strong>
+                            <ul>
+                                <t t-foreach="doc.series_ids" t-as="serie">
+                                    <li>
+                                        <span t-field="serie.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </p>
+                        
+                        <p>
+                            <strong>Peliculas:</strong>
+                            <ul>
+                                <t t-foreach="doc.peliculas_ids" t-as="pelicula">
+                                    <li>
+                                        <span t-field="pelicula.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </p>
 
-                </ul>
-               
-            </p>
-    <p>
-    <strong>Peliculas:</strong>
-            <ul>
-                   <t t-foreach="doc.peliculas_ids" t-as="serie">
-                        <li>
-                            <span t-field="pelicula.name"/>
-                        </li>
-                    </t>
-
-                </ul>
-               
-    </p>
-    <p>
-    <strong>Numero de Series:</strong>
-    <span t-esc="doc.series_count"/>
-    </p>
-    <p>
-    <strong>Numero de peliculas:</strong>
-    <span t-esc="doc.peliculas_count"/>
-    </p>
-       </div>
-        </t>
-        </t>
+                        <p>
+                            <strong>Numero de Series:</strong>
+                            <span t-esc="doc.series_count"/>
+                        </p>
+                        <p>
+                            <strong>Numero de peliculas:</strong>
+                            <span t-esc="doc.peliculas_count"/>
+                        </p>
+                    </div>
+                </t>
+            </t>
         </t>
     </template>
 </odoo>
