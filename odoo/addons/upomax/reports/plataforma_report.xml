@@ -2,90 +2,96 @@
     <template id="plataforma_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <t t-call="web.external_layout">
+                <t t-call="web.external_layout_striped">
                     <div class="page">
                         
-                        <div class="text-center mt-3 mb-5 border-bottom pb-3">
-                            <h1 t-field="doc.name" class="text-primary"/>
-                            <h5 class="text-muted">Informe de Contenido Oficial</h5>
+                        <div class="text-center mt-4 mb-5 pb-3 border-bottom">
+                            <h1 class="text-primary display-4">
+                                <i class="fa fa-desktop"/> <span t-field="doc.name"/>
+                            </h1>
+                            <h5 class="text-muted text-uppercase spacing-1">Informe de Contenido Oficial</h5>
                         </div>
 
-                        <div class="row mb-4">
+                        <div class="row mb-5">
                             <div class="col-6">
-                                <div class="card bg-light p-3 text-center">
-                                    <strong>Total Series</strong>
-                                    <h3 class="text-primary">
-                                        <span t-field="doc.series_count"/>
-                                    </h3>
+                                <div class="card bg-white border-primary shadow-sm h-100">
+                                    <div class="card-body text-center">
+                                        <h5 class="text-primary"><i class="fa fa-tv"/> Total Series</h5>
+                                        <h2 class="font-weight-bold">
+                                            <span t-field="doc.series_count"/>
+                                        </h2>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card bg-light p-3 text-center">
-                                    <strong>Total Películas</strong>
-                                    <h3 class="text-success">
-                                        <span t-field="doc.peliculas_count"/>
-                                    </h3>
+                                <div class="card bg-white border-success shadow-sm h-100">
+                                    <div class="card-body text-center">
+                                        <h5 class="text-success"><i class="fa fa-film"/> Total Películas</h5>
+                                        <h2 class="font-weight-bold">
+                                            <span t-field="doc.peliculas_count"/>
+                                        </h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             
-                            <div class="col-6">
-                                <h4 class="mb-3">Catálogo de Series</h4>
+                            <div class="col-6 pr-4"> <h4 class="mb-3 text-primary border-bottom pb-2">
+                                    <i class="fa fa-list-ul"/> Catálogo de Series
+                                </h4>
                                 
                                 <t t-if="doc.series_ids">
-                                    <table class="table table-sm table-striped border">
-                                        <thead>
+                                    <table class="table table-sm table-hover mt-3">
+                                        <thead class="thead-light">
                                             <tr>
-                                                <th>Nombre: </th>
+                                                <th>Nombre del Título</th>
                                             </tr> 
                                         </thead>
                                         <tbody>
                                             <tr t-foreach="doc.series_ids" t-as="serie">
-                                                <td><span t-field="serie.name"/></td>
+                                                <td class="pl-3"><span t-field="serie.name"/></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </t>
-                                
                                 <t t-else="">
-                                    <div class="alert alert-warning text-center">
-                                        No hay series asociadas a esta plataforma.
+                                    <div class="alert alert-light border text-center text-muted mt-3" role="alert">
+                                        <i class="fa fa-info-circle"/> No hay series registradas.
                                     </div>
                                 </t>
                             </div>
 
-                            <div class="col-6">
-                                <h4 class="mb-3">Catálogo de Películas</h4>
+                            <div class="col-6 pl-4"> <h4 class="mb-3 text-success border-bottom pb-2">
+                                    <i class="fa fa-ticket"/> Catálogo de Películas
+                                </h4>
 
                                 <t t-if="doc.peliculas_ids">
-                                    <table class="table table-sm table-striped border">
-                                        <thead>
+                                    <table class="table table-sm table-hover mt-3">
+                                        <thead class="thead-light">
                                             <tr>
-                                                <th>Nombre</th>
+                                                <th>Nombre del Título</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr t-foreach="doc.peliculas_ids" t-as="pelicula">
-                                                <td><span t-field="pelicula.name"/></td>
+                                                <td class="pl-3"><span t-field="pelicula.name"/></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </t>
-
                                 <t t-else="">
-                                    <div class="alert alert-warning text-center">
-                                        No hay películas asociadas.
+                                    <div class="alert alert-light border text-center text-muted mt-3" role="alert">
+                                        <i class="fa fa-info-circle"/> No hay películas registradas.
                                     </div>
                                 </t>
                             </div>
                         </div>
 
-                        <div class="footer mt-5 text-right border-top pt-2">
-                            <small class="text-muted">
-                                Documento oficial UPOMAX | Generado el 
-                                <span class="font-weight-bold" t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
+                        <div class="mt-5 pt-3 border-top text-right text-muted font-italic">
+                            <small>
+                                <i class="fa fa-check-circle"/> Documento generado automáticamente por UPOMAX el 
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
                             </small>
                         </div>
 
