@@ -1,7 +1,6 @@
 from . import serie
 from . import plataforma
 from . import pelicula
-from . import categorias
 from . import franquicia
 from . import Temporada
 from . import genero
