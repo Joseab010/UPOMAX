@@ -2,7 +2,7 @@
     <template id="plataforma_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <t t-call="web.external_layout_striped">
+                <t t-call="web.external_layout">
                     <div class="page">
                         
                         <div class="text-center mt-4 mb-5 pb-3 border-bottom">
@@ -37,7 +37,8 @@
 
                         <div class="row">
                             
-                            <div class="col-6 pr-4"> <h4 class="mb-3 text-primary border-bottom pb-2">
+                            <div class="col-6 pr-4"> 
+                                <h4 class="mb-3 text-primary border-bottom pb-2">
                                     <i class="fa fa-list-ul"/> Catálogo de Series
                                 </h4>
                                 
@@ -62,7 +63,8 @@
                                 </t>
                             </div>
 
-                            <div class="col-6 pl-4"> <h4 class="mb-3 text-success border-bottom pb-2">
+                            <div class="col-6 pl-4"> 
+                                <h4 class="mb-3 text-success border-bottom pb-2">
                                     <i class="fa fa-ticket"/> Catálogo de Películas
                                 </h4>
 
