@@ -28,19 +28,16 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         
         'demo/upomax.tipo.csv',
-        'demo/upomax.persona.tipo.csv',
         'demo/upomax.genero.csv',
         'demo/upomax.plataforma.csv',
         'demo/upomax.franquicia.csv',
         'demo/upomax.productora.csv',
         'demo/upomax.banda.sonora.csv',
         'demo/upomax.usuario.csv', 
-        'demo/upomax.persona.csv',  
-        
+        'demo/upomax.persona.csv',
         'demo/upomax.serie.csv',
         'demo/upomax.pelicula.csv',
-
-        
+        'demo/upomax.persona.tipo.csv',
         'demo/upomax.temporada.csv',
         'demo/upomax.capitulo.csv',
         'demo/upomax.track.csv',
