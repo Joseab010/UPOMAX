@@ -46,8 +46,8 @@ class Capitulo(models.Model):
         'upomax.serie',
         string='Serie',
         related='temporada_id.serie_id', 
-        store=True,   # Esto permite agrupar y buscar por este campo
-        readonly=True # Esto evita que el usuario lo cambie manualmente y rompa la lógica
+        store=True,   
+        readonly=True 
     )
     
     @api.constrains("duracion")

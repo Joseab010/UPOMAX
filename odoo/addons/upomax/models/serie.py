@@ -66,8 +66,8 @@ class Serie(models.Model):
     @api.constrains("duracion")
     def _check_duracion(self):
         for record in self:
-            if record.duracion < 0:
-                raise ValidationError("La duración no puede ser negativa")
+            if record.duracion <= 0:
+                raise ValidationError("La duración debe ser positiva.")
 
     @api.depends('reviews_ids.calificacion')   
     def _compute_puntuacion_general(self):

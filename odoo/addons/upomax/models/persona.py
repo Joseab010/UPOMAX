@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import re
 
 class Persona(models.Model):
     _name = 'upomax.persona'
@@ -10,6 +10,7 @@ class Persona(models.Model):
  
     nombre = fields.Char(string="Nombre", required=True, size=50)
     apellidos = fields.Char(string="Apellidos", size=50)
+    
     edad = fields.Integer(string="Edad")
     biografia = fields.Text(string="Biografía")
 
@@ -32,9 +33,20 @@ class Persona(models.Model):
         for rec in self:
             if rec.edad < 0:
                 raise ValidationError("La edad no puede ser negativa.")
+            if rec.edad > 120:
+                raise ValidationError("La edad no puede ser mayor a 120 años.")
     
     @api.constrains('biografia')
     def _check_biografia(self):
         for rec in self:
             if rec.biografia and len(rec.biografia) > 300:
                 raise ValidationError(f"La biografía es demasiado larga ({len(rec.biografia)} car.), límite 300.")
+
+    @api.constrains('nombre', 'apellidos')
+    def _check_nombres(self):
+        for rec in self:
+            pattern = r'^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s]+$'
+            if rec.nombre and not re.match(pattern, rec.nombre):
+                raise ValidationError("El nombre solo puede contener letras y espacios.")
+            if rec.apellidos and not re.match(pattern, rec.apellidos):
+                raise ValidationError("Los apellidos solo pueden contener letras y espacios.")            

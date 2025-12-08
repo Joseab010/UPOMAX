@@ -49,7 +49,7 @@ class Usuario(models.Model):
 
     #Validacion para biografia    
     @api.constrains('biografia')     
-    def _check_password(self):         
+    def _check_biografia(self):         
         for rec in self:             
             if rec.biografia and len(rec.biografia)>400:      
                 raise ValidationError(f"La biografía es demasiado larga. Tienes {len(rec.biografia)} caracteres, pero el límite es 400.")
