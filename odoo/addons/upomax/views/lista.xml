@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <record id="view_upomax_lista_form" model="ir.ui.view">
+        <field name="name">upomax.lista.form</field>
+        <field name="model">upomax.lista</field>
+        <field name="arch" type="xml">
+            <form string="Lista de Usuario">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="usuario_id"/>
+                        <field name="descripcion"/>
+                    </group>
+                    <notebook>
+                        <page string="Películas">
+                            <field name="pelicula_ids"/>
+                        </page>
+                        <page string="Series">
+                            <field name="serie_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_upomax_lista_tree" model="ir.ui.view">
+        <field name="name">upomax.lista.list</field>
+        <field name="model">upomax.lista</field>
+        <field name="arch" type="xml">
+            <list string="Listas de Usuarios">
+                <field name="name"/>
+                <field name="usuario_id"/>
+                <field name="descripcion"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_upomax_lista" model="ir.actions.act_window">
+        <field name="name">Listas de Usuarios</field>
+        <field name="res_model">upomax.lista</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primera lista de películas y series.
+            </p>
+        </field>
+    </record>
+
+  </data>
+</odoo>

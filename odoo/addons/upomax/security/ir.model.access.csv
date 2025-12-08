@@ -17,3 +17,4 @@ review_manager,review_manager,model_upomax_review,group_upomax_manager,1,1,1,1
 usuario_manager,usuario_manager,model_upomax_usuario,group_upomax_manager,1,1,1,1
 tipo_manager,tipo_manager,model_upomax_tipo,group_upomax_manager,1,1,1,1
 persona_tipo_manager,persona_tipo_manager,model_upomax_persona_tipo,group_upomax_manager,1,1,1,1
+lista_manager,lista_manager,model_upomax_lista,group_upomax_manager,1,1,1,1

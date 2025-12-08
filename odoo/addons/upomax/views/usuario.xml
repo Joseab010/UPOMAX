@@ -14,6 +14,11 @@
             <field name="reviews_ids" />
             <field name="amigos_ids" widget="many2many_tags"/>
           </group>
+          <notebook>
+              <page string="Listas">
+                  <field name="lista_ids"/>
+              </page>
+          </notebook>
         </sheet>
       </form>
     </field>

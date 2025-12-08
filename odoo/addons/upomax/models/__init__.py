@@ -14,3 +14,4 @@ from . import Tracks
 from . import Review
 from . import premio
 from . import usuario
+from . import lista

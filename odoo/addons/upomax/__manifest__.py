@@ -58,6 +58,7 @@ Long description of module's purpose
         'views/persona.xml',
         'views/review.xml',
         'views/usuario.xml',
+        'views/lista.xml',
         'views/premio.xml',
         'views/menu.xml',
 

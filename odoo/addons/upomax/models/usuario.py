@@ -13,6 +13,7 @@ class Usuario(models.Model):
 
 
     reviews_ids = fields.One2many('upomax.review',inverse_name='id_usuario',string="Reseñas de usuarios")
+    lista_ids = fields.One2many('upomax.lista', 'usuario_id', string="Listas del Usuario")
     
     amigos_ids = fields.Many2many('upomax.usuario',
                                   'rel_usuario_amistad',
@@ -53,3 +54,10 @@ class Usuario(models.Model):
         for rec in self:             
             if rec.biografia and len(rec.biografia)>400:      
                 raise ValidationError(f"La biografía es demasiado larga. Tienes {len(rec.biografia)} caracteres, pero el límite es 400.")
+
+    @api.constrains('amigos_ids')
+    def _check_amigos(self):
+        for rec in self:
+            if rec.id in rec.amigos_ids.ids:
+                raise ValidationError("No puedes añadirte a ti mismo como amigo.")
+            
