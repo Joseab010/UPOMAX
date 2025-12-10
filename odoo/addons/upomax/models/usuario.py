@@ -11,6 +11,8 @@ class Usuario(models.Model):
     contrasenya = fields.Char(string="Contraseña", size=100,required=True, help="Contraseña usuario")
     biografia = fields.Char(string="biografia", size=400, help="biografia de usuario")
 
+    recomendaciones_texto = fields.Text(string="Te recomendamos que veas...", readonly=True)
+
 
     reviews_ids = fields.One2many('upomax.review',inverse_name='id_usuario',string="Reseñas de usuarios")
     lista_ids = fields.One2many('upomax.lista', 'usuario_id', string="Listas del Usuario")
@@ -21,6 +23,31 @@ class Usuario(models.Model):
                                   'amigo_id',
                                   string="Lista de amigos")
     
+
+    def action_generar_recomendaciones(self):
+       # 1. Ejecutar la IA
+        self.env['upomax.ai.recommender'].train_and_predict(specific_user_id=self.id)
+        
+        # 2. Notificación visual (Arriba a la derecha)
+        notification = {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Inteligencia Artificial',
+                'message': 'El modelo ha sido re-entrenado y las recomendaciones actualizadas.',
+                'type': 'success',  # types: success, warning, danger, info
+                'sticky': False,
+            }
+        }
+        
+        # 3. Recargar la vista para ver los cambios
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',  # Esto fuerza a Odoo a refrescar la ficha del usuario
+            'params': {'next': notification} # Encadenamos la notificación
+        }
+
+
     #Validacion para el nombre
     @api.constrains('name')
     def _check_name(self):

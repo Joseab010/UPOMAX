@@ -25,6 +25,7 @@ Long description of module's purpose
     # always loaded
    'data': [
         'security/security.xml',
+        'data/cron.xml',
         'security/ir.model.access.csv',
         
         'demo/upomax.tipo.csv',

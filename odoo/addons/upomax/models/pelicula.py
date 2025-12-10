@@ -20,8 +20,8 @@ class Pelicula(models.Model):
         string="Plataformas confirmadas"
     )
     
-    nombre_franquicia_id = fields.Many2one('upomax.franquicia', inverse_name="peliculas_ids", string='Franquicia')
-    nombre_banda_id = fields.Many2one('upomax.banda.sonora', inverse_name='peliculas_ids', string='Banda Sonora') 
+    nombre_franquicia_id = fields.Many2one('upomax.franquicia', string='Franquicia')
+    nombre_banda_id = fields.Many2one('upomax.banda.sonora', string='Banda Sonora') 
     
     generos_ids = fields.Many2many(
         'upomax.genero',           

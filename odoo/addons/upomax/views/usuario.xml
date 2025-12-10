@@ -37,6 +37,27 @@
     </field>
   </record>
 
+  <record id="view_usuario_form_ai" model="ir.ui.view">
+    <field name="name">upomax.usuario.form.ai</field>
+    <field name="model">upomax.usuario</field>
+    <field name="inherit_id" ref="upomax.upomax_usuario_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//sheet" position="before">
+            <header>
+                <button name="action_generar_recomendaciones" 
+                        string="✨ Generar Recomendaciones IA" 
+                        type="object" 
+                        class="oe_highlight"/>
+            </header>
+        </xpath>
+        <xpath expr="//sheet" position="inside">
+            <group string="Inteligencia Artificial">
+                <field name="recomendaciones_texto" />
+            </group>
+        </xpath>
+    </field>
+  </record>
+
   <record id="usuario_list_action" model="ir.actions.act_window">
     <field name="name">Usuarios</field>
     <field name="res_model">upomax.usuario</field>
