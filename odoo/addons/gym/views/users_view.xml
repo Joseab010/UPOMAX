@@ -4,13 +4,22 @@
     <field name="model">gym.users</field>
     <field name="arch" type="xml">
       <form string="Users">
+        <header>
+          <button name="btn_submit_to_admitido" string="Admitir" type="object" class="oe_highlight" />
+          <button name="btn_submit_to_cancelado" string="Cancelar" type="object" class="oe_highlight" />
+          <button name="btn_submit_to_solicitado" string="Solicitar" type="object" class="oe_highlight" />
+          <button name="action_print_class" string="Imprimir usuario (PDF)" type="object" class="btn-primary"/>
+        </header>
         <sheet layout="auto">
           <group>
             <field name="idcard" />
-            <field name="name" />
-            <field name="photo" />
-            <field name="classes_ids" widget="many2many" />
+            <field name="name" />  
+            <field name="state" widget="statusbar" />          
           </group>
+          <group>
+            <field name="photo" nolabel="1" widget="image" class="oe_avatar" />
+          </group>
+          <field name="classes_ids" widget="many2many" />
         </sheet>
       </form>
     </field>
@@ -23,8 +32,7 @@
       <list string="list_string">
         <field name="idcard" />
         <field name="name" />
-        <field name="photo" />
-        <field name="classes_ids" widget="many2many" />
+        <field name="state" />
       </list>
     </field>
   </record>

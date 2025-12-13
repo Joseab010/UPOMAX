@@ -13,15 +13,18 @@
     # Check https://github.com/odoo/odoo/blob/18.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '0.1.5',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web'],
 
     # always loaded
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'reports/reports.xml', 
+        'reports/classes_report.xml',   
+        'reports/users_report.xml',   
         'views/classes_views.xml',
         'views/users_view.xml',
         'views/instructores_view.xml',
@@ -36,5 +39,12 @@
         #'demo/gym.instructores.csv', # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
         #'demo/gym.classes.csv' # Colocar el fichero de carga aqui siempre y cuando hayas instalado los datos demo al instalar la BD de Odoo.
     ],
+    'assets':{
+    	'web.assets_backend': [
+            'gym/static/src/components/*/*.js',
+            'gym/static/src/components/*/*.xml',
+            'gym/static/src/components/*/*.scss',
+    	],
+    },
     'application': True,
 }

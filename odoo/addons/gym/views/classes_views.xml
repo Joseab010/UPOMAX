@@ -4,6 +4,10 @@
     <field name="model">gym.classes</field>
     <field name="arch" type="xml">
       <form string="Classes">
+        <header>
+          <button name="action_print_class" string="Imprimir clase (PDF)" type="object"
+            class="btn-primary" />
+        </header>
         <sheet layout="auto">
           <group>
             <field name="name" />
@@ -12,7 +16,15 @@
             <field name="capacity" />
             <field name="activityType" />
             <field name="instructores_id" widget="many2one" />
-            <field name="users_ids" widget="many2many" />
+            <field name="users_ids">
+              <list>
+                <field name="name" />
+                <field name="idcard" />
+              </list>
+            </field>
+            <newline></newline>
+            <button name="btn_desapuntarSocios" string="Desapuntar socios" type="object"
+              class="oe_highlight" />
           </group>
         </sheet>
       </form>
@@ -27,20 +39,84 @@
         <field name="name" />
         <field name="start" />
         <field name="end" />
-        <!--<field name="capacity" />-->
+        <field name="capacity" />
         <field name="activityType" />
         <field name="instructores_id" widget="many2one" />
-        <field name="users_ids" widget="many2many" />
+        <field name="users_ids" />
       </list>
+    </field>
+  </record>
+
+  <record id="gym_classes_calendar_view" model="ir.ui.view">
+    <field name="name">gym.classes.calendar</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <calendar string="Clases" color="activityType" date_start="start" date_stop="end" mode="month">
+        <field name="name" />
+        <field name="capacity" />
+      </calendar>
+    </field>
+  </record>
+
+  <record id="gym_classes_graph_view" model="ir.ui.view">
+    <field name="name">gym.classes.graph</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <graph string="Numero de usuarios por clase" type="bar">
+        <field name="name" />
+        <field name="ocupacion" />
+      </graph>
+    </field>
+  </record>
+
+  <record id="gym_class_search_view" model="ir.ui.view">
+    <field name="name">gym.classes.search</field>
+    <field name="model">gym.classes</field>
+    <field name="arch" type="xml">
+      <search>
+        <filter name="search_capacity" string="Capacity > 10" domain="[('capacity','>',10)]" />
+        <separator orientation="vertical" />
+        <group>
+          <filter name="group_by_instructor" string="Instructor"
+            context="{'group_by':'instructores_id'}" />
+        </group>
+      </search>
     </field>
   </record>
 
   <record id="classes_list_action" model="ir.actions.act_window">
     <field name="name">Classes</field>
     <field name="res_model">gym.classes</field>
-    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="gym_class_search_view" />
+    <field name="view_mode">list,form,calendar,graph</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Create the first user</p>
     </field>
   </record>
+
+  <record id="action_owl_E1Componente_js" model="ir.actions.client">
+    <field name="name">E1Componente OWL</field>
+    <field name="tag">owl.action_E1Componente_js</field>
+  </record>
+
+  <record id="action_owl_E2Componente_js" model="ir.actions.client">
+    <field name="name">E2Componente OWL</field>
+    <field name="tag">owl.action_E2Componente_js</field>
+  </record>
+
+  <record id="action_owl_E3Componente_js" model="ir.actions.client">
+    <field name="name">E3Componente OWL</field>
+    <field name="tag">owl.action_E3Componente_js</field>
+  </record>
+
+  <record id="action_owl_E4Componente_js" model="ir.actions.client">
+    <field name="name">E4Componente OWL</field>
+    <field name="tag">owl.action_E4Componente_js</field>
+  </record>
+
+  <record id="action_owl_EJ1Componente_js" model="ir.actions.client">
+    <field name="name">EJ1Componente OWL</field>
+    <field name="tag">owl.action_EJ1Componente_js</field>
+  </record>
+
 </odoo>
