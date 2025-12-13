@@ -1,0 +1,37 @@
+/* Estilos para el componente de Películas */
+
+.PeliculasComponente-container {
+    padding: 0.5rem;
+}
+
+.PeliculasComponente-container .table-responsive {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.PeliculasComponente-container .table {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.PeliculasComponente-container .table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.PeliculasComponente-container .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.PeliculasComponente-container .btn-sm {
+    margin: 0 0.25rem;
+}
+
+.PeliculasComponente-container input[type="number"].form-control-sm {
+    max-width: 100px;
+}

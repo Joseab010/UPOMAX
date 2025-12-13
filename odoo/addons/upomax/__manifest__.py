@@ -75,6 +75,14 @@ Long description of module's purpose
         #'demo/demo.xml',
     ],
     
+    'assets': {
+        'web.assets_backend': [
+            'upomax/static/src/components/*/*.js',
+            'upomax/static/src/components/*/*.xml',
+            'upomax/static/src/components/*/*.scss',
+        ],
+    },
+    
     
 }
 
