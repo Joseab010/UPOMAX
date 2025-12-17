@@ -19,15 +19,15 @@
                 </div>
             </div>
 
-            <div class="row m-2">
-                <div t-foreach="state.premioList" t-as="premio" t-key="premio.id" class="col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm border-warning">
+            <div class="row m-2 premios-grid">
+                <div t-foreach="state.premioList" t-as="premio" t-key="premio.id" class="col-md-4 mb-3">
+                    <div class="card shadow-sm border-warning">
                         <div class="card-header bg-warning text-white text-center">
-                            <i class="fa fa-trophy fa-2x"></i>
-                            <h5 class="card-title mt-2"><t t-esc="premio.name"/></h5>
+                            <i class="fa fa-trophy fa-lg"></i>
+                            <h6 class="card-title mt-1"><t t-esc="premio.name"/></h6>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text">
+                        <div class="card-body py-2">
+                            <p class="card-text small mb-1">
                                 <strong>Categoría:</strong> <t t-esc="premio.categoria"/><br/>
                                 <strong>Año:</strong> <t t-esc="premio.ano"/><br/>
                                 <t t-if="premio.titulo_serie">
@@ -38,12 +38,12 @@
                                 </t>
                             </p>
                         </div>
-                        <div class="card-footer bg-light text-center">
-                            <button class="btn btn-sm btn-warning me-2" data-bs-toggle="modal" data-bs-target="#premiosModal" t-on-click="() => this.editPremio(premio)">
-                                <i class="fa fa-edit"></i> Editar
+                        <div class="card-footer bg-light p-2 text-center">
+                            <button class="btn btn-sm btn-warning me-1" data-bs-toggle="modal" data-bs-target="#premiosModal" t-on-click="() => this.editPremio(premio)">
+                                <i class="fa fa-edit"></i>
                             </button>
                             <button class="btn btn-sm btn-danger" t-on-click="() => this.deletePremio(premio)">
-                                <i class="fa fa-trash"></i> Eliminar
+                                <i class="fa fa-trash"></i>
                             </button>
                         </div>
                     </div>
