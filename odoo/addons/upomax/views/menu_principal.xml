@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <!-- Main Menu Form View -->
+        <record model="ir.ui.view" id="main_menu_form_view">
+            <field name="name">upomax.main_menu.form</field>
+            <field name="model">upomax.main_menu</field>
+            <field name="arch" type="xml">
+                <form string="Menú Principal UPOMAX" create="false" edit="false" delete="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>Bienvenido a UPOMAX</h1>
+                            <p>Selecciona una opción para gestionar el contenido:</p>
+                        </div>
+                        <group>
+                            <group>
+                                <button name="action_series" string="Gestionar Series" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                            <group>
+                                <button name="action_peliculas" string="Gestionar Películas" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                            <group>
+                                <button name="action_plataformas" string="Gestionar Plataformas" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <button name="action_personas" string="Gestionar Personas" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                            <group>
+                                <button name="action_reviews" string="Gestionar Reviews" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                            <group>
+                                <button name="action_usuarios" string="Gestionar Usuarios" type="object" class="btn btn-primary btn-lg"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Main Menu Action -->
+        <record model="ir.actions.act_window" id="main_menu_action">
+            <field name="name">Menú Principal</field>
+            <field name="res_model">upomax.main_menu</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="main_menu_form_view"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Update Main Menu to open the menu view -->
+        <menuitem name="UPOMAX" id="main_upomax_menu" action="main_menu_action" groups="group_upomax_manager"/>
+    </data>
+</odoo>

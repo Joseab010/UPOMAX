@@ -61,6 +61,7 @@ Long description of module's purpose
         'views/lista.xml',
         'views/premio.xml',
         'views/menu.xml',
+        'views/menu_principal.xml',
 
         'reports/reports.xml',
         'reports/peliculas_report.xml',

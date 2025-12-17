@@ -15,3 +15,4 @@ from . import Review
 from . import premio
 from . import usuario
 from . import lista
+from . import menu
