@@ -1,0 +1,36 @@
+/* Estilos para el componente de Premios */
+
+.PremiosComponente-container {
+    padding: 0.5rem;
+}
+
+.PremiosComponente-container .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.PremiosComponente-container .card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3) !important;
+}
+
+.PremiosComponente-container .card-header {
+    border-bottom: none;
+    background: linear-gradient(45deg, #ffc107, #ff8f00) !important;
+}
+
+.PremiosComponente-container .fa-trophy {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.PremiosComponente-container .card-body {
+    background-color: #fffef7;
+}
+
+.PremiosComponente-container .card-footer {
+    border-top: none;
+}
+
+.PremiosComponente-container .btn-sm {
+    margin: 0 0.25rem;
+}
