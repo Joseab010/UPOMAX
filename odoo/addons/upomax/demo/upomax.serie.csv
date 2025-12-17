@@ -6,3 +6,11 @@ serie_fleabag,"Fleabag","2016-07-21","2019-04-08",520,upomax.plataforma_amazon,"
 serie_succession,"Succession","2018-06-03","2023-05-28",3360,upomax.plataforma_netflix,"upomax.genero_drama,upomax.genero_comedia",16
 serie_got,"Juego de Tronos","2011-04-17","2019-05-19",4214,upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18
 serie_hotd,"La Casa del Dragón","2022-08-21",,1155,upomax.plataforma_hbo,"upomax.genero_fantasia,upomax.genero_drama,upomax.genero_accion",18
+serie_strangerthings,"Stranger Things","2016-07-15",,2400,upomax.plataforma_netflix,"upomax.genero_scifi,upomax.genero_thriller,upomax.genero_drama",13
+serie_breakingbad,"Breaking Bad","2008-01-20","2013-09-29",2940,upomax.plataforma_netflix,"upomax.genero_drama,upomax.genero_crimen,upomax.genero_thriller",16
+serie_westworld,"Westworld","2016-10-02","2022-08-14",2160,upomax.plataforma_hbo,"upomax.genero_scifi,upomax.genero_drama,upomax.genero_thriller",18
+serie_therings,"The Rings of Power","2022-09-01",,720,upomax.plataforma_amazon,"upomax.genero_fantasia,upomax.genero_aventura,upomax.genero_drama",13
+serie_wandavision,"WandaVision","2021-01-15","2021-03-05",350,upomax.plataforma_disney,"upomax.genero_scifi,upomax.genero_fantasia,upomax.genero_drama",13
+serie_loki,"Loki","2021-06-09","2023-11-09",350,upomax.plataforma_disney,"upomax.genero_scifi,upomax.genero_fantasia,upomax.genero_accion",13
+serie_mandalorian,"The Mandalorian","2019-11-12",,720,upomax.plataforma_disney,"upomax.genero_scifi,upomax.genero_accion,upomax.genero_aventura",13
+serie_crown,"The Crown","2016-11-04","2023-12-14",3600,upomax.plataforma_netflix,"upomax.genero_drama,upomax.genero_historia,upomax.genero_biografia",16
