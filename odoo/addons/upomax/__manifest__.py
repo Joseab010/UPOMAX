@@ -20,7 +20,7 @@ Long description of module's purpose
 
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web'],
 
     # always loaded
    'data': [
