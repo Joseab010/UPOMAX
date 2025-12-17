@@ -30,5 +30,6 @@
   
   <!-- OWL Components -->
   <menuitem name="Gestor Películas OWL" id="peliculas_owl_menu" parent="peliculas_tab" groups="group_upomax_manager" action="action_owl_PeliculasComponente_js"/>
+  <menuitem name="Gestor Series OWL" id="series_owl_menu" parent="series_tab" groups="group_upomax_manager" action="action_owl_SeriesComponente_js"/>
 
 </odoo>
