@@ -1,11 +1,16 @@
 <odoo>
     <data>
-        <!-- Main Menu Form View -->
         <record model="ir.ui.view" id="main_menu_form_view">
             <field name="name">upomax.main_menu.form</field>
             <field name="model">upomax.main_menu</field>
             <field name="arch" type="xml">
-                <form string="Menú Principal UPOMAX" create="false" edit="false" delete="false">
+                <form create="false" edit="false" delete="false" class="oe_form_nosheet" string="Menú Principal">
+                    
+                    <style>
+                        .o_control_panel {
+                            display: none !important;
+                        }
+                    </style>
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
@@ -76,7 +81,6 @@
             </field>
         </record>
 
-        <!-- Main Menu Action -->
         <record model="ir.actions.act_window" id="main_menu_action">
             <field name="name">Menú Principal</field>
             <field name="res_model">upomax.main_menu</field>
@@ -85,7 +89,6 @@
             <field name="target">current</field>
         </record>
 
-        <!-- Update Main Menu to open the menu view -->
         <menuitem name="UPOMAX" id="main_upomax_menu" action="main_menu_action" groups="group_upomax_manager"/>
     </data>
 </odoo>
