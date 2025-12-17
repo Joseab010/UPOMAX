@@ -98,4 +98,9 @@
     <field name="name">Gestor de Series OWL</field>
     <field name="tag">upomax.action_SeriesComponente_js</field>
   </record>
+  <!-- OWL Client Action para gestionar plataformas -->
+  <record id="action_owl_PlataformasComponente_js" model="ir.actions.client">
+    <field name="name">Gestor de Plataformas OWL</field>
+    <field name="tag">upomax.action_PlataformasComponente_js</field>
+  </record>
 </odoo>
