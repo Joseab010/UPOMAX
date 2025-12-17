@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.ReviewsComponente" owl="1">
+        <div class="ReviewsComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewsModal" t-on-click="addReview">
+                        <i class="fa fa-plus"></i> Nueva Review
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por título..." t-ref="search-input" t-on-keyup="searchReviews"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchReviews">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Calificación</th>
+                                <th scope="col">Comentario</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Like</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Serie/Película</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.reviewList" t-as="review" t-key="review.id">
+                                <td>
+                                    <strong t-esc="review.titulo"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control form-control-sm" min="1" max="10" t-att-value="review.calificacion" t-on-change="(e) => this.updateCalificacion(e, review)"/>
+                                </td>
+                                <td t-esc="review.comentario"/>
+                                <td t-esc="review.fecha"/>
+                                <td>
+                                    <span class="badge bg-success" t-if="review.like">Sí</span>
+                                    <span class="badge bg-danger" t-else="">No</span>
+                                </td>
+                                <td t-esc="review.id_usuario[1]"/>
+                                <td>
+                                    <t t-if="review.serie_id"><t t-esc="review.serie_id[1]"/> (Serie)</t>
+                                    <t t-elif="review.pelicula_id"><t t-esc="review.pelicula_id[1]"/> (Película)</t>
+                                    <t t-else="">N/A</t>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#reviewsModal" t-on-click="() => this.editReview(review)">
+                                        <i class="fa fa-edit"></i> Editar
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" t-on-click="() => this.deleteReview(review)">
+                                        <i class="fa fa-trash"></i> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar review -->
+            <div class="modal fade" id="reviewsModal" tabindex="-1" aria-labelledby="reviewsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h1 class="modal-title fs-5" id="reviewsModalLabel">
+                                <t t-if="state.isEdit">Editar Review</t>
+                                <t t-else="">Añadir Nueva Review</t>
+                            </h1>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Título -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Título</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="titulo" t-model="state.review.titulo" placeholder="Título de la review"/>
+                                </div>
+                            </div>
+
+                            <!-- Calificación -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Calificación</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="calificacion" t-model="state.review.calificacion" min="1" max="10" placeholder="5"/>
+                                </div>
+                            </div>
+
+                            <!-- Comentario -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Comentario</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="comentario" t-model="state.review.comentario" rows="3" placeholder="Comentario de la review..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Like -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Me gusta</label>
+                                <div class="col-sm-9">
+                                    <input type="checkbox" id="like" t-model="state.review.like"/>
+                                </div>
+                            </div>
+
+                            <!-- Usuario -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Usuario</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="id_usuario" t-model="state.review.id_usuario">
+                                        <option value="">Seleccionar usuario...</option>
+                                        <t t-foreach="state.users" t-as="user" t-key="user.id">
+                                            <option t-att-value="user.id" t-esc="user.name"/>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Serie -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Serie</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="serie_id" t-model="state.review.serie_id">
+                                        <option value="">Seleccionar serie...</option>
+                                        <t t-foreach="state.series" t-as="serie" t-key="serie.id">
+                                            <option t-att-value="serie.id" t-esc="serie.name"/>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Película -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Película</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="pelicula_id" t-model="state.review.pelicula_id">
+                                        <option value="">Seleccionar película...</option>
+                                        <t t-foreach="state.peliculas" t-as="pelicula" t-key="pelicula.id">
+                                            <option t-att-value="pelicula.id" t-esc="pelicula.name"/>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" t-on-click="saveReview">
+                                <i class="fa fa-save"></i> Guardar Review
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

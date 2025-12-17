@@ -19,7 +19,7 @@ class MainMenu(models.TransientModel):
         return self.env.ref('upomax.personas_list_action').read()[0]
 
     def action_reviews(self):
-        return self.env.ref('upomax.review_list_action').read()[0]
+        return self.env.ref('upomax.action_owl_ReviewsComponente_js').read()[0]
 
     def action_usuarios(self):
         return self.env.ref('upomax.usuario_list_action').read()[0]

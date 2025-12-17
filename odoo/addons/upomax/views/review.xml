@@ -82,4 +82,10 @@
     </field>
   </record>
 
+  <!-- OWL Client Action para gestionar reviews -->
+  <record id="action_owl_ReviewsComponente_js" model="ir.actions.client">
+    <field name="name">Gestor de Reviews OWL</field>
+    <field name="tag">upomax.action_ReviewsComponente_js</field>
+  </record>
+
 </odoo>
