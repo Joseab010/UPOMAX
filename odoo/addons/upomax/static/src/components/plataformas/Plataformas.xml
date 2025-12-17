@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="row m-2">
+            <div class="row m-2 plataformas-grid">
                 <div t-foreach="state.plataformaList" t-as="plataforma" t-key="plataforma.id" class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm border-success">
                         <div class="card-header bg-success text-white">
