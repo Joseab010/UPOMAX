@@ -20,7 +20,7 @@ Long description of module's purpose
 
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web'],
 
     # always loaded
    'data': [
@@ -62,6 +62,7 @@ Long description of module's purpose
         'views/lista.xml',
         'views/premio.xml',
         'views/menu.xml',
+        'views/menu_principal.xml',
 
         'reports/reports.xml',
         'reports/peliculas_report.xml',
@@ -75,6 +76,14 @@ Long description of module's purpose
     'demo': [
         #'demo/demo.xml',
     ],
+    
+    'assets': {
+        'web.assets_backend': [
+            'upomax/static/src/components/*/*.js',
+            'upomax/static/src/components/*/*.xml',
+            'upomax/static/src/components/*/*.scss',
+        ],
+    },
     
     
 }

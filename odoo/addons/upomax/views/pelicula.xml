@@ -102,4 +102,10 @@
       <p class="o_view_nocontent_smiling_face">Crea la primera película</p>
     </field>
   </record>
+
+  <!-- OWL Client Action para gestionar películas -->
+  <record id="action_owl_PeliculasComponente_js" model="ir.actions.client">
+    <field name="name">Gestor de Películas OWL</field>
+    <field name="tag">upomax.action_PeliculasComponente_js</field>
+  </record>
 </odoo>

@@ -1,4 +1,4 @@
 id,name,description,start,end,capacity,activityType,instructores_id/id,users_ids/id
 cls_0,"Clase 0","Descripcion de la clase 0","2025-09-20 09:00:00","2025-09-20 10:00:00",20,aerobic,instructor1,"user1,user2"
-cls_1,"Clase 1","Entreno lol","2025-09-20 11:00:00","2025-09-20 12:00:00",15,dance,instructor1,"user1"
-cls_2,"Clase 2","Estiramientos","2025-09-21 09:00:00","2025-09-21 10:00:00",25,relax,instructor2,"user3"
+cls_1,"Clase 1","Entreno lol","2025-09-20 11:00:00","2025-09-20 12:00:00",15,dance,instructor1,
+cls_2,"Clase 2","Estiramientos","2025-09-21 09:00:00","2025-09-21 10:00:00",25,relax,instructor2,"user1"

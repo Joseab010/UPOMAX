@@ -1,0 +1,37 @@
+/* Estilos para el componente de Reviews */
+
+.ReviewsComponente-container {
+    padding: 0.5rem;
+}
+
+.ReviewsComponente-container .table-responsive {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.ReviewsComponente-container .table {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.ReviewsComponente-container .table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ReviewsComponente-container .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.ReviewsComponente-container .btn-sm {
+    margin: 0 0.25rem;
+}
+
+.ReviewsComponente-container input[type="number"].form-control-sm {
+    max-width: 100px;
+}

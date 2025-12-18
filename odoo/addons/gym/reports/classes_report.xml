@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="gym_classes_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2 t-esc="doc.name"/>
+            <p><strong>Inicio:</strong> <span t-esc="doc.start"/></p>
+            <p><strong>Fin:</strong> <span t-esc="doc.end"/></p>
+            <p><strong>Capacidad:</strong> <span t-esc="doc.capacity"/></p>
+            <p><strong>Tipo:</strong> <span t-esc="doc.activityType"/></p>
+            <p><strong>Instructor:</strong> <span t-esc="doc.instructores_id.display_name"/></p>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

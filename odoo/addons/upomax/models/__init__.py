@@ -16,3 +16,4 @@ from . import premio
 from . import usuario
 from . import lista
 from . import IA_recomendacion
+from . import menu

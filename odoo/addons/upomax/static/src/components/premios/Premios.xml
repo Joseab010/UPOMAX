@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.PremiosComponente" owl="1">
+        <div class="PremiosComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#premiosModal" t-on-click="addPremio">
+                        <i class="fa fa-trophy"></i> Nuevo Premio
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar premio..." t-ref="search-input" t-on-keyup="searchPremios"/>
+                        <button class="btn btn-outline-warning" t-on-click="searchPremios">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2 premios-grid">
+                <div t-foreach="state.premioList" t-as="premio" t-key="premio.id" class="col-md-4 mb-3">
+                    <div class="card shadow-sm border-warning">
+                        <div class="card-header bg-warning text-white text-center">
+                            <i class="fa fa-trophy fa-lg"></i>
+                            <h6 class="card-title mt-1"><t t-esc="premio.name"/></h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <p class="card-text small mb-1">
+                                <strong>Categoría:</strong> <t t-esc="premio.categoria"/><br/>
+                                <strong>Año:</strong> <t t-esc="premio.ano"/><br/>
+                                <t t-if="premio.titulo_serie">
+                                    <strong>Serie:</strong> <t t-esc="premio.titulo_serie[1]"/><br/>
+                                </t>
+                                <t t-if="premio.titulo_pelicula">
+                                    <strong>Película:</strong> <t t-esc="premio.titulo_pelicula[1]"/><br/>
+                                </t>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-light p-2 text-center">
+                            <button class="btn btn-sm btn-warning me-1" data-bs-toggle="modal" data-bs-target="#premiosModal" t-on-click="() => this.editPremio(premio)">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" t-on-click="() => this.deletePremio(premio)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar premio -->
+            <div class="modal fade" id="premiosModal" tabindex="-1" aria-labelledby="premiosModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning text-white">
+                            <h1 class="modal-title fs-5" id="premiosModalLabel">
+                                <t t-if="state.isEdit">Editar Premio</t>
+                                <t t-else="">Añadir Nuevo Premio</t>
+                            </h1>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Nombre</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" t-model="state.premio.name" placeholder="Ej. Oscars"/>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Categoría</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" t-model="state.premio.categoria" placeholder="Ej. Mejor Serie Dramática"/>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Año</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" t-model="state.premio.ano"/>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Serie</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" t-model="state.premio.titulo_serie" placeholder="ID de Serie"/>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Película</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" t-model="state.premio.titulo_pelicula" placeholder="ID de Película"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-warning" t-on-click="savePremio">
+                                <i class="fa fa-save"></i> Guardar Premio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

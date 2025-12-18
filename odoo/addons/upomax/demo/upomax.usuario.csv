@@ -2,3 +2,7 @@ id,name,correo_Electronico,contrasenya,biografia
 usuario_demo_01,"Carlos Pérez","carlosperez@example.com","Abc12345","Amante del cine de ciencia ficción."
 usuario_demo_02,"Lucía Gómez","luciagomez@example.com","Xyz56789","Me gustan las series largas."
 usuario_demo_03,"Miguel Torres","migueltorres@example.com","Mnp01234","Fan de las sitcoms clásicas."
+usuario_demo_04,"Ana López","analopez@example.com","Def67890","Prefiero películas de terror."
+usuario_demo_05,"David Ruiz","davidruiz@example.com","Ghi12345","Coleccionista de DVDs antiguos."
+usuario_demo_06,"Sofia Martín","sofiamartin@example.com","Jkl56789","Me encanta la animación japonesa."
+usuario_demo_07,"Javier Sánchez","javiersanchez@example.com","Mno01234","Crítico de cine amateur."

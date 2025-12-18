@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.SeriesComponente" owl="1">
+        <div class="SeriesComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seriesModal" t-on-click="addSerie">
+                        <i class="fa fa-plus"></i> Nueva Serie
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por título..." t-ref="search-input" t-on-keyup="searchSeries"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchSeries">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Emisión</th>
+                                <th scope="col">Duración (min)</th>
+                                <th scope="col">Edad Recomendada</th>
+                                <th scope="col">Puntuación</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.serieList" t-as="serie" t-key="serie.id">
+                                <td>
+                                    <strong t-esc="serie.name"/>
+                                </td>
+                                <td t-esc="serie.fecha_emision"/>
+                                <td>
+                                    <input type="number" class="form-control form-control-sm" t-att-value="serie.duracion" t-on-change="(e) => this.updateDuracion(e, serie)"/>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">+<t t-esc="serie.edad_recomendada"/></span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success" t-if="serie.puntuacion_general > 0">
+                                        <t t-esc="serie.puntuacion_general.toFixed(1)"/> / 10
+                                    </span>
+                                    <span class="badge bg-secondary" t-else="">Sin valorar</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#seriesModal" t-on-click="() => this.editSerie(serie)">
+                                        <i class="fa fa-edit"></i> Editar
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" t-on-click="() => this.deleteSerie(serie)">
+                                        <i class="fa fa-trash"></i> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar serie -->
+            <div class="modal fade" id="seriesModal" tabindex="-1" aria-labelledby="seriesModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h1 class="modal-title fs-5" id="seriesModalLabel">
+                                <t t-if="state.isEdit">Editar Serie</t>
+                                <t t-else="">Añadir Nueva Serie</t>
+                            </h1>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Título -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Título</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="name" t-model="state.serie.name" placeholder="Ej. Stranger Things"/>
+                                </div>
+                            </div>
+
+                            <!-- Fecha Emisión -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Fecha de Emisión</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="fecha_emision" t-model="state.serie.fecha_emision" />
+                                </div>
+                            </div>
+
+                            <!-- Fecha Finalización -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Fecha de Finalización</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="fecha_finalizacion" t-model="state.serie.fecha_finalizacion" />
+                                </div>
+                            </div>
+
+                            <!-- Duración -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Duración (minutos)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="duracion" t-model="state.serie.duracion" placeholder="45"/>
+                                </div>
+                            </div>
+
+                            <!-- Edad Recomendada -->
+                            <div class="mb-3 row">
+                                <label class="col-sm-3 col-form-label">Edad Recomendada</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="edad_recomendada" t-model="state.serie.edad_recomendada" min="0" max="18" placeholder="13"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" t-on-click="saveSerie">
+                                <i class="fa fa-save"></i> Guardar Serie
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

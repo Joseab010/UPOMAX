@@ -19,3 +19,13 @@ review_017,Comedia inteligente,10,Increíble guion.,2025-11-08,True,usuario_demo
 review_018,Muy lenta,5,Me dormí en el primer capítulo.,2025-10-05,False,usuario_demo_02,upomax.serie_dark,
 review_019,Entretenida,7,Para pasar el rato está bien.,2025-10-12,True,usuario_demo_03,upomax.serie_goodplace,
 review_020,Intensa,9,No apta para cardíacos.,2025-11-15,True,usuario_demo_01,upomax.serie_succession,
+review_021,Épica,10,La batalla final es inolvidable.,2025-12-01,True,usuario_demo_02,upomax.serie_got,
+review_022,Innovadora,9,La animación es preciosa.,2025-10-20,True,usuario_demo_03,upomax.serie_arcane,
+review_023,Confusa,6,Demasiados personajes.,2025-10-25,False,usuario_demo_01,upomax.serie_dark,
+review_024,Divertida,8,Me hizo reír mucho.,2025-11-10,True,usuario_demo_02,upomax.serie_goodplace,
+review_025,Emocionante,9,Los giros son geniales.,2025-11-20,True,usuario_demo_03,upomax.serie_breakingbad,
+review_026,Visuales impresionantes,10,Una obra de arte.,2025-12-05,True,usuario_demo_01,,upomax.pelicula_dune
+review_027,Aburrida,4,No me enganchó.,2025-12-10,False,usuario_demo_02,,upomax.pelicula_oppenheimer
+review_028,Romántica,9,Me hizo llorar.,2025-12-15,True,usuario_demo_03,,upomax.pelicula_titanic
+review_029,Acción pura,10,Explosiones por doquier.,2025-12-20,True,usuario_demo_01,,upomax.pelicula_avengers_endgame
+review_030,Profunda,8,Reflexiona sobre la sociedad.,2025-12-25,True,usuario_demo_02,,upomax.pelicula_parasite

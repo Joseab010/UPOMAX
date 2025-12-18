@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.PlataformasComponente" owl="1">
+        <div class="PlataformasComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#plataformasModal" t-on-click="addPlataforma">
+                        <i class="fa fa-plus"></i> Nueva Plataforma
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar plataforma..." t-ref="search-input" t-on-keyup="searchPlataformas"/>
+                        <button class="btn btn-outline-success" t-on-click="searchPlataformas">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2 plataformas-grid">
+                <div t-foreach="state.plataformaList" t-as="plataforma" t-key="plataforma.id" class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm border-success">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="card-title mb-0">
+                                <i class="fa fa-tv"></i> <t t-esc="plataforma.name"/>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong>Series:</strong> <span class="badge bg-primary"><t t-esc="plataforma.series_count"/></span><br/>
+                                <strong>Películas:</strong> <span class="badge bg-warning"><t t-esc="plataforma.peliculas_count"/></span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <button class="btn btn-sm btn-warning me-2" data-bs-toggle="modal" data-bs-target="#plataformasModal" t-on-click="() => this.editPlataforma(plataforma)">
+                                <i class="fa fa-edit"></i> Editar
+                            </button>
+                            <button class="btn btn-sm btn-danger" t-on-click="() => this.deletePlataforma(plataforma)">
+                                <i class="fa fa-trash"></i> Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar plataforma -->
+            <div class="modal fade" id="plataformasModal" tabindex="-1" aria-labelledby="plataformasModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success text-white">
+                            <h1 class="modal-title fs-5" id="plataformasModalLabel">
+                                <t t-if="state.isEdit">Editar Plataforma</t>
+                                <t t-else="">Añadir Nueva Plataforma</t>
+                            </h1>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" t-model="state.plataforma.name" placeholder="Ej. Netflix"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success" t-on-click="savePlataforma">
+                                <i class="fa fa-save"></i> Guardar Plataforma
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

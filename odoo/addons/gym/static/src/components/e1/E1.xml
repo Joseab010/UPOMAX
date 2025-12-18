@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<templates xml:space="preserve"> 
+     <t t-name="owl.E1Componente" owl="1"> 
+        <div>
+            <p>Mi primer OWL: </p>
+            <p t-esc="state.value" />
+        </div>
+     </t> 
+</templates>

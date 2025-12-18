@@ -7,6 +7,11 @@
 
   <!-- actions -->
   <menuitem name="Classes" id="classes_menu" parent="gym_menu" groups="group_gym_manager" action="classes_list_action"/>
+  <menuitem name="Classes OWL E1" id="classes_menu_owl_e1" parent="gym_menu" groups="group_gym_manager" action="action_owl_E1Componente_js"/>
+  <menuitem name="Classes OWL E2" id="classes_menu_owl_e2" parent="gym_menu" groups="group_gym_manager" action="action_owl_E2Componente_js"/>
+  <menuitem name="Classes OWL E3" id="classes_menu_owl_e3" parent="gym_menu" groups="group_gym_manager" action="action_owl_E3Componente_js"/>
+  <menuitem name="Classes OWL E4" id="classes_menu_owl_e4" parent="gym_menu" groups="group_gym_manager" action="action_owl_E4Componente_js"/>
+  <menuitem name="Classes OWL EJ1" id="classes_menu_owl_ej1" parent="gym_menu" groups="group_gym_manager" action="action_owl_EJ1Componente_js"/>
   <menuitem name="Users" id="users_menu" parent="gym_menu" groups="group_gym_manager" action="users_list_action"/>
   <menuitem name="Instructores" id="instructores_menu" parent="gym_menu" groups="group_gym_manager" action="instructores_list_action"/>
 </odoo>

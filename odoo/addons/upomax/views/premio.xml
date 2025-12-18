@@ -72,4 +72,9 @@
     </field>
   </record>
 
+  <!-- OWL Client Action para gestionar premios -->
+  <record id="action_owl_PremiosComponente_js" model="ir.actions.client">
+    <field name="name">Gestor de Premios OWL</field>
+    <field name="tag">upomax.action_PremiosComponente_js</field>
+  </record>
 </odoo>
