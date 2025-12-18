@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.TracksComponente" owl="1">
+        <div class="TracksComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tracksModal" t-on-click="addTrack">
+                        <i class="fa fa-plus"></i> Nuevo Track
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por título..." t-ref="search-input" t-on-keyup="searchTracks"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchTracks">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Duración (min)</th>
+                                <th scope="col">Capítulo</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.trackList" t-as="track" t-key="track.id">
+                                <td>
+                                    <strong t-esc="track.name"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control form-control-sm" t-att-value="track.duracion" t-on-change="(e) => this.updateDuracion(e, track)"/>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info" t-if="track.capitulo_id" t-esc="track.capitulo_id[1]"/>
+                                    <span class="badge bg-secondary" t-else="">Sin capítulo</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#tracksModal" t-on-click="(e) => this.editTrack(track)">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" t-on-click="(e) => this.deleteTrack(track)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar -->
+            <div class="modal fade" id="tracksModal" tabindex="-1" role="dialog" aria-labelledby="tracksModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tracksModalLabel">
+                                <t t-if="state.isEdit">Editar Track</t>
+                                <t t-else="">Nuevo Track</t>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="trackName" class="form-label">Título</label>
+                                <input type="text" class="form-control" id="trackName" placeholder="Título del track" t-model="state.track.name"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="trackDuracion" class="form-label">Duración (minutos)</label>
+                                <input type="number" class="form-control" id="trackDuracion" placeholder="Duración" min="0" t-model.number="state.track.duracion"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="trackCapitulo" class="form-label">Capítulo</label>
+                                <select class="form-select" id="trackCapitulo" t-model.number="state.track.capitulo_id">
+                                    <option value="false">Selecciona un capítulo</option>
+                                    <option t-foreach="state.capitulos" t-as="capitulo" t-key="capitulo.id" t-att-value="capitulo.id" t-esc="capitulo.name"/>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" t-on-click="saveTrack">
+                                <t t-if="state.isEdit">Guardar Cambios</t>
+                                <t t-else="">Crear Track</t>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

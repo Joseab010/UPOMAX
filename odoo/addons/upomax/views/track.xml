@@ -40,4 +40,10 @@
     </field>
   </record>
 
+  <!-- OWL Client Action para gestionar tracks -->
+  <record id="action_owl_TracksComponente_js" model="ir.actions.client">
+    <field name="name">Gestor de Tracks OWL</field>
+    <field name="tag">upomax.action_TracksComponente_js</field>
+  </record>
+
 </odoo>

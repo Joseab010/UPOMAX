@@ -1,0 +1,171 @@
+/* Estilos para el componente de Tracks */
+
+.TracksComponente-container {
+    padding: 0.5rem;
+}
+
+.TracksComponente-container .table-responsive {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.TracksComponente-container .table {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.TracksComponente-container .table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.TracksComponente-container .table thead th {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+}
+
+.TracksComponente-container .table tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.TracksComponente-container .table tbody tr:hover {
+    background-color: #fadbd8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.TracksComponente-container .table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.TracksComponente-container strong {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+.TracksComponente-container .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.TracksComponente-container .badge.bg-info {
+    background-color: #3498db !important;
+}
+
+.TracksComponente-container .badge.bg-secondary {
+    background-color: #95a5a6 !important;
+}
+
+.TracksComponente-container .btn-sm {
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.TracksComponente-container .btn-warning {
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
+
+.TracksComponente-container .btn-warning:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.TracksComponente-container .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.TracksComponente-container .btn-primary {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    transition: all 0.2s ease;
+}
+
+.TracksComponente-container .btn-primary:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.TracksComponente-container .modal-content {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
+}
+
+.TracksComponente-container .modal-header {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.TracksComponente-container .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.TracksComponente-container .modal-body {
+    background-color: #f8f9fa;
+    padding: 2rem;
+}
+
+.TracksComponente-container .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #c0392b;
+}
+
+.TracksComponente-container .form-control,
+.TracksComponente-container .form-select {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.TracksComponente-container .form-control:focus,
+.TracksComponente-container .form-select:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+    outline: none;
+}
+
+.TracksComponente-container .modal-footer {
+    background-color: #ecf0f1;
+    border: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.TracksComponente-container .modal-footer .btn {
+    border-radius: 4px;
+}
+
+/* Barra de búsqueda */
+.TracksComponente-container .input-group {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.TracksComponente-container .input-group .form-control {
+    border: none;
+}
+
+.TracksComponente-container .input-group .btn {
+    border: none;
+}
