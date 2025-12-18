@@ -32,6 +32,7 @@
   <menuitem name="Gestor Películas OWL" id="peliculas_owl_menu" parent="peliculas_tab" groups="group_upomax_manager" action="action_owl_PeliculasComponente_js"/>
   <menuitem name="Gestor Series OWL" id="series_owl_menu" parent="series_tab" groups="group_upomax_manager" action="action_owl_SeriesComponente_js"/>
   <menuitem name="Gestor Plataformas OWL" id="plataformas_owl_menu" parent="plataformas_tab" groups="group_upomax_manager" action="action_owl_PlataformasComponente_js"/>
+  <menuitem name="Gestor Géneros OWL" id="generos_owl_menu" parent="genero_tab" groups="group_upomax_manager" action="action_owl_GenerosComponente_js"/>
   <menuitem name="Gestor Premios OWL" id="premios_owl_menu" parent="premio_tab" groups="group_upomax_manager" action="action_owl_PremiosComponente_js"/>
   <menuitem name="Gestor Reviews OWL" id="reviews_owl_menu" parent="reviews_tab" groups="group_upomax_manager" action="action_owl_ReviewsComponente_js"/>
 

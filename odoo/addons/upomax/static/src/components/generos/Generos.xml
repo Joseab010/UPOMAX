@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="upomax.GenerosComponente" owl="1">
+        <div class="GenerosComponente-container">
+
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#generosModal" t-on-click="addGenero">
+                        <i class="fa fa-plus"></i> Nuevo Género
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por nombre..." t-ref="search-input" t-on-keyup="searchGeneros"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchGeneros">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Nº Series</th>
+                                <th scope="col">Nº Películas</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.generoList" t-as="genero" t-key="genero.id">
+                                <td>
+                                    <strong t-esc="genero.name"/>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info" t-esc="genero.series_count"/>
+                                </td>
+                                <td>
+                                    <span class="badge bg-warning" t-esc="genero.peliculas_count"/>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#generosModal" t-on-click="(e) => this.editGenero(genero)">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" t-on-click="(e) => this.deleteGenero(genero)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para crear/editar -->
+            <div class="modal fade" id="generosModal" tabindex="-1" role="dialog" aria-labelledby="generosModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="generosModalLabel">
+                                <t t-if="state.isEdit">Editar Género</t>
+                                <t t-else="">Nuevo Género</t>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="generoName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="generoName" placeholder="Nombre del género" t-model="state.genero.name"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" t-on-click="saveGenero">
+                                <t t-if="state.isEdit">Guardar Cambios</t>
+                                <t t-else="">Crear Género</t>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
