@@ -1,43 +1,170 @@
+/* Estilos para el componente de Géneros */
+
 .GenerosComponente-container {
-    background-color: #f8f9fa;
+    padding: 0.5rem;
+}
+
+.GenerosComponente-container .table-responsive {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #dee2e6;
     border-radius: 0.25rem;
+}
+
+.GenerosComponente-container .table {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.GenerosComponente-container .table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.GenerosComponente-container .table thead th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 600;
     padding: 1rem;
-    margin: 0;
+    border: none;
 }
 
-.GenerosComponente-container table {
-    background-color: white;
+.GenerosComponente-container .table tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
 }
 
-.GenerosComponente-container .table-hover tbody tr:hover {
-    background-color: #f5f5f5;
+.GenerosComponente-container .table tbody tr:hover {
+    background-color: #ecf0f1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.GenerosComponente-container .table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.GenerosComponente-container strong {
+    color: #2c3e50;
+    font-weight: 600;
 }
 
 .GenerosComponente-container .badge {
-    font-size: 0.875rem;
-    padding: 0.35em 0.65em;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.GenerosComponente-container .badge.bg-info {
+    background-color: #3498db !important;
+}
+
+.GenerosComponente-container .badge.bg-warning {
+    background-color: #f39c12 !important;
+    color: white;
 }
 
 .GenerosComponente-container .btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-.GenerosComponente-container .modal-body {
-    background-color: #ffffff;
+.GenerosComponente-container .btn-warning {
+    background-color: #f39c12;
+    border-color: #f39c12;
+}
+
+.GenerosComponente-container .btn-warning:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.GenerosComponente-container .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.GenerosComponente-container .btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    transition: all 0.2s ease;
+}
+
+.GenerosComponente-container .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.GenerosComponente-container .modal-content {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 8px;
 }
 
 .GenerosComponente-container .modal-header {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.GenerosComponente-container .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.GenerosComponente-container .modal-body {
     background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+    padding: 2rem;
 }
 
 .GenerosComponente-container .form-label {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.GenerosComponente-container .form-control {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
 }
 
 .GenerosComponente-container .form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    outline: none;
+}
+
+.GenerosComponente-container .modal-footer {
+    background-color: #ecf0f1;
+    border: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.GenerosComponente-container .modal-footer .btn {
+    border-radius: 4px;
+}
+
+/* Barra de búsqueda */
+.GenerosComponente-container .input-group {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.GenerosComponente-container .input-group .form-control {
+    border: none;
+}
+
+.GenerosComponente-container .input-group .btn {
+    border: none;
 }
