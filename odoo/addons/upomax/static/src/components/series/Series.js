@@ -22,6 +22,7 @@ class SeriesComponente extends Component {
         this.orm = useService("orm")
         this.model = "upomax.serie"
         this.searchInput = useRef("search-input")
+        this.csvInput = useRef("csv-input")
 
         onWillStart(async () => {
             await this.getAllSeries()
@@ -91,6 +92,55 @@ class SeriesComponente extends Component {
     async updateDuracion(e, serie) {
         await this.orm.write(this.model, [serie.id], { duracion: parseInt(e.target.value) })
         await this.getAllSeries()
+    }
+
+    async importCSV() {
+        const file = this.csvInput.el.files[0];
+        if (!file) {
+            alert("Por favor selecciona un archivo CSV");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            try {
+                const csv = e.target.result;
+                const lines = csv.split('\n');
+                const headers = lines[0].split(',').map(h => h.trim());
+                
+                const series = [];
+                for (let i = 1; i < lines.length; i++) {
+                    if (lines[i].trim() === '') continue;
+                    
+                    const values = lines[i].split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+                    const serie = {};
+                    
+                    headers.forEach((header, index) => {
+                        if (header === 'id') return;
+                        serie[header] = values[index];
+                    });
+                    
+                    if (serie.name) {
+                        if (serie.duracion) serie.duracion = parseInt(serie.duracion);
+                        if (serie.edad_recomendada) serie.edad_recomendada = parseInt(serie.edad_recomendada);
+                        if (serie.puntuacion_general) serie.puntuacion_general = parseFloat(serie.puntuacion_general);
+                        series.push(serie);
+                    }
+                }
+
+                if (series.length > 0) {
+                    await this.orm.create(this.model, series);
+                    alert(`Se importaron ${series.length} series correctamente`);
+                    this.csvInput.el.value = '';
+                    await this.getAllSeries();
+                } else {
+                    alert("No se encontraron series válidas en el CSV");
+                }
+            } catch (error) {
+                alert("Error al importar el CSV: " + error.message);
+            }
+        };
+        reader.readAsText(file);
     }
 }
 

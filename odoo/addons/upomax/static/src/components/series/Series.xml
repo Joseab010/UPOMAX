@@ -8,6 +8,9 @@
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seriesModal" t-on-click="addSerie">
                         <i class="fa fa-plus"></i> Nueva Serie
                     </button>
+                    <button class="btn btn-success ms-2" data-bs-toggle="collapse" data-bs-target="#importForm" aria-expanded="false" aria-controls="importForm">
+                        <i class="fa fa-upload"></i> Importar CSV
+                    </button>
                 </div>
                 <div class="col-lg-6">
                     <div class="input-group">
@@ -16,6 +19,20 @@
                             <i class="fa fa-search"></i> Buscar
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Formulario de importación CSV -->
+            <div class="collapse mt-3 mx-2" id="importForm">
+                <div class="card card-body bg-light">
+                    <h6 class="card-title">Importar Series desde CSV</h6>
+                    <div class="input-group">
+                        <input type="file" class="form-control" accept=".csv" t-ref="csv-input" id="csvFileInput"/>
+                        <button class="btn btn-success" t-on-click="importCSV">
+                            <i class="fa fa-upload"></i> Importar
+                        </button>
+                    </div>
+                    <small class="text-muted mt-2">El CSV debe contener las columnas: name, fecha_emision, fecha_finalizacion, duracion, edad_recomendada, puntuacion_general</small>
                 </div>
             </div>
 
