@@ -28,4 +28,18 @@ RUN set -eux; \
   ln -sf /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage && \
   rm -f /tmp/wkhtmltox.deb
 
+# Instalar dependencias de sistema para numpy y scipy
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3-dev \
+    gfortran \
+    libopenblas-dev \
+    liblapack-dev \
+    python3-numpy \
+    python3-scipy \
+  && rm -rf /var/lib/apt/lists/*
+
+# Instalar numpy y scipy via pip (con --break-system-packages para evitar externally-managed-environment)
+RUN pip install --no-cache-dir --break-system-packages numpy scipy
+
 USER odoo

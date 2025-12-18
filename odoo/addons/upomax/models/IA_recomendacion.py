@@ -57,12 +57,20 @@ class AIRecommender(models.AbstractModel):
             _logger.warning("Operación cancelada: numpy y scipy son necesarios para esta función.")
             return
 
-    
-
-        # 1. Obtener datos de Odoo
-        # Necesitamos todas las reviews, usuarios y contenidos (peliculas y series)
-        Review = self.env['upomax.review']
-        reviews = Review.search([('calificacion', '>', 0)]) # Solo reviews con nota
+        try:
+            # 1. Obtener datos de Odoo
+            # Necesitamos todas las reviews, usuarios y contenidos (peliculas y series)
+            
+            # Verificar si el modelo 'upomax.review' existe
+            if 'upomax.review' not in self.env:
+                _logger.warning("El modelo 'upomax.review' no existe aún. Saltando recomendaciones.")
+                return
+            
+            Review = self.env['upomax.review']
+            reviews = Review.search([('calificacion', '>', 0)]) # Solo reviews con nota
+        except Exception as e:
+            _logger.error(f"Error al obtener reviews: {str(e)}")
+            return
 
         # 2. Mapeo de IDs de Odoo a Índices de Matriz (0, 1, 2...)
         # Esto es vital para mezclar Pelis y Series
@@ -76,27 +84,31 @@ class AIRecommender(models.AbstractModel):
         # Listas para construir la matriz Y
         data_points = [] # [(user_idx, item_idx, rating)]
 
-        for r in reviews:
-            # Mapeo de Usuario
-            if r.id_usuario.id not in user_map:
-                user_map[r.id_usuario.id] = u_idx
-                u_idx += 1
-            
-            # Mapeo de Item (Detectar si es Peli o Serie)
-            key = None
-            if r.pelicula_id:
-                key = ('pelicula', r.pelicula_id.id)
-            elif r.serie_id:
-                key = ('serie', r.serie_id.id)
-            
-            if key:
-                if key not in item_map:
-                    item_map[key] = i_idx
-                    inverse_item_map[i_idx] = key
-                    i_idx += 1
+        try:
+            for r in reviews:
+                # Mapeo de Usuario
+                if r.id_usuario.id not in user_map:
+                    user_map[r.id_usuario.id] = u_idx
+                    u_idx += 1
                 
-                # Guardamos el dato temporalmente
-                data_points.append((user_map[r.id_usuario.id], item_map[key], r.calificacion))
+                # Mapeo de Item (Detectar si es Peli o Serie)
+                key = None
+                if r.pelicula_id:
+                    key = ('pelicula', r.pelicula_id.id)
+                elif r.serie_id:
+                    key = ('serie', r.serie_id.id)
+                
+                if key:
+                    if key not in item_map:
+                        item_map[key] = i_idx
+                        inverse_item_map[i_idx] = key
+                        i_idx += 1
+                    
+                    # Guardamos el dato temporalmente
+                    data_points.append((user_map[r.id_usuario.id], item_map[key], r.calificacion))
+        except Exception as e:
+            _logger.error(f"Error al mapear datos: {str(e)}")
+            return
 
         num_users = u_idx
         num_items = i_idx
@@ -126,14 +138,18 @@ class AIRecommender(models.AbstractModel):
         lambda_reg = 1.5
 
         # 5. Optimización 
-        result_params = opt.fmin_cg(
-            f=self._cofi_cost_func_reg,
-            x0=initial_params,
-            fprime=self._cofi_gradient_func_reg,
-            args=(Y, R, num_features, lambda_reg),
-            maxiter=100, # Reducido para que no bloquee Odoo demasiado tiempo
-            disp=False
-        )
+        try:
+            result_params = opt.fmin_cg(
+                f=self._cofi_cost_func_reg,
+                x0=initial_params,
+                fprime=self._cofi_gradient_func_reg,
+                args=(Y, R, num_features, lambda_reg),
+                maxiter=100, # Reducido para que no bloquee Odoo demasiado tiempo
+                disp=False
+            )
+        except Exception as e:
+            _logger.error(f"Error en optimización del modelo: {str(e)}")
+            return
 
         # 6. Reconstruir matrices entrenadas
         punto_corte = num_items * num_features
@@ -144,51 +160,65 @@ class AIRecommender(models.AbstractModel):
         # P = X * Theta
         Predictions = np.dot(X_trained, Theta_trained)
 
-        # Guardar recomendaciones en el modelo de Usuario
-        # Recorremos cada usuario de Odoo mapeado
-        for odoo_user_id, matrix_u_idx in user_map.items():
-            user_predictions = Predictions[:, matrix_u_idx]
-            
-            # Obtener índices de ítems que NO ha visto (R[i, u] == 0)
-            # Queremos recomendar cosas nuevas
-            unseen_indices = np.where(R[:, matrix_u_idx] == 0)[0]
-            
-            # Crear lista de tuplas (score, matrix_item_idx) solo de lo no visto
-            scores = []
-            for item_idx in unseen_indices:
-                scores.append((user_predictions[item_idx], item_idx))
-            
-            # Ordenar de mayor a menor score
-            scores.sort(key=lambda x: x[0], reverse=True)
-            
-            # Top 5 recomendaciones
-            top_5 = scores[:5]
-            
-            # Convertir de vuelta a IDs de Odoo y guardar
-            recomendaciones_txt = "Te recomendamos:\n"
-            ids_peliculas = []
-            ids_series = []
+        try:
+            # Guardar recomendaciones en el modelo de Usuario
+            # Recorremos cada usuario de Odoo mapeado
+            for odoo_user_id, matrix_u_idx in user_map.items():
+                try:
+                    user_predictions = Predictions[:, matrix_u_idx]
+                    
+                    # Obtener índices de ítems que NO ha visto (R[i, u] == 0)
+                    # Queremos recomendar cosas nuevas
+                    unseen_indices = np.where(R[:, matrix_u_idx] == 0)[0]
+                    
+                    # Crear lista de tuplas (score, matrix_item_idx) solo de lo no visto
+                    scores = []
+                    for item_idx in unseen_indices:
+                        scores.append((user_predictions[item_idx], item_idx))
+                    
+                    # Ordenar de mayor a menor score
+                    scores.sort(key=lambda x: x[0], reverse=True)
+                    
+                    # Top 5 recomendaciones
+                    top_5 = scores[:5]
+                    
+                    # Convertir de vuelta a IDs de Odoo y guardar
+                    recomendaciones_txt = "Te recomendamos:\n"
+                    ids_peliculas = []
+                    ids_series = []
 
-            for score, item_idx in top_5:
-                type_obj, obj_id = inverse_item_map[item_idx]
-                nombre = ""
-                if type_obj == 'pelicula':
-                    nombre = self.env['upomax.pelicula'].browse(obj_id).name
-                    ids_peliculas.append(obj_id) # Para guardar en Many2many si quieres
-                    recomendaciones_txt += f"🎬 Película: {nombre} (Predicción: {score:.1f}/10)\n"
-                elif type_obj == 'serie':
-                    nombre = self.env['upomax.serie'].browse(obj_id).name
-                    ids_series.append(obj_id)
-                    recomendaciones_txt += f"📺 Serie: {nombre} (Predicción: {score:.1f}/10)\n"
+                    for score, item_idx in top_5:
+                        type_obj, obj_id = inverse_item_map[item_idx]
+                        nombre = ""
+                        if type_obj == 'pelicula':
+                            if 'upomax.pelicula' in self.env:
+                                nombre = self.env['upomax.pelicula'].browse(obj_id).name
+                                ids_peliculas.append(obj_id)
+                                recomendaciones_txt += f"🎬 Película: {nombre} (Predicción: {score:.1f}/10)\n"
+                        elif type_obj == 'serie':
+                            if 'upomax.serie' in self.env:
+                                nombre = self.env['upomax.serie'].browse(obj_id).name
+                                ids_series.append(obj_id)
+                                recomendaciones_txt += f"📺 Serie: {nombre} (Predicción: {score:.1f}/10)\n"
 
-            # Escribir en el usuario
-            user_record = self.env['upomax.usuario'].browse(odoo_user_id)
-            user_record.write({'recomendaciones_texto': recomendaciones_txt})
-            
-            _logger.info(f"Recomendaciones publicadas para {user_record.name}")
+                    # Escribir en el usuario
+                    if 'upomax.usuario' in self.env:
+                        user_record = self.env['upomax.usuario'].browse(odoo_user_id)
+                        user_record.write({'recomendaciones_texto': recomendaciones_txt})
+                        _logger.info(f"Recomendaciones publicadas para {user_record.name}")
+                except Exception as e:
+                    _logger.error(f"Error procesando usuario {odoo_user_id}: {str(e)}")
+                    continue
+        except Exception as e:
+            _logger.error(f"Error guardando recomendaciones: {str(e)}")
+            return
             
         # 8. Handling Cold Start (Usuario específico sin reviews)
         if specific_user_id and specific_user_id not in user_map:
-             self.env['upomax.usuario'].browse(specific_user_id).write({
-                 'recomendaciones_texto': "¡Parece que eres nuevo!\nNecesitamos conocer tus gustos. Por favor, escribe algunas reseñas (Reviews) de películas o series para que la IA pueda recomendarte contenido afín a ti."
-             })
+            try:
+                if 'upomax.usuario' in self.env:
+                    self.env['upomax.usuario'].browse(specific_user_id).write({
+                        'recomendaciones_texto': "¡Parece que eres nuevo!\nNecesitamos conocer tus gustos. Por favor, escribe algunas reseñas (Reviews) de películas o series para que la IA pueda recomendarte contenido afín a ti."
+                    })
+            except Exception as e:
+                _logger.error(f"Error en cold start para usuario {specific_user_id}: {str(e)}")

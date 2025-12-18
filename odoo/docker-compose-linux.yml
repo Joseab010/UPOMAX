@@ -31,7 +31,7 @@ services:
   
   odoo:
     container_name: odoo
-    image: odoo:latest
+    build: .
     depends_on:
       - db
     ports:
