@@ -22,6 +22,7 @@ class PeliculasComponente extends Component {
         this.orm = useService("orm")
         this.model = "upomax.pelicula"
         this.searchInput = useRef("search-input")
+        this.csvInput = useRef("csv-input")
 
         onWillStart(async () => {
             await this.getAllPeliculas()
@@ -91,6 +92,56 @@ class PeliculasComponente extends Component {
     async updateDuracion(e, pelicula) {
         await this.orm.write(this.model, [pelicula.id], { duracion: parseInt(e.target.value) })
         await this.getAllPeliculas()
+    }
+
+    async importCSV() {
+        const file = this.csvInput.el.files[0];
+        if (!file) {
+            alert("Por favor selecciona un archivo CSV");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            try {
+                const csv = e.target.result;
+                const lines = csv.split('\n');
+                const headers = lines[0].split(',').map(h => h.trim());
+                
+                const peliculas = [];
+                for (let i = 1; i < lines.length; i++) {
+                    if (lines[i].trim() === '') continue;
+                    
+                    const values = lines[i].split(',').map(v => v.trim().replace(/^\"|\"$/g, ''));
+                    const pelicula = {};
+                    
+                    headers.forEach((header, index) => {
+                        if (header === 'id') return;
+                        pelicula[header] = values[index];
+                    });
+                    
+                    if (pelicula.name) {
+                        if (pelicula.anio) pelicula.anio = parseInt(pelicula.anio);
+                        if (pelicula.duracion) pelicula.duracion = parseInt(pelicula.duracion);
+                        if (pelicula.edad_recomendada) pelicula.edad_recomendada = parseInt(pelicula.edad_recomendada);
+                        if (pelicula.puntuacion_general) pelicula.puntuacion_general = parseFloat(pelicula.puntuacion_general);
+                        peliculas.push(pelicula);
+                    }
+                }
+
+                if (peliculas.length > 0) {
+                    await this.orm.create(this.model, peliculas);
+                    alert(`Se importaron ${peliculas.length} películas correctamente`);
+                    this.csvInput.el.value = '';
+                    await this.getAllPeliculas();
+                } else {
+                    alert("No se encontraron películas válidas en el CSV");
+                }
+            } catch (error) {
+                alert("Error al importar el CSV: " + error.message);
+            }
+        };
+        reader.readAsText(file);
     }
 }
 
