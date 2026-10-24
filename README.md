@@ -12,7 +12,7 @@ Plataforma para registrar, valorar y descubrir películas y series, construida c
 ---
 📸 Capturas
 <!-- Sube tus capturas a docs/screenshots/ y descomenta estas líneas -->
-<!--
+
 | Menú principal | Ficha de serie | Recomendaciones IA |
 |---|---|---|
 | ![Menú](docs/screenshots/menu.png) | ![Serie](docs/screenshots/serie.png) | ![IA](docs/screenshots/recomendaciones.png) |
